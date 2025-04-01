@@ -1,140 +1,106 @@
-/* Resetando alguns estilos padrão */
-* {
+/* Importando fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600&display=swap');
+
+:root {
+    --cor-primaria: rgba(255, 255, 255, 0.8);
+    --cor-secundaria: rgba(255, 255, 255, 0.5);
+    --cor-fundo: linear-gradient(to right, #1e3c72, #2a5298);
+    --cor-hover: rgba(255, 255, 255, 0.2);
+}
+
+/* Configuração geral */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--cor-fundo);
+    color: var(--cor-primaria);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Estilos do corpo */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1A1A1A;
-    color: #EDEDED;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Container para centralizar conteúdo */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Cabeçalho */
+/* Estilo do Cabeçalho */
 header {
-    background: #0A0A0A;
-    padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-    font-size: 2.5em;
-    color: #FF6F61;
-    text-transform: uppercase;
-    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
 }
 
-header nav ul {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+/* Navegação */
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-header nav ul li {
+nav ul li {
+    display: inline;
     margin: 0 15px;
 }
 
-header nav ul li a {
-    color: #EDEDED;
+nav ul li a {
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: background 0.3s;
 }
 
-header nav ul li a:hover {
-    color: #FF6F61;
+nav ul li a:hover {
+    background: var(--cor-hover);
 }
 
-/* Estilo das seções */
+/* Seções */
 .section {
-    padding: 60px 0;
-    background: #121212;
-    margin-bottom: 30px;
+    padding: 60px 10%;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .section h2 {
-    font-size: 2.2em;
-    color: #FF6F61;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.section p {
-    font-size: 1.2em;
-    text-align: center;
-    color: #B0B0B0;
-}
-
-ul {
-    list-style-type: none;
-    margin-top: 20px;
-}
-
-ul li {
-    font-size: 1.2em;
-    color: #EDEDED;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 15px;
+    color: white;
 }
 
-ul li strong {
-    color: #FF6F61;
+/* Botões */
+button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Estilos do rodapé */
+button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Rodapé */
 footer {
-    background: #0A0A0A;
-    padding: 20px 0;
     text-align: center;
-    color: #B0B0B0;
-}
-
-/* Link de email e redes sociais */
-footer a {
-    color: #FF6F61;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #EDEDED;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    header nav ul {
-        flex-direction: column;
-    }
-
-    header nav ul li {
-        margin-bottom: 10px;
-    }
-
-    .section {
-        padding: 40px 0;
-    }
-
-    .section h2 {
-        font-size: 1.8em;
-    }
-
-    .section p, ul li {
-        font-size: 1em;
-    }
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 80%;
+    color: white;
 }
