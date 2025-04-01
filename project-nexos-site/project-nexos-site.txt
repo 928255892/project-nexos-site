@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Nexos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao Project Nexos</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="sobre">
+        <h2>Sobre o Project Nexos</h2>
+        <p>Uma plataforma inovadora para conectar ideias e facilitar o desenvolvimento de projetos.</p>
+    </section>
+    
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <ul>
+            <li>Gerenciamento de Projetos</li>
+            <li>Ferramentas de Design - Vectora</li>
+            <li>Conectividade entre Equipes</li>
+        </ul>
+    </section>
+    
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Email: contato@projectnexos.com</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Project Nexos - Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
