@@ -1,39 +1,35 @@
-/* Importando fonte moderna */
-@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600&display=swap');
-
-:root {
-    --cor-primaria: rgba(255, 255, 255, 0.8);
-    --cor-secundaria: rgba(255, 255, 255, 0.5);
-    --cor-fundo: linear-gradient(to right, #1e3c72, #2a5298);
-    --cor-hover: rgba(255, 255, 255, 0.2);
-}
-
-/* Configuração geral */
+/* Estilos Gerais */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: var(--cor-fundo);
-    color: var(--cor-primaria);
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-}
-
-/* Estilo do Cabeçalho */
-header {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 20px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #333;
     text-align: center;
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-    font-weight: 600;
+/* Cabeçalho */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
     font-size: 28px;
-    color: white;
+    font-weight: 600;
+    margin: 0;
 }
 
-/* Navegação */
 nav ul {
     list-style: none;
     padding: 0;
@@ -46,61 +42,31 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
     font-size: 16px;
-    padding: 8px 15px;
-    border-radius: 10px;
-    transition: background 0.3s;
+    font-weight: 400;
+    color: #007BFF;
+    transition: 0.3s;
 }
 
 nav ul li a:hover {
-    background: var(--cor-hover);
+    color: #0056b3;
 }
 
 /* Seções */
 .section {
-    padding: 60px 10%;
-    text-align: center;
-    backdrop-filter: blur(8px);
-    border-radius: 20px;
-    margin: 20px auto;
-    width: 80%;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 80px 20px;
+    margin-top: 80px;
 }
 
-.section h2 {
+h2 {
     font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: white;
-}
-
-/* Botões */
-button {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-button:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+    color: #444;
 }
 
 /* Rodapé */
 footer {
-    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    margin: 20px auto;
-    width: 80%;
-    color: white;
+    margin-top: 20px;
+    font-size: 14px;
 }
