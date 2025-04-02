@@ -10,7 +10,6 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f0f2f5, #e6f7ff);
     color: #333;
-    scroll-behavior: smooth;
 }
 
 /* Container central */
@@ -20,7 +19,7 @@ body {
     margin: 0 auto;
 }
 
-/* Cabeçalho fixo */
+/* Cabeçalho */
 header {
     background-color: #1c1c1c;
     color: #fff;
@@ -28,13 +27,12 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
-    text-align: center;
 }
 
 header h1 {
-    font-size: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
@@ -42,7 +40,6 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    margin-top: 10px;
 }
 
 nav ul li {
@@ -63,27 +60,27 @@ nav ul li a:hover {
 
 /* Seções */
 .section {
-    padding: 80px 0 40px;
+    padding: 80px 0;
     text-align: center;
 }
 
-h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-/* Serviços */
+/* Seção de serviços */
 .servicos-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
 .servico {
     text-align: center;
     max-width: 600px;
+    transition: transform 0.3s ease;
+}
+
+.servico:hover {
+    transform: scale(1.05);
 }
 
 .servico strong {
@@ -94,62 +91,29 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Formulário */
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 20px auto;
+.servico p {
+    font-size: 1.2rem;
 }
 
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form textarea {
-    height: 120px;
-    resize: none;
-}
-
-form button {
-    background-color: #0d6efd;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-form button:hover {
-    background-color: #084298;
-}
-
-/* Botão Voltar ao Topo */
+/* Botão "Voltar ao Topo" */
 #btnTopo {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #0d6efd;
-    color: white;
+    background: #0d6efd;
+    color: #fff;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
     cursor: pointer;
     display: none;
-    transition: 0.3s;
+    transition: opacity 0.3s ease;
 }
 
 #btnTopo:hover {
-    background-color: #084298;
+    background: #084298;
 }
 
 /* Rodapé */
@@ -158,92 +122,27 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px;
-    font-size: 1rem;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
     }
 
     h2 {
         font-size: 1.5rem;
     }
-}
-/* Botão de Login */
-#btnLogin {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #0d6efd;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
 
-#btnLogin:hover {
-    background-color: #084298;
-}
+    .servico p {
+        font-size: 1.1rem;
+    }
 
-/* Estilização do Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: white;
-    width: 90%;
-    max-width: 400px;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal-content h2 {
-    margin-bottom: 15px;
-}
-
-.modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.modal-content button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0d6efd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.modal-content button:hover {
-    background-color: #084298;
-}
-
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 20px;
-    cursor: pointer;
+    form {
+        max-width: 90%;
+    }
 }
