@@ -8,8 +8,9 @@
 /* Corpo e fundo */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f0f2f5, #e6f7ff); /* Fundo degradê claro */
+    background: linear-gradient(135deg, #f0f2f5, #e6f7ff);
     color: #333;
+    scroll-behavior: smooth;
 }
 
 /* Container central */
@@ -19,22 +20,21 @@ body {
     margin: 0 auto;
 }
 
-/* Cabeçalho */
+/* Cabeçalho fixo */
 header {
     background-color: #1c1c1c;
     color: #fff;
-    padding: 15px 0;
+    padding: 20px 0;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 header h1 {
-    text-align: center;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
@@ -42,6 +42,7 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    margin-top: 10px;
 }
 
 nav ul li {
@@ -62,9 +63,8 @@ nav ul li a:hover {
 
 /* Seções */
 .section {
-    padding: 80px 0;
+    padding: 80px 0 40px;
     text-align: center;
-    margin-top: 60px;
 }
 
 h2 {
@@ -73,27 +73,17 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Seção de serviços */
+/* Serviços */
 .servicos-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 20px;
 }
 
 .servico {
     text-align: center;
     max-width: 600px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.servico:hover {
-    transform: translateY(-5px);
 }
 
 .servico strong {
@@ -104,11 +94,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-.servico p {
-    font-size: 1.2rem;
-}
-
-/* Formulário de contato */
+/* Formulário */
 form {
     display: flex;
     flex-direction: column;
@@ -145,20 +131,25 @@ form button:hover {
     background-color: #084298;
 }
 
-/* Estilização dos links sociais */
-.social-links {
-    margin-top: 15px;
+/* Botão Voltar ao Topo */
+#btnTopo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    transition: 0.3s;
 }
 
-.social-links a {
-    color: #0d6efd;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #084298;
+#btnTopo:hover {
+    background-color: #084298;
 }
 
 /* Rodapé */
@@ -172,32 +163,11 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
     .container {
         width: 95%;
     }
 
     h2 {
         font-size: 1.5rem;
-    }
-
-    .servico p {
-        font-size: 1.1rem;
-        max-width: 90%;
-    }
-
-    form {
-        max-width: 90%;
     }
 }
