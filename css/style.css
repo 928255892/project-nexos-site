@@ -1,72 +1,19 @@
-/* Estilos Gerais */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-    color: #333;
-    text-align: center;
-}
-
-/* Cabeçalho */
-header {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-h1 {
-    font-size: 28px;
-    font-weight: 600;
-    margin: 0;
-}
-
-nav ul {
+/* Ajustando a lista de serviços */
+#servicos ul {
     list-style: none;
     padding: 0;
+    text-align: center; /* Alinha os itens ao centro */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+#servicos li {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens */
+    justify-content: center; /* Garante que o texto fique no centro */
+    margin-bottom: 20px; /* Espaçamento entre os itens */
+    font-size: 1.1rem; /* Tamanho de fonte ajustado */
 }
 
-nav ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 400;
-    color: #007BFF;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #0056b3;
-}
-
-/* Seções */
-.section {
-    padding: 80px 20px;
-    margin-top: 80px;
-}
-
-h2 {
-    font-size: 24px;
-    color: #444;
-}
-
-/* Rodapé */
-footer {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    margin-top: 20px;
-    font-size: 14px;
+#servicos li strong {
+    margin-left: 10px; /* Espaço entre o ponto e a frase */
+    font-weight: 600; /* Deixa o título um pouco mais destacado */
 }
