@@ -15,24 +15,25 @@ body {
 /* Container central */
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* Cabeçalho */
 header {
     background-color: #1c1c1c;
     color: #fff;
-    padding: 20px 0;
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    text-align: center;
 }
 
 header h1 {
-    text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
@@ -40,6 +41,7 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    padding-top: 10px;
 }
 
 nav ul li {
@@ -49,7 +51,7 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     transition: color 0.3s ease;
 }
@@ -60,31 +62,41 @@ nav ul li a:hover {
 
 /* Seções */
 .section {
-    padding: 80px 0;
+    padding: 100px 20px 60px;
     text-align: center;
 }
 
-/* Seção de serviços */
+/* Seção Sobre */
+#sobre p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Seção Serviços */
 .servicos-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
+    margin-top: 20px;
 }
 
 .servico {
-    text-align: center;
-    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .servico:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
 
 .servico strong {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #0d6efd;
     display: block;
@@ -92,7 +104,46 @@ nav ul li a:hover {
 }
 
 .servico p {
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+
+/* Formulário de Contato */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+form textarea {
+    height: 120px;
+    resize: none;
+}
+
+form button {
+    background-color: #0d6efd;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background-color: #084298;
 }
 
 /* Botão "Voltar ao Topo" */
@@ -122,12 +173,18 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px;
+    font-size: 1rem;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
     nav ul {
         flex-direction: column;
+        padding-top: 0;
     }
 
     nav ul li {
@@ -138,8 +195,13 @@ footer {
         font-size: 1.5rem;
     }
 
-    .servico p {
-        font-size: 1.1rem;
+    .servicos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico {
+        width: 90%;
     }
 
     form {
