@@ -8,14 +8,25 @@ const btnLogin = document.getElementById("btnLogin");
 const modalLogin = document.getElementById("modalLogin");
 const closeModal = document.querySelector(".close");
 
+// Formulários de Login e Cadastro
+const loginForm = document.getElementById("loginForm");
+const cadastroForm = document.getElementById("cadastroForm");
+const linkCadastro = document.getElementById("linkCadastro");
+const linkVoltarLogin = document.getElementById("linkVoltarLogin");
+
+// Abre o modal de login
 btnLogin.addEventListener("click", function () {
     modalLogin.style.display = "flex";
+    loginForm.style.display = "block"; // Garante que o login aparece primeiro
+    cadastroForm.style.display = "none"; // Oculta o cadastro
 });
 
+// Fecha o modal de login
 closeModal.addEventListener("click", function () {
     modalLogin.style.display = "none";
 });
 
+// Fecha o modal se clicar fora dele
 window.addEventListener("click", function (event) {
     if (event.target === modalLogin) {
         modalLogin.style.display = "none";
@@ -23,19 +34,14 @@ window.addEventListener("click", function (event) {
 });
 
 // Alternar entre login e cadastro
-const loginForm = document.getElementById("loginForm");
-const cadastroForm = document.getElementById("cadastroForm");
-const linkCadastro = document.getElementById("linkCadastro");
-const linkVoltarLogin = document.getElementById("linkVoltarLogin");
-
 linkCadastro.addEventListener("click", function () {
-    loginForm.style.display = "none";
-    cadastroForm.style.display = "block";
+    loginForm.style.display = "none"; // Esconde o login
+    cadastroForm.style.display = "block"; // Mostra o cadastro
 });
 
 linkVoltarLogin.addEventListener("click", function () {
-    cadastroForm.style.display = "none";
-    loginForm.style.display = "block";
+    cadastroForm.style.display = "none"; // Esconde o cadastro
+    loginForm.style.display = "block"; // Mostra o login
 });
 
 // Simulação de login e cadastro
