@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 .servico strong {
-    font-size: 1.2rem; /* Reduzi o tamanho da fonte */
+    font-size: 1.1rem; /* Reduzi um pouco mais */
     font-weight: 600;
     color: #0d6efd;
     display: block;
@@ -109,7 +109,24 @@ nav ul li a:hover {
 }
 
 .servico p {
+    font-size: 0.95rem;
+}
+
+/* Estilização do botão "Saiba Mais" */
+.btn {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
     font-size: 1rem;
+    transition: background 0.3s ease;
+    margin-top: 10px; /* Espaço entre o texto e o botão */
+}
+
+.btn:hover {
+    background-color: #084298;
 }
 
 /* Formulário de Contato */
