@@ -1,83 +1,52 @@
+// Mensagem de boas-vindas ao carregar a página
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Bem-vindo ao Project Nexos!");
+});
 
-    const btnLogin = document.getElementById("btnLogin");
-    const btnLogout = document.getElementById("btnLogout");
-    const modalLogin = document.getElementById("modalLogin");
-    const closeModal = document.querySelector(".close");
+// Abrir e fechar modal de login
+const btnLogin = document.getElementById("btnLogin");
+const modalLogin = document.getElementById("modalLogin");
+const closeModal = document.querySelector(".close");
 
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
+btnLogin.addEventListener("click", function () {
+    modalLogin.style.display = "flex";
+});
 
-    // Verifica se o usuário já está logado
-    function checkLoginStatus() {
-        const user = localStorage.getItem("loggedUser");
-        if (user) {
-            btnLogin.style.display = "none";
-            btnLogout.style.display = "block";
-        } else {
-            btnLogin.style.display = "block";
-            btnLogout.style.display = "none";
-        }
-    }
+closeModal.addEventListener("click", function () {
+    modalLogin.style.display = "none";
+});
 
-    checkLoginStatus();
-
-    // Abre o modal de login/cadastro
-    btnLogin.addEventListener("click", function () {
-        modalLogin.style.display = "block";
-    });
-
-    // Fecha o modal ao clicar no "X"
-    closeModal.addEventListener("click", function () {
+window.addEventListener("click", function (event) {
+    if (event.target === modalLogin) {
         modalLogin.style.display = "none";
-    });
+    }
+});
 
-    // Fecha o modal se clicar fora dele
-    window.addEventListener("click", function (event) {
-        if (event.target === modalLogin) {
-            modalLogin.style.display = "none";
-        }
-    });
+// Alternar entre login e cadastro
+const loginForm = document.getElementById("loginForm");
+const cadastroForm = document.getElementById("cadastroForm");
+const linkCadastro = document.getElementById("linkCadastro");
+const linkVoltarLogin = document.getElementById("linkVoltarLogin");
 
-    // Cadastro de usuários
-    registerForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+linkCadastro.addEventListener("click", function () {
+    loginForm.style.display = "none";
+    cadastroForm.style.display = "block";
+});
 
-        const user = document.getElementById("registerUser").value;
-        const pass = document.getElementById("registerPass").value;
+linkVoltarLogin.addEventListener("click", function () {
+    cadastroForm.style.display = "none";
+    loginForm.style.display = "block";
+});
 
-        if (localStorage.getItem(user)) {
-            alert("Usuário já existe!");
-        } else {
-            localStorage.setItem(user, pass);
-            alert("Cadastro realizado com sucesso!");
-        }
-        registerForm.reset();
-    });
+// Simulação de login e cadastro
+loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Login bem-sucedido! (Simulação)");
+    modalLogin.style.display = "none";
+});
 
-    // Login de usuários
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const user = document.getElementById("loginUser").value;
-        const pass = document.getElementById("loginPass").value;
-
-        if (localStorage.getItem(user) === pass) {
-            alert("Login bem-sucedido!");
-            localStorage.setItem("loggedUser", user);
-            modalLogin.style.display = "none";
-            checkLoginStatus();
-        } else {
-            alert("Usuário ou senha incorretos!");
-        }
-        loginForm.reset();
-    });
-
-    // Logout
-    btnLogout.addEventListener("click", function () {
-        localStorage.removeItem("loggedUser");
-        checkLoginStatus();
-        alert("Logout realizado com sucesso!");
-    });
+cadastroForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Cadastro realizado com sucesso! (Simulação)");
+    modalLogin.style.display = "none";
 });
