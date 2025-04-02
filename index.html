@@ -1,76 +1,80 @@
-<section id="contato" class="section">
-    <div class="container">
-        <h2>Contato</h2>
-        <p>Entre em contato conosco preenchendo o formulário abaixo.</p>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Nexos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        <form action="https://formsubmit.co/seu-email@gmail.com" method="POST">
-            <input type="text" name="name" placeholder="Seu Nome" required>
-            <input type="email" name="email" placeholder="Seu Email" required>
-            <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-            <button type="submit">Enviar Mensagem</button>
-        </form>
-
-        <p>Ou entre em contato pelas redes sociais:</p>
-        <div class="social-links">
-            <a href="#">Instagram</a> | 
-            <a href="#">LinkedIn</a> | 
-            <a href="#">X (Twitter)</a> | 
-            <a href="#">YouTube</a>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1>Project Nexos</h1>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-</section>
+    </header>
 
-<style>
-/* Estilização do formulário */
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 20px auto;
-}
+    <!-- Seção Sobre -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2>Sobre o Project Nexos</h2>
+            <p>Uma plataforma inovadora para conectar ideias e facilitar o desenvolvimento de projetos.</p>
+        </div>
+    </section>
 
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
+    <!-- Seção Serviços -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <ul>
+                <li><strong>Gerenciamento de Projetos</strong> - Organização eficiente para seus projetos.</li>
+                <li><strong>Ferramentas de Design - Vectora</strong> - Criação e edição visual avançada.</li>
+                <li><strong>Conectividade entre Equipes</strong> - Comunicação fluida e colaboração integrada.</li>
+            </ul>
+        </div>
+    </section>
 
-form textarea {
-    height: 120px;
-    resize: none;
-}
+    <!-- Seção Contato -->
+    <section id="contato" class="section">
+        <div class="container">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco preenchendo o formulário abaixo.</p>
 
-form button {
-    background-color: #0d6efd;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+            <form action="https://formsubmit.co/seu-email@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu Email" required>
+                <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
 
-form button:hover {
-    background-color: #084298;
-}
+            <p>Ou entre em contato pelas redes sociais:</p>
+            <p class="social-links">
+                <a href="#">Instagram</a> | 
+                <a href="#">LinkedIn</a> | 
+                <a href="#">X (Twitter)</a> | 
+                <a href="#">YouTube</a>
+            </p>
+        </div>
+    </section>
 
-/* Estilização dos links sociais */
-.social-links {
-    margin-top: 15px;
-}
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Project Nexos - Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-.social-links a {
-    color: #0d6efd;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #084298;
-}
-</style>
+    <script src="js/script.js"></script>
+</body>
+</html>
