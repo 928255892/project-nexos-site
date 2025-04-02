@@ -62,19 +62,19 @@ nav ul li a:hover {
 
 /* Seções */
 .section {
-    padding: 140px 20px 60px; /* Aumentei mais o espaçamento para descer a seção */
+    padding: 160px 20px 60px; /* Mais espaço no topo */
     text-align: center;
 }
 
 /* Seção Sobre */
 #sobre h2 {
-    margin-bottom: 20px; /* Maior espaçamento abaixo do título */
+    margin-bottom: 20px;
 }
 
 #sobre p {
-    font-size: 1.2rem; /* Reduzi um pouco a fonte */
+    font-size: 1.2rem;
     max-width: 800px;
-    margin: 30px auto; /* Maior espaçamento acima e abaixo */
+    margin: 40px auto; /* Ajuste no espaçamento */
     line-height: 1.6;
 }
 
@@ -91,7 +91,7 @@ nav ul li a:hover {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 280px; /* Ajustei para um tamanho melhor */
+    width: 280px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 .servico strong {
-    font-size: 1.1rem; /* Reduzi um pouco mais */
+    font-size: 1.1rem; /* Redução do tamanho do título */
     font-weight: 600;
     color: #0d6efd;
     display: block;
@@ -112,20 +112,21 @@ nav ul li a:hover {
     font-size: 0.95rem;
 }
 
-/* Estilização do botão "Saiba Mais" */
-.btn {
+/* Botões "Saiba Mais" */
+.btn-saiba-mais {
     display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
     background-color: #0d6efd;
     color: white;
-    padding: 10px 15px;
+    border: none;
     border-radius: 5px;
-    text-decoration: none;
     font-size: 1rem;
+    text-decoration: none;
     transition: background 0.3s ease;
-    margin-top: 10px; /* Espaço entre o texto e o botão */
 }
 
-.btn:hover {
+.btn-saiba-mais:hover {
     background-color: #084298;
 }
 
@@ -205,7 +206,7 @@ footer {
     }
 
     nav ul {
-        flex-direction: row; /* Agora os itens do menu ficam na horizontal */
+        flex-direction: row;
         justify-content: center;
         padding-top: 0;
     }
@@ -215,11 +216,11 @@ footer {
     }
 
     nav ul li a {
-        font-size: 0.9rem; /* Ajustei para caber melhor */
+        font-size: 0.9rem;
     }
 
     .section {
-        padding: 160px 20px 60px; /* Mais espaço no topo no celular */
+        padding: 180px 20px 60px;
     }
 
     h2 {
