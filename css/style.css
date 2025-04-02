@@ -15,45 +15,37 @@ body {
 /* Container central */
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1100px; /* Aumentei um pouco a largura */
     margin: 0 auto;
     text-align: center;
 }
 
-/* Cabeçalho fixo com animação */
+/* Cabeçalho */
 header {
     background-color: #1c1c1c;
     color: #fff;
-    padding: 15px 0;
+    padding: 20px 0; /* Aumentei o espaçamento */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     text-align: center;
-    transition: all 0.3s ease; /* Animação ao rolar a página */
-}
-
-header.scrolled {
-    padding: 10px 0;
-    background-color: rgba(28, 28, 28, 0.9); /* Torna o fundo levemente transparente */
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 600;
-    transition: font-size 0.3s ease;
 }
 
-/* Navegação */
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px; /* Aumentei um pouco a margem */
 }
 
 nav ul li a {
@@ -68,14 +60,149 @@ nav ul li a:hover {
     color: #0d6efd;
 }
 
-/* Menu no celular */
-@media (max-width: 768px) {
-    header {
-        padding: 10px 0;
-    }
+/* Seções */
+.section {
+    padding: 180px 20px 80px; /* Ajustei para dar mais espaço */
+    text-align: center;
+}
 
+/* Seção Sobre */
+#sobre h2 {
+    margin-bottom: 30px;
+}
+
+#sobre p {
+    font-size: 1.2rem;
+    max-width: 850px; /* Maior limite de largura */
+    margin: 45px auto;
+    line-height: 1.6;
+}
+
+/* Seção Serviços */
+.servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px; /* Mais espaço entre os elementos */
+    margin-top: 30px;
+}
+
+.servico {
+    background: #fff;
+    padding: 25px; /* Mais espaçamento interno */
+    border-radius: 8px;
+    width: 290px; /* Tamanho mais confortável */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+}
+
+.servico strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0d6efd;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.servico p {
+    font-size: 1rem;
+}
+
+/* Botões "Saiba Mais" */
+.btn-saiba-mais {
+    display: inline-block;
+    background: #0d6efd;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 18px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+    background: #084298;
+    transform: scale(1.05);
+}
+
+/* Formulário de Contato */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 550px; /* Maior largura do formulário */
+    margin: 25px auto;
+    text-align: center;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 14px; /* Aumentei o padding */
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+form textarea {
+    height: 140px;
+    resize: none;
+}
+
+form button {
+    background-color: #0d6efd;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background-color: #084298;
+}
+
+/* Botão "Voltar ao Topo" */
+#btnTopo {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+#btnTopo:hover {
+    background: #084298;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     nav ul {
@@ -85,10 +212,31 @@ nav ul li a:hover {
     }
 
     nav ul li {
-        margin: 0 10px;
+        margin: 0 12px;
     }
 
     nav ul li a {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .section {
+        padding: 190px 20px 70px; /* Ajuste para dar mais espaço */
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .servicos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico {
+        width: 92%;
+    }
+
+    form {
+        max-width: 95%;
     }
 }
