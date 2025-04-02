@@ -15,7 +15,7 @@ body {
 /* Container central */
 .container {
     width: 90%;
-    max-width: 1100px; /* Aumentei um pouco a largura */
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
@@ -24,7 +24,7 @@ body {
 header {
     background-color: #1c1c1c;
     color: #fff;
-    padding: 20px 0; /* Aumentei o espaçamento */
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -33,7 +33,7 @@ header {
 }
 
 header h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
@@ -41,123 +41,104 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding-top: 12px;
+    padding-top: 10px;
 }
 
 nav ul li {
-    margin: 0 20px; /* Aumentei um pouco a margem */
+    margin: 0 15px;
 }
 
-nav ul li a {
+nav ul li a, nav ul li button {
     color: #fff;
+    background: none;
+    border: none;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 400;
+    cursor: pointer;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li button:hover {
     color: #0d6efd;
 }
 
 /* Seções */
 .section {
-    padding: 180px 20px 80px; /* Ajustei para dar mais espaço */
+    padding: 160px 20px 60px;
     text-align: center;
 }
 
-/* Seção Sobre */
-#sobre h2 {
-    margin-bottom: 30px;
-}
-
-#sobre p {
-    font-size: 1.2rem;
-    max-width: 850px; /* Maior limite de largura */
-    margin: 45px auto;
-    line-height: 1.6;
-}
-
-/* Seção Serviços */
-.servicos-container {
+/* Modal de Login */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 35px; /* Mais espaço entre os elementos */
-    margin-top: 30px;
 }
 
-.servico {
+.modal-content {
     background: #fff;
-    padding: 25px; /* Mais espaçamento interno */
-    border-radius: 8px;
-    width: 290px; /* Tamanho mais confortável */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
-.servico:hover {
-    transform: translateY(-5px);
+/* Fechar Modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #555;
 }
 
-.servico strong {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #0d6efd;
-    display: block;
-    margin-bottom: 12px;
+.close:hover {
+    color: #d9534f;
 }
 
-.servico p {
+/* Estilização do Formulário no Modal */
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.modal-content h3 {
+    margin-top: 20px;
     font-size: 1rem;
+    color: #555;
 }
 
-/* Botões "Saiba Mais" */
-.btn-saiba-mais {
-    display: inline-block;
-    background: #0d6efd;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-top: 18px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.btn-saiba-mais:hover {
-    background: #084298;
-    transform: scale(1.05);
-}
-
-/* Formulário de Contato */
-form {
+.modal-content form {
     display: flex;
     flex-direction: column;
-    max-width: 550px; /* Maior largura do formulário */
-    margin: 25px auto;
-    text-align: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-form input, form textarea {
+.modal-content input {
     width: 100%;
-    padding: 14px; /* Aumentei o padding */
-    margin: 12px 0;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    text-align: left;
 }
 
-form textarea {
-    height: 140px;
-    resize: none;
-}
-
-form button {
+.modal-content button {
     background-color: #0d6efd;
     color: white;
-    padding: 14px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 1.1rem;
@@ -165,22 +146,22 @@ form button {
     transition: background 0.3s ease;
 }
 
-form button:hover {
+.modal-content button:hover {
     background-color: #084298;
 }
 
 /* Botão "Voltar ao Topo" */
 #btnTopo {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     background: #0d6efd;
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    font-size: 1.6rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
     cursor: pointer;
     display: none;
     transition: opacity 0.3s ease;
@@ -195,48 +176,13 @@ footer {
     background-color: #1c1c1c;
     color: #fff;
     text-align: center;
-    padding: 25px;
+    padding: 20px;
     font-size: 1rem;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    nav ul {
-        flex-direction: row;
-        justify-content: center;
-        padding-top: 0;
-    }
-
-    nav ul li {
-        margin: 0 12px;
-    }
-
-    nav ul li a {
-        font-size: 0.95rem;
-    }
-
-    .section {
-        padding: 190px 20px 70px; /* Ajuste para dar mais espaço */
-    }
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    .servicos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .servico {
-        width: 92%;
-    }
-
-    form {
-        max-width: 95%;
+    .modal-content {
+        width: 90%;
     }
 }
