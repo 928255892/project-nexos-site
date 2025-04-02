@@ -3,56 +3,58 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Bem-vindo ao Project Nexos!");
 });
 
-// Abrir e fechar modal de login
+// Elementos do modal de login/cadastro
 const btnLogin = document.getElementById("btnLogin");
 const modalLogin = document.getElementById("modalLogin");
 const closeModal = document.querySelector(".close");
-
-// Formulários de Login e Cadastro
 const loginForm = document.getElementById("loginForm");
-const cadastroForm = document.getElementById("cadastroForm");
-const linkCadastro = document.getElementById("linkCadastro");
-const linkVoltarLogin = document.getElementById("linkVoltarLogin");
+const registerForm = document.getElementById("registerForm");
 
-// Abre o modal de login
+// Botão para alternar entre login e cadastro
+const toggleToRegister = document.createElement("p");
+toggleToRegister.innerHTML = "Não tem uma conta? <a href='#' id='showRegister'>Cadastre-se</a>";
+toggleToRegister.style.textAlign = "center";
+
+const toggleToLogin = document.createElement("p");
+toggleToLogin.innerHTML = "Já tem uma conta? <a href='#' id='showLogin'>Faça login</a>";
+toggleToLogin.style.textAlign = "center";
+
+// Adiciona a troca de formulários
+loginForm.appendChild(toggleToRegister);
+registerForm.appendChild(toggleToLogin);
+
+// Esconder o formulário de cadastro inicialmente
+registerForm.style.display = "none";
+
+// Mostrar modal ao clicar no botão de login
 btnLogin.addEventListener("click", function () {
-    modalLogin.style.display = "flex";
-    loginForm.style.display = "block"; // Garante que o login aparece primeiro
-    cadastroForm.style.display = "none"; // Oculta o cadastro
+    modalLogin.style.display = "block";
+    loginForm.style.display = "block";
+    registerForm.style.display = "none";
 });
 
-// Fecha o modal de login
+// Fechar modal ao clicar no "x"
 closeModal.addEventListener("click", function () {
     modalLogin.style.display = "none";
 });
 
-// Fecha o modal se clicar fora dele
+// Fechar modal se clicar fora dele
 window.addEventListener("click", function (event) {
     if (event.target === modalLogin) {
         modalLogin.style.display = "none";
     }
 });
 
-// Alternar entre login e cadastro
-linkCadastro.addEventListener("click", function () {
-    loginForm.style.display = "none"; // Esconde o login
-    cadastroForm.style.display = "block"; // Mostra o cadastro
-});
-
-linkVoltarLogin.addEventListener("click", function () {
-    cadastroForm.style.display = "none"; // Esconde o cadastro
-    loginForm.style.display = "block"; // Mostra o login
-});
-
-// Simulação de login e cadastro
-loginForm.addEventListener("submit", function (event) {
+// Alternar para cadastro
+document.getElementById("showRegister").addEventListener("click", function (event) {
     event.preventDefault();
-    alert("Login bem-sucedido! (Simulação)");
-    modalLogin.style.display = "none";
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
 });
 
-cadastroForm.addEventListener("submit", function (event) {
+// Alternar para login
+document.getElementById("showLogin").addEventListener("click", function (event) {
     event.preventDefault();
-    alert("Cadastro realizado com sucesso! (Simulação)");
-    modalLogin.style.display = "none";
+    registerForm.style.display = "none";
+    loginForm.style.display = "block";
 });
