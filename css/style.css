@@ -1,97 +1,72 @@
-/* Estilo para o fundo e fontes */
+/* Estilos Gerais */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #f7f8fc, #e0e4e9);
     margin: 0;
     padding: 0;
-    color: #333;
-}
-
-h1, h2 {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
     color: #333;
     text-align: center;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #4a90e2;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
-    color: white;
-}
-
-header h1 {
-    margin: 0;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-header nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-    color: #1c3d73;
-}
-
-/* Seções */
-.section {
-    padding: 40px 0;
-    background-color: #f4f4f4;
-}
-
-#sobre {
-    background-color: #e1e6f0;
-}
-
-#servicos {
-    background-color: #ffffff;
-}
-
-#contato {
-    background-color: #e1e6f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
-    max-width: 1200px;
 }
 
-ul {
-    padding-left: 20px;
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: #007BFF;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
+}
+
+/* Seções */
+.section {
+    padding: 80px 20px;
+    margin-top: 80px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #444;
 }
 
 /* Rodapé */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 40px;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Estilo dos links */
-a {
-    text-decoration: none;
-    color: #4a90e2;
-}
-
-a:hover {
-    color: #1c3d73;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 14px;
 }
