@@ -62,7 +62,7 @@ nav ul li a:hover {
 
 /* Seções */
 .section {
-    padding: 120px 20px 60px; /* Aumentei o padding para descer a seção */
+    padding: 140px 20px 60px; /* Aumentei mais o espaçamento para descer a seção */
     text-align: center;
 }
 
@@ -72,10 +72,10 @@ nav ul li a:hover {
 }
 
 #sobre p {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* Reduzi um pouco a fonte */
     max-width: 800px;
-    margin: 20px auto; /* Adicionei mais espaçamento acima e abaixo */
-    line-height: 1.6; /* Melhor leitura */
+    margin: 30px auto; /* Maior espaçamento acima e abaixo */
+    line-height: 1.6;
 }
 
 /* Seção Serviços */
@@ -91,7 +91,7 @@ nav ul li a:hover {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
+    width: 280px; /* Ajustei para um tamanho melhor */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 .servico strong {
-    font-size: 1.4rem;
+    font-size: 1.2rem; /* Reduzi o tamanho da fonte */
     font-weight: 600;
     color: #0d6efd;
     display: block;
@@ -188,16 +188,25 @@ footer {
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: row; /* Agora os itens do menu ficam na horizontal */
+        justify-content: center;
         padding-top: 0;
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Ajustei para caber melhor */
+    }
+
+    .section {
+        padding: 160px 20px 60px; /* Mais espaço no topo no celular */
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .servicos-container {
