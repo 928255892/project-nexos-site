@@ -9,17 +9,8 @@
 body {
     background-color: #f4f4f4;
     color: #333;
-    text-align: center;
     line-height: 1.6;
-    margin: 0;
-}
-
-/* ===== CONTAINER GERAL ===== */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+    text-align: center;
 }
 
 /* ===== CABEÇALHO (HEADER) ===== */
@@ -54,21 +45,26 @@ nav ul li a {
 
 /* ===== SEÇÕES ===== */
 section {
-    padding: 80px 20px;
-    text-align: center;
+    width: 90%;
+    max-width: 900px;
+    margin: 80px auto 40px;
+    padding: 40px;
     background: #fff;
-    margin: 20px auto;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
+    text-align: center;
 }
 
-/* ===== FORMULÁRIO ===== */
+.servico {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== FORMULÁRIOS ===== */
 form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -94,6 +90,24 @@ button {
 }
 
 button:hover {
+    background: #444;
+}
+
+/* ===== BOTÃO VOLTAR AO TOPO ===== */
+#btnTopo {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnTopo:hover {
     background: #444;
 }
 
