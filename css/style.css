@@ -1,4 +1,4 @@
-/* ===== CONFIGURAÇÕES GERAIS ===== */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -9,28 +9,32 @@
 body {
     background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
     text-align: center;
+    line-height: 1.6;
 }
 
-/* ===== CABEÇALHO (HEADER) ===== */
+/* ====== HEADER ====== */
 header {
-    background: #222;
-    color: #fff;
-    padding: 15px 0;
-    text-align: center;
+    background: #0077cc;
+    color: white;
+    padding: 15px 20px;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1000;
+}
+
+header h1 {
+    font-size: 24px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
-    justify-content: center;
 }
 
 nav ul li {
@@ -38,84 +42,117 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    color: white;
+    font-size: 18px;
 }
 
-/* ===== SEÇÕES ===== */
-section {
-    width: 90%;
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ====== SEÇÕES ====== */
+.section {
+    width: 80%;
     max-width: 900px;
-    margin: 80px auto 40px;
+    background: white;
+    margin: 100px auto;
     padding: 40px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.servico {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+.section h2 {
+    margin-bottom: 15px;
 }
 
-/* ===== FORMULÁRIOS ===== */
+/* ====== SERVIÇOS ====== */
+.servico {
+    background: #f9f9f9;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== FORMULÁRIOS ====== */
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: auto;
+    gap: 15px;
 }
 
 input, textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
 button {
-    background: #222;
+    background: #0077cc;
     color: white;
     padding: 10px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background: #444;
+    background: #005fa3;
 }
 
-/* ===== BOTÃO VOLTAR AO TOPO ===== */
+/* ====== LOGIN ====== */
+#login p {
+    margin-top: 10px;
+}
+
+/* ====== BOTÃO "VOLTAR AO TOPO" ====== */
 #btnTopo {
-    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #222;
+    background: #0077cc;
     color: white;
-    border: none;
     padding: 10px;
-    border-radius: 5px;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 18px;
+    display: none;
 }
 
 #btnTopo:hover {
-    background: #444;
+    background: #005fa3;
 }
 
-/* ===== RODAPÉ (FOOTER) ===== */
+/* ====== FOOTER ====== */
 footer {
     background: #222;
-    color: #fff;
-    padding: 20px 0;
+    color: white;
     text-align: center;
+    padding: 20px;
     margin-top: 40px;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    .section {
+        width: 90%;
+        padding: 30px;
+    }
 }
