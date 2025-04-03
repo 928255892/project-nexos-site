@@ -31,16 +31,11 @@ header {
     z-index: 1000;
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Logo */
+/* 🔹 Reduzindo o tamanho do título "Project Nexos" */
 header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
+    margin-left: 10px;
 }
 
 /* Menu de navegação */
@@ -48,6 +43,7 @@ nav ul {
     display: flex;
     list-style: none;
     align-items: center;
+    justify-content: flex-end;
 }
 
 nav ul li {
@@ -81,7 +77,7 @@ nav ul li button:hover {
     background: #084298;
 }
 
-/* Melhorando o alinhamento do menu */
+/* 🔹 Melhorando o alinhamento do menu */
 nav {
     flex-grow: 1;
     text-align: right;
@@ -95,10 +91,87 @@ nav {
 
 /* 🔹 Ajustando "Sobre o Project Nexos" no celular */
 #sobre h2 {
-    margin-top: 20px; /* Baixando a frase */
+    margin-top: 30px; /* Baixando a frase */
 }
 
-/* 🔹 Ajuste na seção de contato */
+/* 🔹 Melhorando o formulário de login e cadastro */
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Títulos dos formulários */
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.modal-content h3 {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 15px;
+}
+
+/* 🔹 Melhorando alinhamento dos formulários */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Inputs do formulário */
+.modal-content input {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Botões do formulário */
+.modal-content button {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    max-width: 320px;
+    transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #084298;
+}
+
+/* 🔹 Alinhando os links de alternância entre login e cadastro */
+#showRegister,
+#showLogin {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #0d6efd;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#showRegister:hover,
+#showLogin:hover {
+    text-decoration: underline;
+}
+
+/* 🔹 Melhorando alinhamento do formulário de contato */
 #contato form {
     display: flex;
     flex-direction: column;
@@ -122,7 +195,7 @@ nav {
     resize: none;
 }
 
-/* 🔹 Botão de envio alinhado */
+/* Botão de envio alinhado */
 #contato button {
     background-color: #0d6efd;
     color: white;
@@ -140,24 +213,7 @@ nav {
     background-color: #084298;
 }
 
-/* 🔹 Seção de serviços */
-.servicos-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.servico {
-    width: 30%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Modal de Login */
+/* 🔹 Modal de Login */
 .modal {
     display: none;
     position: fixed;
@@ -172,19 +228,7 @@ nav {
     justify-content: center;
 }
 
-/* Conteúdo do Modal */
-.modal-content {
-    background: #fff;
-    padding: 30px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-/* Fechar Modal */
+/* 🔹 Fechar Modal */
 .close {
     position: absolute;
     top: 10px;
@@ -198,7 +242,7 @@ nav {
     color: #d9534f;
 }
 
-/* Botão "Voltar ao Topo" */
+/* 🔹 Botão "Voltar ao Topo" */
 #btnTopo {
     position: fixed;
     bottom: 20px;
@@ -219,7 +263,7 @@ nav {
     background: #084298;
 }
 
-/* Rodapé */
+/* 🔹 Rodapé */
 footer {
     background-color: #1c1c1c;
     color: #fff;
@@ -228,24 +272,11 @@ footer {
     font-size: 1rem;
 }
 
-/* Responsividade */
+/* 🔹 Responsividade */
 @media (max-width: 768px) {
     .container {
         width: 90%;
         padding: 0 10px;
-    }
-
-    .servicos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .servico {
-        width: 90%;
-    }
-
-    .modal-content {
-        width: 90%;
     }
 
     nav ul {
@@ -264,5 +295,16 @@ footer {
     /* 🔹 Ajustando título "Sobre o Project Nexos" no celular */
     #sobre h2 {
         margin-top: 40px;
+    }
+
+    /* 🔹 Melhorando formulário no mobile */
+    .modal-content {
+        width: 90%;
+    }
+
+    .modal-content input,
+    .modal-content button {
+        width: 100%;
+        max-width: 100%;
     }
 }
