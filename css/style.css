@@ -382,3 +382,72 @@ footer {
         font-size: 1.6rem;
     }
 }
+/* 🔹 Estilizando a Seção de Serviços */
+#servicos {
+    padding: 100px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+/* 🔹 Título da Seção */
+#servicos h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* 🔹 Container dos Serviços */
+.servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* 🔹 Cada Serviço */
+.servico {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+}
+
+/* 🔹 Ícones (pode ser substituído por imagens) */
+.servico i {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+/* 🔹 Título do Serviço */
+.servico h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* 🔹 Descrição */
+.servico p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* 🔹 Responsividade para Mobile */
+@media (max-width: 768px) {
+    .servicos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico {
+        width: 90%;
+    }
+}
