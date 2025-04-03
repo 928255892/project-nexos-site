@@ -15,9 +15,9 @@ body {
 /* Container central */
 .container {
     width: 95%;
-    max-width: 1100px; /* Mantive a largura máxima para equilíbrio */
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px; /* Adicionei padding lateral para melhor espaçamento */
+    padding: 0 20px;
 }
 
 /* Cabeçalho */
@@ -89,11 +89,58 @@ nav {
 
 /* Seções */
 .section {
-    padding: 160px 40px 80px;
+    padding: 180px 40px 80px;
     text-align: center;
 }
 
-/* Serviços */
+/* 🔹 Ajustando "Sobre o Project Nexos" no celular */
+#sobre h2 {
+    margin-top: 20px; /* Baixando a frase */
+}
+
+/* 🔹 Ajuste na seção de contato */
+#contato form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contato input,
+#contato textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#contato textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* 🔹 Botão de envio alinhado */
+#contato button {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    transition: background 0.3s ease;
+}
+
+#contato button:hover {
+    background-color: #084298;
+}
+
+/* 🔹 Seção de serviços */
 .servicos-container {
     display: flex;
     justify-content: space-between;
@@ -149,15 +196,6 @@ nav {
 
 .close:hover {
     color: #d9534f;
-}
-
-/* Formulários */
-.modal-content input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
 }
 
 /* Botão "Voltar ao Topo" */
@@ -221,5 +259,10 @@ footer {
 
     nav {
         text-align: center;
+    }
+
+    /* 🔹 Ajustando título "Sobre o Project Nexos" no celular */
+    #sobre h2 {
+        margin-top: 40px;
     }
 }
