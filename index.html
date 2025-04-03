@@ -73,19 +73,26 @@
     <div id="modalLogin" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <input type="text" id="loginUser" placeholder="Usuário" required>
-                <input type="password" id="loginPass" placeholder="Senha" required>
-                <button type="submit">Entrar</button>
-            </form>
 
-            <h3>Não tem uma conta?</h3>
-            <form id="registerForm">
-                <input type="text" id="registerUser" placeholder="Usuário" required>
-                <input type="password" id="registerPass" placeholder="Senha" required>
-                <button type="submit">Cadastrar</button>
-            </form>
+            <div id="loginContainer">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="text" id="loginUser" placeholder="Usuário" required>
+                    <input type="password" id="loginPass" placeholder="Senha" required>
+                    <button type="submit">Entrar</button>
+                </form>
+                <p>Não tem uma conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+            </div>
+
+            <div id="registerContainer" style="display: none;">
+                <h2>Cadastrar</h2>
+                <form id="registerForm">
+                    <input type="text" id="registerUser" placeholder="Usuário" required>
+                    <input type="password" id="registerPass" placeholder="Senha" required>
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <p>Já tem uma conta? <a href="#" id="showLogin">Faça login</a></p>
+            </div>
         </div>
     </div>
 
