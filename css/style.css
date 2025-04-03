@@ -500,3 +500,41 @@ footer {
     margin: 0 auto;
     padding: 20px;
 }
+/* 🔹 Melhorando a seção "Nossos Serviços" */
+.servicos-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.servico {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+}
+
+/* 🔹 Ícones FontAwesome nos serviços */
+.servico i {
+    font-size: 3rem;
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 768px) {
+    .servicos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
