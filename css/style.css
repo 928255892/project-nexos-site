@@ -1,15 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ========== CABEÇALHO ========== */
 header {
     background: #222;
     color: white;
     padding: 15px 0;
-    text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
@@ -18,16 +26,16 @@ header {
     transition: background 0.3s ease;
 }
 
-header.rolagem {
-    background: rgba(34, 34, 34, 0.9);
+header h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     justify-content: center;
+    padding: 10px 0;
 }
 
 nav ul li {
@@ -40,19 +48,23 @@ nav ul li a {
     font-size: 18px;
 }
 
+/* ========== SEÇÕES ========== */
 .section {
-    padding: 60px 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-in-out;
+    max-width: 800px;
+    margin: 80px auto 40px; /* Para centralizar e não encostar no cabeçalho */
+    padding: 40px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
+/* Efeito de entrada */
 .section.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* ========== FORMULÁRIOS ========== */
 form {
     max-width: 400px;
     margin: auto;
@@ -63,14 +75,22 @@ input, textarea, button {
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
     background: #222;
     color: white;
     cursor: pointer;
+    border: none;
+    font-size: 16px;
 }
 
+button:hover {
+    background: #333;
+}
+
+/* ========== BOTÃO VOLTAR AO TOPO ========== */
 #btnTopo {
     position: fixed;
     bottom: 20px;
@@ -80,5 +100,15 @@ button {
     color: white;
     border: none;
     padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+/* ========== RODAPÉ ========== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+    margin-top: 40px;
 }
