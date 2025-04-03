@@ -12,6 +12,85 @@ body {
     color: #333;
 }
 
+/* Container central */
+.container {
+    width: 95%;
+    max-width: 1100px; /* Aumentei a largura máxima */
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px; /* Adicionei padding lateral */
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Menu de navegação */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a, nav ul li button {
+    color: #fff;
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    color: #0d6efd;
+}
+
+/* Seções */
+.section {
+    padding: 160px 40px 80px; /* Aumentei o espaçamento lateral */
+    text-align: center;
+}
+
+/* Serviços */
+.servicos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.servico {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 /* Modal de Login */
 .modal {
     display: none;
@@ -30,7 +109,8 @@ body {
 .modal-content {
     background: #fff;
     padding: 30px;
-    width: 350px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -51,7 +131,71 @@ body {
     color: #d9534f;
 }
 
-/* Oculta um dos formulários inicialmente */
-#registerContainer {
+/* Formulários */
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Botão "Voltar ao Topo" */
+#btnTopo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
     display: none;
+    transition: opacity 0.3s ease;
+}
+
+#btnTopo:hover {
+    background: #084298;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    .servicos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
 }
