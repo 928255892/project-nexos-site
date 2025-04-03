@@ -483,3 +483,20 @@ footer {
 #btnTopo:hover {
     background: #084298;
 }
+/* 🔹 Estilizando campos de erro e sucesso */
+.erro {
+    border: 2px solid red;
+    background-color: #ffe5e5;
+}
+
+.sucesso {
+    border: 2px solid green;
+    background-color: #e5ffe5;
+}
+
+/* 🔹 Ajustando espaçamento do formulário */
+#contato form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
