@@ -1,44 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Bem-vindo ao Project Nexos!");
-
-    const btnLogin = document.getElementById("btnLogin");
-    const modalLogin = document.getElementById("modalLogin");
-    const closeModal = document.querySelector(".close");
-    const loginContainer = document.getElementById("loginContainer");
-    const registerContainer = document.getElementById("registerContainer");
-    const showRegister = document.getElementById("showRegister");
-    const showLogin = document.getElementById("showLogin");
-
-    // Abrir modal ao clicar em "Login"
-    btnLogin.addEventListener("click", function () {
-        modalLogin.style.display = "block";
-        loginContainer.style.display = "block";
-        registerContainer.style.display = "none";
+// Função para rolagem suave ao clicar nos links do menu
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        document.getElementById(targetId).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
+});
 
-    // Fechar modal ao clicar no "X"
-    closeModal.addEventListener("click", function () {
-        modalLogin.style.display = "none";
+// Botão "Voltar ao Topo"
+const btnTopo = document.getElementById("btnTopo");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btnTopo.style.display = "block";
+    } else {
+        btnTopo.style.display = "none";
+    }
+};
+
+btnTopo.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
+});
 
-    // Fechar modal ao clicar fora dele
-    window.addEventListener("click", function (event) {
-        if (event.target === modalLogin) {
-            modalLogin.style.display = "none";
+// Animação de entrada para as seções
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
         }
     });
+}, {
+    threshold: 0.2
+});
 
-    // Alternar para cadastro
-    showRegister.addEventListener("click", function (event) {
-        event.preventDefault();
-        loginContainer.style.display = "none";
-        registerContainer.style.display = "block";
-    });
+// Aplicando a animação a todas as seções
+document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+});
 
-    // Alternar para login
-    showLogin.addEventListener("click", function (event) {
-        event.preventDefault();
-        registerContainer.style.display = "none";
-        loginContainer.style.display = "block";
+// Fechar modal ao clicar no "X"
+document.querySelectorAll('.close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', function () {
+        this.parentElement.parentElement.style.display = 'none';
     });
 });
