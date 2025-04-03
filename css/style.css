@@ -20,7 +20,7 @@ body {
     padding: 0 20px;
 }
 
-/* Cabeçalho */
+/* 🔹 Cabeçalho fixo */
 header {
     background-color: #1c1c1c;
     color: #fff;
@@ -29,28 +29,44 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: background 0.3s ease-in-out;
 }
 
-/* 🔹 Reduzindo o tamanho do título "Project Nexos" */
+/* 🔹 Mudança de cor ao rolar */
+header.rolagem {
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header.rolagem h1,
+header.rolagem nav ul li a {
+    color: #333;
+}
+
+/* 🔹 Título */
 header h1 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-left: 10px;
+    transition: color 0.3s ease-in-out;
 }
 
-/* Menu de navegação */
+/* 🔹 Menu de navegação */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 🔹 Lista do menu */
 nav ul {
     display: flex;
     list-style: none;
     align-items: center;
-    justify-content: flex-end;
+    gap: 15px;
 }
 
-nav ul li {
-    margin: 0 10px;
-}
-
-/* Links do menu */
+/* 🔹 Links do menu */
 nav ul li a {
     color: #fff;
     text-decoration: none;
@@ -60,7 +76,7 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-/* Botão de login */
+/* 🔹 Botão de login */
 nav ul li button {
     color: #fff;
     background: #0d6efd;
@@ -77,518 +93,37 @@ nav ul li button:hover {
     background: #084298;
 }
 
-/* 🔹 Melhorando o alinhamento do menu */
-nav {
-    flex-grow: 1;
-    text-align: right;
-}
-
-/* Seções */
-.section {
-    padding: 180px 40px 80px;
-    text-align: center;
-}
-
-/* 🔹 Ajustando "Sobre o Project Nexos" no celular */
-#sobre h2 {
-    margin-top: 30px; /* Baixando a frase */
-}
-
-/* 🔹 Melhorando o formulário de login e cadastro */
-.modal-content {
-    background: #fff;
-    padding: 30px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-/* Títulos dos formulários */
-.modal-content h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.modal-content h3 {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 15px;
-}
-
-/* 🔹 Melhorando alinhamento dos formulários */
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-}
-
-/* Inputs do formulário */
-.modal-content input {
-    width: 100%;
-    max-width: 320px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-/* Botões do formulário */
-.modal-content button {
-    background-color: #0d6efd;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-    max-width: 320px;
-    transition: background 0.3s ease;
-}
-
-.modal-content button:hover {
-    background-color: #084298;
-}
-
-/* 🔹 Alinhando os links de alternância entre login e cadastro */
-#showRegister,
-#showLogin {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #0d6efd;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-#showRegister:hover,
-#showLogin:hover {
-    text-decoration: underline;
-}
-
-/* 🔹 Melhorando alinhamento do formulário de contato */
-#contato form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#contato input,
-#contato textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-#contato textarea {
-    height: 120px;
-    resize: none;
-}
-
-/* Botão de envio alinhado */
-#contato button {
-    background-color: #0d6efd;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    width: 100%;
-    max-width: 200px;
-    transition: background 0.3s ease;
-}
-
-#contato button:hover {
-    background-color: #084298;
-}
-
-/* 🔹 Modal de Login */
-.modal {
+/* 🔹 Menu Hamburguer (Somente para mobile) */
+.menu-toggle {
     display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 🔹 Fechar Modal */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
-    color: #555;
-}
-
-.close:hover {
-    color: #d9534f;
-}
-
-/* 🔹 Botão "Voltar ao Topo" */
-#btnTopo {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #0d6efd;
     color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-    transition: opacity 0.3s ease;
-}
-
-#btnTopo:hover {
-    background: #084298;
-}
-
-/* 🔹 Rodapé */
-footer {
-    background-color: #1c1c1c;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    font-size: 1rem;
 }
 
 /* 🔹 Responsividade */
 @media (max-width: 768px) {
-    .container {
-        width: 90%;
-        padding: 0 10px;
+    .menu-toggle {
+        display: block;
     }
 
     nav ul {
+        display: none;
         flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin-bottom: 10px;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    /* 🔹 Ajustando título "Sobre o Project Nexos" no celular */
-    #sobre h2 {
-        margin-top: 40px;
-    }
-
-    /* 🔹 Melhorando formulário no mobile */
-    .modal-content {
-        width: 90%;
-    }
-
-    .modal-content input,
-    .modal-content button {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #1c1c1c;
         width: 100%;
-        max-width: 100%;
-    }
-}
-/* Estilos para a seção de serviços */
-#servicos {
-    padding: 100px 40px 80px;
-    text-align: center;
-}
-
-/* Títulos da seção de serviços */
-#servicos h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 40px;
-}
-
-/* Cards de serviços */
-.servico-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 20px;
-    transition: transform 0.3s ease;
-}
-
-.servico-card:hover {
-    transform: translateY(-10px);
-}
-
-/* Títulos dos cards de serviços */
-.servico-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-/* Descrições dos serviços */
-.servico-card p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Layout responsivo para os cards de serviços */
-.servico-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.servico-container .servico-card {
-    width: 280px;
-    margin: 15px;
-}
-
-@media (max-width: 768px) {
-    /* Ajustando a seção de serviços no celular */
-    #servicos {
-        padding: 80px 20px 60px;
-    }
-
-    .servico-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .servico-container .servico-card {
-        width: 90%;
-        max-width: 400px;
-        margin: 15px 0;
-    }
-
-    #servicos h2 {
-        font-size: 1.6rem;
-    }
-}
-/* 🔹 Estilizando a Seção de Serviços */
-#servicos {
-    padding: 100px 20px;
-    text-align: center;
-    background: #ffffff;
-}
-
-/* 🔹 Título da Seção */
-#servicos h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-/* 🔹 Container dos Serviços */
-.servicos-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-/* 🔹 Cada Serviço */
-.servico {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.servico:hover {
-    transform: translateY(-5px);
-}
-
-/* 🔹 Ícones (pode ser substituído por imagens) */
-.servico i {
-    font-size: 2.5rem;
-    color: #0d6efd;
-    margin-bottom: 15px;
-}
-
-/* 🔹 Título do Serviço */
-.servico h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* 🔹 Descrição */
-.servico p {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* 🔹 Responsividade para Mobile */
-@media (max-width: 768px) {
-    .servicos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .servico {
-        width: 90%;
-    }
-}
-/* 🔹 Animação de entrada (Fade-in) */
-.section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.section.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 🔹 Ajuste do botão "Voltar ao Topo" */
-#btnTopo {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #0d6efd;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-#btnTopo:hover {
-    background: #084298;
-}
-/* 🔹 Estilizando campos de erro e sucesso */
-.erro {
-    border: 2px solid red;
-    background-color: #ffe5e5;
-}
-
-.sucesso {
-    border: 2px solid green;
-    background-color: #e5ffe5;
-}
-
-/* 🔹 Ajustando espaçamento do formulário */
-#contato form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-/* 🔹 Melhorando a seção "Nossos Serviços" */
-.servicos-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.servico {
-    flex: 1;
-    min-width: 250px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.servico:hover {
-    transform: translateY(-5px);
-}
-
-/* 🔹 Ícones FontAwesome nos serviços */
-.servico i {
-    font-size: 3rem;
-    color: #0d6efd;
-    margin-bottom: 10px;
-}
-
-/* 🔹 Responsividade */
-@media (max-width: 768px) {
-    .servicos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-/* ===== MENU FIXO COM MUDANÇA DE COR ===== */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    transition: background 0.3s ease-in-out;
-    padding: 15px 0;
-    z-index: 1000;
-}
-
-header.rolagem {
-    background: #fff; /* Cor ao rolar a página */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-header.rolagem h1,
-header.rolagem nav ul li a {
-    color: #333; /* Cor do texto ao rolar */
-}
-
-header h1 {
-    color: #fff;
-    transition: color 0.3s ease-in-out;
-}
-
-nav ul {
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease-in-out;
-}
-
-@media (max-width: 768px) {
-    header {
+        text-align: center;
         padding: 10px 0;
     }
 
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-        display: none;
+    nav ul.active {
+        display: flex;
     }
 
-    nav ul.active {
-        display: block;
+    nav ul li {
+        margin: 10px 0;
     }
 }
