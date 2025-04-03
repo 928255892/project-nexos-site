@@ -15,11 +15,14 @@
 
     <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Biblioteca de Animação AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
 
     <!-- Cabeçalho fixo -->
-    <header>
+    <header data-aos="fade-down">
         <div class="container">
             <h1>Project Nexos</h1>
             <nav>
@@ -35,7 +38,7 @@
     </header>
 
     <!-- Seção Sobre -->
-    <section id="sobre" class="section">
+    <section id="sobre" class="section" data-aos="fade-up">
         <div class="container">
             <h2>Sobre o Project Nexos</h2>
             <p>Uma plataforma inovadora para conectar ideias e facilitar o desenvolvimento de projetos.</p>
@@ -45,22 +48,22 @@
     <!-- 🔹 Seção Serviços Melhorada -->
     <section id="servicos" class="section">
         <div class="container">
-            <h2>Nossos Serviços</h2>
+            <h2 data-aos="fade-up">Nossos Serviços</h2>
             <div class="servicos-container">
 
-                <div class="servico">
+                <div class="servico" data-aos="zoom-in">
                     <i class="fas fa-tasks"></i>
                     <h3>Gerenciamento de Projetos</h3>
                     <p>Organize, planeje e acompanhe seus projetos de forma eficiente.</p>
                 </div>
 
-                <div class="servico">
+                <div class="servico" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fas fa-paint-brush"></i>
                     <h3>Ferramentas de Design - Vectora</h3>
                     <p>Criação e edição de designs diretamente na plataforma.</p>
                 </div>
 
-                <div class="servico">
+                <div class="servico" data-aos="zoom-in" data-aos-delay="400">
                     <i class="fas fa-users"></i>
                     <h3>Conectividade entre Equipes</h3>
                     <p>Facilite a colaboração entre membros da equipe em tempo real.</p>
@@ -71,7 +74,7 @@
     </section>
 
     <!-- Seção Contato -->
-    <section id="contato" class="section">
+    <section id="contato" class="section" data-aos="fade-up">
         <div class="container">
             <h2>Entre em Contato</h2>
             <form>
@@ -88,7 +91,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
 
-            <div id="loginContainer">
+            <div id="loginContainer" data-aos="fade-up">
                 <h2>Login</h2>
                 <form id="loginForm">
                     <input type="text" id="loginUser" placeholder="Usuário" required>
@@ -98,7 +101,7 @@
                 <p>Não tem uma conta? <a href="#" id="showRegister">Cadastre-se</a></p>
             </div>
 
-            <div id="registerContainer" style="display: none;">
+            <div id="registerContainer" style="display: none;" data-aos="fade-up">
                 <h2>Cadastrar</h2>
                 <form id="registerForm">
                     <input type="text" id="registerUser" placeholder="Usuário" required>
@@ -114,12 +117,21 @@
     <button id="btnTopo" onclick="scrollToTop()">&#8679;</button>
 
     <!-- Rodapé -->
-    <footer>
+    <footer data-aos="fade-up">
         <p>&copy; 2025 Project Nexos. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script -->
+    <!-- Scripts -->
     <script src="js/script.js"></script>
+
+    <!-- Biblioteca de Animação AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Duração da animação em milissegundos
+            once: true, // A animação acontece apenas uma vez
+        });
+    </script>
 
 </body>
 </html>
