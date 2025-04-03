@@ -74,3 +74,12 @@ contatoForm.addEventListener("submit", function (event) {
         inputs.forEach(input => input.classList.remove("sucesso"));
     }
 });
+// ===== MENU FIXO COM MUDANÇA DE COR =====
+window.addEventListener("scroll", function () {
+    let header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.classList.add("rolagem");
+    } else {
+        header.classList.remove("rolagem");
+    }
+});
