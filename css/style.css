@@ -1,147 +1,84 @@
-/* Reset básico */
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Corpo e fundo */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f0f2f5, #e6f7ff);
-    color: #333;
     line-height: 1.6;
 }
 
-/* Container central */
-.container {
-    width: 95%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* ===== Cabeçalho e Menu ===== */
 header {
-    background-color: #1c1c1c;
-    color: #fff;
+    background: #222;
+    color: white;
     padding: 15px 0;
+    text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease;
 }
 
-header h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-left: 10px;
-    transition: color 0.3s ease-in-out;
-}
-
-/* Menu de navegação */
-nav {
-    flex-grow: 1;
-    text-align: right;
+header.rolagem {
+    background: rgba(34, 34, 34, 0.9);
 }
 
 nav ul {
-    display: flex;
     list-style: none;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 15px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 10px 15px;
-    transition: color 0.3s ease-in-out;
+    font-size: 18px;
 }
 
-/* ===== Botão de login melhorado ===== */
-nav ul li button {
-    color: #fff;
-    background: #0d6efd;
-    border: none;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    border-radius: 5px;
-}
-
-nav ul li button:hover {
-    background: #084298;
-}
-
-/* ===== Seções Gerais ===== */
 .section {
-    padding: 150px 40px 80px;
+    padding: 60px 20px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
 }
 
-/* ===== Ajuste da seção "Sobre" ===== */
-#sobre h2 {
-    margin-bottom: 20px;
+.section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* ===== Melhorias na seção de serviços ===== */
-#servicos {
-    padding: 100px 20px;
-    text-align: center;
-    background: #ffffff;
+form {
+    max-width: 400px;
+    margin: auto;
 }
 
-#servicos h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
 }
 
-/* Cards de serviços */
-.servico-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 20px;
-    transition: transform 0.3s ease-in-out;
+button {
+    background: #222;
+    color: white;
+    cursor: pointer;
 }
 
-.servico-card:hover {
-    transform: translateY(-10px);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        display: none;
-    }
-
-    nav ul.active {
-        display: block;
-    }
-
-    #servicos {
-        padding: 80px 20px;
-    }
-
-    .servico-card {
-        width: 90%;
-    }
+#btnTopo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
 }
