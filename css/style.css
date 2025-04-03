@@ -1,50 +1,52 @@
-/* Reset básico */
+/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo e fundo */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f0f2f5, #e6f7ff);
     color: #333;
+    text-align: center;
 }
 
-/* Container central */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Cabeçalho */
-header {
+/* ===== CONTAINER GERAL ===== */
+.wrapper {
     width: 100%;
+    margin: 0 auto;
+}
+
+/* ===== CABEÇALHO (HEADER) ===== */
+header {
     background: #1c1c1c;
-    color: #fff;
-    padding: 15px 0;
+    padding: 15px 20px;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: 1000;
-}
-
-header .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
+    color: #fff;
     font-size: 1.8rem;
+}
+
+nav {
+    flex-grow: 1;
+    text-align: right;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
     gap: 15px;
 }
 
@@ -52,56 +54,150 @@ nav ul li a,
 nav ul li button {
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
     font-size: 16px;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li button {
+    background: #0d6efd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 nav ul li a:hover,
 nav ul li button:hover {
-    color: #0d6efd;
+    background: #fff;
+    color: #333;
 }
 
-/* Seções */
+/* ===== MAIN (Conteúdo Principal) ===== */
+main {
+    margin-top: 100px; /* Compensa o header fixo */
+    padding: 20px;
+}
+
+/* ===== SEÇÕES ===== */
 .section {
-    width: 100%;
-    max-width: 900px;
     background: #fff;
-    border-radius: 8px;
-    margin: 120px auto 40px auto; /* Espaço acima para compensar o header fixo */
+    max-width: 900px;
+    margin: 40px auto;
     padding: 40px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .section h2 {
-    margin-bottom: 20px;
     font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-/* Exemplo de estilização para a seção de serviços */
+.section p {
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+/* ===== SERVIÇOS ===== */
+.servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
 .servico {
-    background: #f9f9f9;
-    margin: 20px auto;
+    background: #f8f9fa;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-/* Rodapé */
-footer {
+.servico:hover {
+    transform: translateY(-5px);
+}
+
+.servico i {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+.servico h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.servico p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* ===== FORMULÁRIOS ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+    text-align: left;
+}
+
+input, textarea {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: #0d6efd;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #084298;
+}
+
+/* ===== BOTÃO "VOLTAR AO TOPO" ===== */
+#btnTopo {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0d6efd;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
     background: #222;
     color: #fff;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
     margin-top: 40px;
 }
 
-/* Responsividade */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-    header .container {
+    header {
         flex-direction: column;
+        text-align: center;
     }
     
     nav ul {
@@ -112,7 +208,10 @@ footer {
     
     .section {
         width: 95%;
-        margin: 120px auto 40px auto;
         padding: 30px 10px;
+    }
+    
+    .servico {
+        width: 90%;
     }
 }
