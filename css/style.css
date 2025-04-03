@@ -308,3 +308,77 @@ footer {
         max-width: 100%;
     }
 }
+/* Estilos para a seção de serviços */
+#servicos {
+    padding: 100px 40px 80px;
+    text-align: center;
+}
+
+/* Títulos da seção de serviços */
+#servicos h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Cards de serviços */
+.servico-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Títulos dos cards de serviços */
+.servico-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Descrições dos serviços */
+.servico-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Layout responsivo para os cards de serviços */
+.servico-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.servico-container .servico-card {
+    width: 280px;
+    margin: 15px;
+}
+
+@media (max-width: 768px) {
+    /* Ajustando a seção de serviços no celular */
+    #servicos {
+        padding: 80px 20px 60px;
+    }
+
+    .servico-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico-container .servico-card {
+        width: 90%;
+        max-width: 400px;
+        margin: 15px 0;
+    }
+
+    #servicos h2 {
+        font-size: 1.6rem;
+    }
+}
