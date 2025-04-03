@@ -38,7 +38,6 @@ const observer = new IntersectionObserver(entries => {
     threshold: 0.2
 });
 
-// Aplicando a animação a todas as seções
 document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
@@ -48,4 +47,30 @@ document.querySelectorAll('.close').forEach(closeBtn => {
     closeBtn.addEventListener('click', function () {
         this.parentElement.parentElement.style.display = 'none';
     });
+});
+
+// Validação do formulário de contato
+const contatoForm = document.querySelector("#contato form");
+const inputs = contatoForm.querySelectorAll("input, textarea");
+
+contatoForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Impede envio automático
+    let formValido = true;
+
+    inputs.forEach(input => {
+        if (input.value.trim() === "") {
+            input.classList.add("erro");
+            input.classList.remove("sucesso");
+            formValido = false;
+        } else {
+            input.classList.add("sucesso");
+            input.classList.remove("erro");
+        }
+    });
+
+    if (formValido) {
+        alert("Mensagem enviada com sucesso!");
+        contatoForm.reset();
+        inputs.forEach(input => input.classList.remove("sucesso"));
+    }
 });
