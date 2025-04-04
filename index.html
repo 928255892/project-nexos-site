@@ -14,7 +14,18 @@
   <!-- Animações AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
+  <!-- CSS Integrado -->
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1c1c1e;
+      background-color: #f8f9fb;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
     :root {
       --azul-primario: #0066ff;
       --azul-claro: #d6e5ff;
@@ -22,16 +33,6 @@
       --preto: #1c1c1e;
       --branco: #ffffff;
       --borda-radius: 12px;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--preto);
-      background: #f8f9fb;
-      line-height: 1.6;
-      scroll-behavior: smooth;
     }
 
     .container {
@@ -74,13 +75,23 @@
       color: var(--azul-primario);
     }
 
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--preto);
+    }
+
     .hero {
+      position: relative;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      gap: 40px;
       padding: 80px 0;
-      position: relative;
+      flex-wrap: wrap;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -90,32 +101,37 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('img/inovacao1.webp') center/cover no-repeat;
+      background-image: url('img/inovação1.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       filter: blur(6px) brightness(0.6);
       z-index: -1;
     }
 
-    .hero-content, .hero-image {
+    .hero-content {
       flex: 1;
+      color: var(--branco);
       z-index: 1;
     }
 
     .hero-content h2 {
       font-size: 2.8rem;
-      color: var(--branco);
+      margin-bottom: 20px;
     }
 
     .hero-content p {
       font-size: 1.1rem;
-      color: var(--branco);
-      margin: 20px 0;
+      margin-bottom: 30px;
     }
 
     .btn {
       background: var(--azul-primario);
       color: var(--branco);
       padding: 12px 28px;
+      border: none;
       border-radius: var(--borda-radius);
+      font-weight: 500;
       text-decoration: none;
       transition: background 0.3s;
     }
@@ -124,54 +140,104 @@
       background: #0051cc;
     }
 
-    section {
+    .hero-image {
+      flex: 1;
+      max-width: 500px;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: var(--borda-radius);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
       padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+      background-image: url('img/tech-texture.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    section h2 {
-      text-align: center;
+    .section h2 {
       font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
       color: var(--azul-primario);
-      margin-bottom: 30px;
     }
 
-    .servicos-grid, .diferenciais-grid {
+    .section p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section.light {
+      background-color: var(--cinza-claro);
+      background-image: none;
+    }
+
+    .servicos-grid {
       display: flex;
+      gap: 40px;
       flex-wrap: wrap;
-      gap: 30px;
       justify-content: center;
+      margin-top: 40px;
     }
 
-    .servico, .diferencial {
+    .servico {
       background: var(--branco);
       padding: 30px;
       border-radius: var(--borda-radius);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       flex: 1 1 250px;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
 
-    .servico:hover, .diferencial:hover {
+    .servico:hover {
       transform: translateY(-6px);
     }
 
-    .servico i, .diferencial i {
+    .servico i {
       font-size: 2rem;
       color: var(--azul-primario);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .nexos-corporativo {
-      text-align: center;
-      background-color: var(--cinza-claro);
-      padding: 60px 20px;
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .nexos-corporativo p {
-      max-width: 700px;
-      margin: auto;
+    form input,
+    form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: var(--borda-radius);
       font-size: 1rem;
+      resize: none;
+    }
+
+    form button {
+      background: var(--azul-primario);
+      color: var(--branco);
+      border: none;
+      padding: 12px;
+      border-radius: var(--borda-radius);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #0051cc;
     }
 
     footer {
@@ -187,11 +253,33 @@
         text-align: center;
         padding: 60px 20px;
       }
+
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .hero-image {
+        max-width: 100%;
+      }
+
+      .navbar {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <div class="container">
       <h1 class="logo">Project Nexos</h1>
@@ -199,11 +287,10 @@
         <ul>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#diferenciais">Diferenciais</a></li>
-          <li><a href="#visao">Visão</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
+      <button class="mobile-menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     </div>
   </header>
 
@@ -215,26 +302,26 @@
         <a href="#servicos" class="btn">Explorar</a>
       </div>
       <div class="hero-image">
-        <img src="img/inovacao.webp" alt="Inovação" style="width:100%; border-radius: var(--borda-radius);">
+        <img src="img/inovação.webp" alt="Tecnologia e inovação - Project Nexos"/>
       </div>
     </div>
   </section>
 
-  <section id="sobre" data-aos="fade-up">
+  <section id="sobre" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Sobre o Project Nexos</h2>
       <p>Uma plataforma completa para criar, gerenciar e compartilhar projetos com sua equipe em tempo real.</p>
     </div>
   </section>
 
-  <section id="servicos" data-aos="fade-up">
+  <section id="servicos" class="section light" data-aos="fade-up">
     <div class="container">
       <h2>Serviços</h2>
       <div class="servicos-grid">
         <div class="servico" data-aos="zoom-in">
-          <i class="fas fa-tasks"></i>
-          <h3>Gestão de Projetos</h3>
-          <p>Organize e acompanhe suas atividades com agilidade.</p>
+          <i class="fas fa-clipboard-list"></i>
+          <h3>Gerenciamento</h3>
+          <p>Planeje e acompanhe suas tarefas com clareza.</p>
         </div>
         <div class="servico" data-aos="zoom-in" data-aos-delay="100">
           <i class="fas fa-pencil-ruler"></i>
@@ -243,42 +330,14 @@
         </div>
         <div class="servico" data-aos="zoom-in" data-aos-delay="200">
           <i class="fas fa-users"></i>
-          <h3>Colaboração em Equipe</h3>
-          <p>Trabalhe com sua equipe de forma eficiente.</p>
+          <h3>Colaboração</h3>
+          <p>Trabalhe com sua equipe em tempo real de forma simples.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="diferenciais" data-aos="fade-up">
-    <div class="container">
-      <h2>Diferenciais</h2>
-      <div class="diferenciais-grid">
-        <div class="diferencial">
-          <i class="fas fa-bolt"></i>
-          <h3>Agilidade</h3>
-          <p>Velocidade na execução e na comunicação entre setores.</p>
-        </div>
-        <div class="diferencial">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Segurança</h3>
-          <p>Proteção de dados e controle de acessos.</p>
-        </div>
-        <div class="diferencial">
-          <i class="fas fa-infinity"></i>
-          <h3>Escalabilidade</h3>
-          <p>Pronto para crescer junto com os seus objetivos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="visao" class="nexos-corporativo" data-aos="fade-up">
-    <h2>Nexos Intelligence</h2>
-    <p>Nexos Intelligence é a estrutura corporativa por trás da plataforma Project Nexos. Representa a visão estratégica de inovação, conexão e crescimento inteligente para empresas e equipes modernas. Com foco na eficiência e na segurança, atuamos de forma colaborativa, com tecnologia acessível e solidez profissional.</p>
-  </section>
-
-  <section id="contato" data-aos="fade-up">
+  <section id="contato" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Contato</h2>
       <form>
@@ -290,11 +349,21 @@
     </div>
   </section>
 
+  <section id="institucional" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>Nexos Intelligence</h2>
+      <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Project Nexos. Todos os direitos reservados.</p>
+    <div class="container">
+      <p>&copy; 2025 Project Nexos. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
+  <script src="js/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+  <script>AOS.init();</script>
 </body>
 </html>
