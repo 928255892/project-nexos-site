@@ -1,3 +1,284 @@
+/* ======= Fonte base ======= */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1c1c1e;
+  background-color: #f8f9fb;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ======= Cores do modelo 2 ======= */
+:root {
+  --azul-primario: #0066ff;
+  --azul-claro: #d6e5ff;
+  --cinza-claro: #f0f2f5;
+  --preto: #1c1c1e;
+  --branco: #ffffff;
+  --borda-radius: 12px;
+}
+
+/* ======= Containers ======= */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ======= Cabeçalho ======= */
+header {
+  background: var(--branco);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: var(--azul-primario);
+  font-weight: 600;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar a {
+  color: var(--preto);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--azul-primario);
+}
+
+/* Botão menu mobile */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--preto);
+}
+
+/* ======= Hero ======= */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 0;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/inovação1.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px) brightness(0.6);
+  z-index: -1;
+}
+
+.hero-content {
+  flex: 1;
+  color: var(--branco);
+  z-index: 1;
+  animation: fadeSlideUp 1s ease-out both;
+  animation-delay: 0.2s;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: var(--azul-primario);
+  color: var(--branco);
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--borda-radius);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #0051cc;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+  z-index: 1;
+  animation: fadeSlideUp 1s ease-out both;
+  animation-delay: 0.4s;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: var(--borda-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= Seções ======= */
+.section {
+  padding: 80px 0;
+}
+
+.section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--azul-primario);
+}
+
+.section p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.section.light {
+  background-color: var(--cinza-claro);
+}
+
+/* ======= Serviços ======= */
+.servicos-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.servico {
+  background: var(--branco);
+  padding: 30px;
+  border-radius: var(--borda-radius);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  flex: 1 1 250px;
+  transition: transform 0.3s ease;
+}
+
+.servico:hover {
+  transform: translateY(-6px);
+}
+
+.servico i {
+  font-size: 2rem;
+  color: var(--azul-primario);
+  margin-bottom: 20px;
+}
+
+/* ======= Contato ======= */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input,
+form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: var(--borda-radius);
+  font-size: 1rem;
+  resize: none;
+}
+
+form button {
+  background: var(--azul-primario);
+  color: var(--branco);
+  border: none;
+  padding: 12px;
+  border-radius: var(--borda-radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #0051cc;
+}
+
+/* ======= Rodapé ======= */
+footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+}
+
+/* ======= Responsividade ======= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
+}
+
+/* ======= Animações ======= */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ... todo o conteúdo anterior permanece igual até o final do seu arquivo ... */
 
 /* ======= Serviços ======= */
