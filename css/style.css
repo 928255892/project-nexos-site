@@ -1,223 +1,128 @@
-/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Geral */
 body {
-  font-family: 'Poppins', sans-serif; /* Fonte restaurada */
-  background: linear-gradient(135deg, #f0f2f5, #e6f7ff);
-  color: #333;
-  line-height: 1.6;
-  font-size: 16px; /* Definindo um tamanho base */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* ===== CONTAINER GERAL ===== */
-.container {
-  width: 95%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ===== HEADER ===== */
+/* Cabeçalho */
 header {
-  background: #1c1c1c;
-  color: #fff;
-  padding: 15px 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #24292f;
+    color: white;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 header h1 {
-  font-size: 1.8rem;
+    margin: 0;
+    font-size: 24px;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background 0.3s ease;
+nav a, nav button {
+    color: white;
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-size: 16px;
 }
 
-nav ul li a:hover {
-  background: #fff;
-  color: #333;
-  padding: 8px 12px;
-  border-radius: 4px;
+/* Seções */
+section {
+    padding: 40px 20px;
 }
 
-/* ===== MAIN CONTEÚDO ===== */
-main {
-  margin-top: 80px; /* Espaço para compensar o header fixo */
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* ===== SEÇÕES ===== */
-.section {
-  width: 100%;
-  max-width: 900px;
-  background: #fff;
-  margin: 40px auto;
-  padding: 40px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+p {
+    font-size: 18px;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.section p {
-  font-size: 1.1rem;
-  margin: 20px 0;
-}
-
-/* ===== SERVIÇOS ===== */
+/* Seção de Serviços */
 .servicos-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .servico {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  width: 320px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.servico:hover {
-  transform: translateY(-5px);
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
 }
 
 .servico i {
-  font-size: 2.5rem;
-  color: #0d6efd;
-  margin-bottom: 15px;
+    font-size: 40px;
+    color: #1e88e5;
 }
 
 .servico h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
+    font-size: 24px;
+    margin-top: 10px;
 }
 
 .servico p {
-  font-size: 1rem;
-  color: #666;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-/* ===== FORMULÁRIOS ===== */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  margin: 20px auto;
-  text-align: left;
+/* Rodapé */
+footer {
+    background-color: #24292f;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
+/* Estilos de Botões */
 button {
-  background: #1c1c1c;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+    background-color: #1e88e5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 button:hover {
-  background: #444;
+    background-color: #0d6efd;
 }
 
-/* ===== BOTÃO VOLTAR AO TOPO ===== */
-#btnTopo {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1c1c1c;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
+/* Animação */
+[data-aos="fade-up"] {
+    animation: fadeUp 1s ease-out;
 }
 
-#btnTopo:hover {
-  background: #444;
-}
-
-/* ===== RODAPÉ ===== */
-footer {
-  background: #222;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  margin-top: 40px;
-}
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .section {
-    width: 95%;
-    padding: 30px 10px;
-  }
-  
-  .servico {
-    width: 90%;
-  }
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
