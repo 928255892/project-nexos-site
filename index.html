@@ -14,6 +14,9 @@
   <!-- Animações AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
+  <!-- Lottie via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+
   <!-- CSS Integrado -->
   <style>
     body {
@@ -44,7 +47,7 @@
     header {
       background: var(--branco);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      padding: 10px 0; /* Reduzido */
+      padding: 10px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -68,7 +71,7 @@
       color: var(--preto);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem; /* Ajustado */
+      font-size: 0.95rem;
       transition: color 0.3s;
     }
 
@@ -117,7 +120,7 @@
     }
 
     .hero-content h2 {
-      font-size: 2.6rem; /* Ajustado */
+      font-size: 2.6rem;
       margin-bottom: 20px;
     }
 
@@ -151,6 +154,14 @@
       width: 100%;
       border-radius: var(--borda-radius);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Animação Lottie do "N" */
+    .n-animation {
+      width: 150px; /* Ajuste o tamanho conforme necessário */
+      height: 150px; /* Ajuste o tamanho conforme necessário */
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .section {
@@ -249,11 +260,11 @@
       background: var(--azul-primario);
       color: var(--branco);
       text-align: center;
-      padding: 10px 0; /* Ajustado */
+      padding: 10px 0;
     }
 
     .footer p {
-      font-size: 0.85rem; /* Ajustado */
+      font-size: 0.85rem;
     }
 
     @media (max-width: 768px) {
@@ -317,6 +328,20 @@
       <button class="mobile-menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     </div>
   </header>
+
+  <!-- Animação do "N" -->
+  <div class="n-animation" id="nAnimation"></div>
+
+  <script>
+    // Carregar a animação Lottie
+    var animation = lottie.loadAnimation({
+      container: document.getElementById('nAnimation'), // Contêiner da animação
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'caminho/para/o/arquivo.json' // Substitua pelo caminho do arquivo JSON da animação
+    });
+  </script>
 
   <!-- Restante do código permanece igual -->
 
