@@ -44,7 +44,7 @@
     header {
       background: var(--branco);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      padding: 20px 0;
+      padding: 10px 0; /* Ajuste na altura da barra */
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -59,7 +59,7 @@
     .navbar ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 20px; /* Reduzi o espaço entre os itens do menu */
       padding: 0;
       margin: 0;
     }
@@ -116,12 +116,12 @@
     }
 
     .hero-content h2 {
-      font-size: 2.8rem;
+      font-size: 2.4rem; /* Tamanho reduzido */
       margin-bottom: 20px;
     }
 
     .hero-content p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 30px;
     }
 
@@ -163,7 +163,7 @@
     }
 
     .section h2 {
-      font-size: 2rem;
+      font-size: 1.8rem; /* Tamanho reduzido */
       text-align: center;
       margin-bottom: 40px;
       color: var(--azul-primario);
@@ -248,7 +248,11 @@
       background: var(--azul-primario);
       color: var(--branco);
       text-align: center;
-      padding: 20px;
+      padding: 10px 0; /* Reduzi o padding da barra azul */
+    }
+
+    footer p {
+      font-size: 0.7rem; /* Reduzi o tamanho da frase de copyright */
     }
 
     @media (max-width: 768px) {
@@ -279,6 +283,26 @@
         position: absolute;
         right: 20px;
         top: 25px;
+      }
+
+      .navbar.active {
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        background-color: var(--branco);
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+      }
+
+      .navbar a {
+        padding: 10px;
+        display: block;
       }
     }
   </style>
@@ -378,12 +402,21 @@
 
   <section class="footer">
     <div class="container">
-      <p style="font-size: 0.8rem;">© 2025 Project Nexos. Todos os direitos reservados.</p>
+      <p style="font-size: 0.7rem;">© 2025 Project Nexos. Todos os direitos reservados.</p>
     </div>
   </section>
 
   <script src="js/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    AOS.init();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navbar = document.querySelector(".navbar");
+
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
