@@ -291,6 +291,18 @@ footer {
     right: 20px;
     top: 25px;
   }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+    display: block;
+    background-color: var(--branco);
+  }
+
+  .navbar a {
+    font-size: 1.2rem;
+  }
 }
 
 /* ======= Animações ======= */
