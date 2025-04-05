@@ -17,7 +17,6 @@
   <!-- Lottie via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 
-  <!-- CSS Integrado -->
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -158,10 +157,8 @@
 
     /* Animação Lottie do "N" */
     .n-animation {
-      width: 150px; /* Ajuste o tamanho conforme necessário */
-      height: 150px; /* Ajuste o tamanho conforme necessário */
-      margin-top: 20px;
-      margin-bottom: 20px;
+      width: 60px;
+      height: 60px;
     }
 
     .section {
@@ -189,10 +186,6 @@
 
     .section.light {
       background-color: var(--cinza-claro);
-      background-image: url('img/tech-texture.svg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       background-blend-mode: lighten;
     }
 
@@ -222,38 +215,6 @@
       font-size: 2rem;
       color: var(--azul-primario);
       margin-bottom: 20px;
-    }
-
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    form input,
-    form textarea {
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: var(--borda-radius);
-      font-size: 1rem;
-      resize: none;
-    }
-
-    form button {
-      background: var(--azul-primario);
-      color: var(--branco);
-      border: none;
-      padding: 12px;
-      border-radius: var(--borda-radius);
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    form button:hover {
-      background: #0051cc;
     }
 
     footer {
@@ -329,25 +290,31 @@
     </div>
   </header>
 
-  <!-- Animação do "N" -->
-  <div class="n-animation" id="nAnimation"></div>
+  <!-- Seção Nexos Intelligence com Animação Lottie -->
+  <section id="institucional" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <span id="nexosAnimation" class="n-animation"></span>
+        Nexos Intelligence
+      </h2>
+      <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
+    </div>
+  </section>
 
+  <!-- Script de animação Lottie -->
   <script>
-    // Carregar a animação Lottie
-    var animation = lottie.loadAnimation({
-      container: document.getElementById('nAnimation'), // Contêiner da animação
+    lottie.loadAnimation({
+      container: document.getElementById('nexosAnimation'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'caminho/para/o/arquivo.json' // Substitua pelo caminho do arquivo JSON da animação
+      path: 'js/nexos-neon-n.json'
     });
   </script>
 
-  <!-- Restante do código permanece igual -->
-
+  <!-- Script para o menu mobile -->
   <script>
-    // Menu Toggle Script (Mobile)
-    document.getElementById('menuToggle').addEventListener('click', function() {
+    document.getElementById('menuToggle').addEventListener('click', function () {
       this.classList.toggle('active');
       document.querySelector('.navbar').classList.toggle('active');
     });
