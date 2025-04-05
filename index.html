@@ -177,7 +177,11 @@
 
     .section.light {
       background-color: var(--cinza-claro);
-      background-image: none;
+      background-image: url('img/tech-texture.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: lighten;
     }
 
     .servicos-grid {
@@ -351,7 +355,23 @@
 
   <section id="institucional" class="section light" data-aos="fade-up">
     <div class="container">
-      <h2>Nexos Intelligence</h2>
+      <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <span style="
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          background: linear-gradient(135deg, var(--azul-primario), #003c99);
+          color: white;
+          font-weight: bold;
+          font-size: 1.2rem;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          font-family: 'Poppins', sans-serif;
+        ">N</span>
+        Nexos Intelligence
+      </h2>
       <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
     </div>
   </section>
