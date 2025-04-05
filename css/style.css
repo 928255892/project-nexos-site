@@ -39,7 +39,7 @@ header {
 .logo {
   font-size: 1.8rem;
   color: var(--azul-primario);
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .navbar ul {
