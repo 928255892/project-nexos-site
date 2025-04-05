@@ -14,9 +14,7 @@
   <!-- Animações AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-  <!-- Lottie via CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-
+  <!-- CSS Integrado -->
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -46,7 +44,7 @@
     header {
       background: var(--branco);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      padding: 10px 0;
+      padding: 20px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -70,7 +68,6 @@
       color: var(--preto);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
       transition: color 0.3s;
     }
 
@@ -119,7 +116,7 @@
     }
 
     .hero-content h2 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       margin-bottom: 20px;
     }
 
@@ -155,12 +152,6 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* Animação Lottie do "N" */
-    .n-animation {
-      width: 60px;
-      height: 60px;
-    }
-
     .section {
       padding: 80px 0;
       position: relative;
@@ -186,6 +177,10 @@
 
     .section.light {
       background-color: var(--cinza-claro);
+      background-image: url('img/tech-texture.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       background-blend-mode: lighten;
     }
 
@@ -217,15 +212,43 @@
       margin-bottom: 20px;
     }
 
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: var(--borda-radius);
+      font-size: 1rem;
+      resize: none;
+    }
+
+    form button {
+      background: var(--azul-primario);
+      color: var(--branco);
+      border: none;
+      padding: 12px;
+      border-radius: var(--borda-radius);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #0051cc;
+    }
+
     footer {
       background: var(--azul-primario);
       color: var(--branco);
       text-align: center;
-      padding: 10px 0;
-    }
-
-    .footer p {
-      font-size: 0.85rem;
+      padding: 20px;
     }
 
     @media (max-width: 768px) {
@@ -257,21 +280,6 @@
         right: 20px;
         top: 25px;
       }
-
-      .mobile-menu-toggle.active + .navbar {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .navbar ul {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .navbar a {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
@@ -290,34 +298,92 @@
     </div>
   </header>
 
-  <!-- Seção Nexos Intelligence com Animação Lottie -->
+  <section class="hero" data-aos="fade-up">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Conectando ideias. Facilitando inovações.</h2>
+        <p>A plataforma que integra projetos, design e colaboração em um só lugar.</p>
+        <a href="#servicos" class="btn">Explorar</a>
+      </div>
+      <div class="hero-image">
+        <img src="img/inovação.webp" alt="Tecnologia e inovação - Project Nexos"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Sobre o Project Nexos</h2>
+      <p>Uma plataforma completa para criar, gerenciar e compartilhar projetos com sua equipe em tempo real.</p>
+    </div>
+  </section>
+
+  <section id="servicos" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>Serviços</h2>
+      <div class="servicos-grid">
+        <div class="servico" data-aos="zoom-in">
+          <i class="fas fa-clipboard-list"></i>
+          <h3>Gerenciamento</h3>
+          <p>Planeje e acompanhe suas tarefas com clareza.</p>
+        </div>
+        <div class="servico" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-pencil-ruler"></i>
+          <h3>Design Integrado</h3>
+          <p>Crie designs direto na plataforma com a ferramenta Vectora.</p>
+        </div>
+        <div class="servico" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-users"></i>
+          <h3>Colaboração</h3>
+          <p>Trabalhe com sua equipe em tempo real de forma simples.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Contato</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu email" required />
+        <textarea placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
   <section id="institucional" class="section light" data-aos="fade-up">
     <div class="container">
       <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <span id="nexosAnimation" class="n-animation"></span>
+        <span style="
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          background: linear-gradient(135deg, var(--azul-primario), #003c99);
+          color: white;
+          font-weight: bold;
+          font-size: 1.2rem;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          font-family: 'Poppins', sans-serif;
+        ">N</span>
         Nexos Intelligence
       </h2>
       <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
     </div>
   </section>
 
-  <!-- Script de animação Lottie -->
-  <script>
-    lottie.loadAnimation({
-      container: document.getElementById('nexosAnimation'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'js/nexos-neon-n.json'
-    });
-  </script>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Project Nexos. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
-  <!-- Script para o menu mobile -->
-  <script>
-    document.getElementById('menuToggle').addEventListener('click', function () {
-      this.classList.toggle('active');
-      document.querySelector('.navbar').classList.toggle('active');
-    });
-  </script>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
