@@ -1,18 +1,3 @@
-// Animação Lottie do "N"
-document.addEventListener("DOMContentLoaded", function () {
-  if (typeof lottie !== 'undefined') {
-    lottie.loadAnimation({
-      container: document.getElementById('nAnimation'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'js/nexos-neon-n.json' // Caminho correto para o JSON
-    });
-  } else {
-    console.warn('Lottie não foi carregado.');
-  }
-});
-
 // Menu mobile
 const menuToggle = document.querySelector('#menuToggle');
 const navbar = document.querySelector('.navbar');
@@ -40,6 +25,7 @@ btnTopo.style.cursor = 'pointer';
 btnTopo.style.display = 'none';
 btnTopo.style.zIndex = '999';
 
+// Mostrar botão ao rolar a página
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
     btnTopo.style.display = 'block';
@@ -48,6 +34,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Ação do botão voltar ao topo
 btnTopo.addEventListener('click', () => {
   window.scrollTo({
     top: 0,
@@ -62,7 +49,7 @@ AOS.init({
   once: true
 });
 
-// Scroll suave para âncoras
+// (Opcional) Scroll suave para âncoras
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
