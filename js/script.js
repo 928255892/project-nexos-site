@@ -1,8 +1,17 @@
+// script.js
 
-// Script para menu responsivo (em versões futuras, pode ser usado para toggle de menu mobile)
-function toggleMenu() {
-    const nav = document.querySelector('.nav-links');
-    nav.classList.toggle('active');
-}
+// Este script é reservado para funcionalidades futuras
+// Exemplo: Scroll suave, abertura de menus, integração com backend etc.
 
-// Código adicional pode ser colocado aqui no futuro, como integração com APIs, validação de formulário, etc.
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll suave para âncoras
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const destino = document.querySelector(this.getAttribute('href'));
+      if (destino) {
+        destino.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+});
