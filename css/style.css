@@ -33,7 +33,7 @@ body {
 header {
   background: var(--branco);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 2px 0; /* Ajustado */
+  padding: 2px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -62,7 +62,7 @@ header {
 .navbar a {
   color: var(--preto);
   text-decoration: none;
-  font-weight: 600; /* Realce */
+  font-weight: 600;
   transition: color 0.3s;
 }
 
@@ -74,8 +74,8 @@ header {
   display: none;
   background: none;
   border: none;
-  font-size: 1rem; /* Reduzido */
-  color: var(--azul-primario); /* Cor ajustada */
+  font-size: 1rem;
+  color: var(--azul-primario);
 }
 
 .hero {
@@ -154,7 +154,7 @@ header {
 }
 
 .section h2 {
-  font-size: 1.8rem; /* Reduzido */
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 40px;
   color: var(--azul-primario);
@@ -289,6 +289,59 @@ footer p {
   color: #444;
 }
 
+.intelligence-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intelligence-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.intelligence-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.intelligence-image img {
+  width: 100%;
+  border-radius: var(--borda-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mission {
+  background-color: rgba(0, 102, 255, 0.1);
+}
+
+.mission-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.mission-item {
+  flex: 1;
+  margin: 10px;
+}
+
+.mission-item i {
+  font-size: 2rem;
+  color: var(--azul-primario);
+  margin-bottom: 10px;
+}
+
+.mission-item h3 {
+  font-size: 1.2rem;
+  color: var(--preto);
+}
+
+.mission-item p {
+  font-size: 1rem;
+  color: #444;
+}
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column-reverse;
@@ -323,16 +376,6 @@ footer p {
     right: 20px;
     top: 25px;
   }
-}
 
-/* ======= Animações ======= */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  .intelligence-content {
+    flex-direction
