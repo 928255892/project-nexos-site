@@ -30,10 +30,12 @@ body {
 header {
   background: var(--branco);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 10px 0; /* Diminuir a altura do cabeçalho alterando o padding */
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 50px; /* Definir uma altura fixa */
+  line-height: 50px; /* Alinhar o conteúdo verticalmente */
 }
 
 .logo {
