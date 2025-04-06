@@ -74,8 +74,8 @@ header {
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: var(--preto);
+  font-size: 1rem; /* Reduzido */
+  color: var(--azul-primario); /* Cor ajustada */
 }
 
 .hero {
@@ -154,7 +154,7 @@ header {
 }
 
 .section h2 {
-  font-size: 2rem;
+  font-size: 1.8rem; /* Reduzido */
   text-align: center;
   margin-bottom: 40px;
   color: var(--azul-primario);
