@@ -4,58 +4,386 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project Nexos</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonte Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Animações AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+  <!-- CSS Integrado -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1c1c1e;
+      background-color: #f8f9fb;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --azul-primario: #0066ff;
+      --azul-claro: #d6e5ff;
+      --cinza-claro: #f0f2f5;
+      --preto: #1c1c1e;
+      --branco: #ffffff;
+      --borda-radius: 12px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      background: var(--branco);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: var(--azul-primario);
+      font-weight: 600;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar a {
+      color: var(--preto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: var(--azul-primario);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--preto);
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 80px 0;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('img/inovação1.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(6px) brightness(0.6);
+      z-index: -1;
+    }
+
+    .hero-content {
+      flex: 1;
+      color: var(--branco);
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: var(--azul-primario);
+      color: var(--branco);
+      padding: 12px 28px;
+      border: none;
+      border-radius: var(--borda-radius);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #0051cc;
+    }
+
+    .hero-image {
+      flex: 1;
+      max-width: 500px;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: var(--borda-radius);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+      background-image: url('img/tech-texture.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--azul-primario);
+    }
+
+    .section p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section.light {
+      background-color: var(--cinza-claro);
+      background-image: url('img/tech-texture.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: lighten;
+    }
+
+    .servicos-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .servico {
+      background: var(--branco);
+      padding: 30px;
+      border-radius: var(--borda-radius);
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      flex: 1 1 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .servico:hover {
+      transform: translateY(-6px);
+    }
+
+    .servico i {
+      font-size: 2rem;
+      color: var(--azul-primario);
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: var(--borda-radius);
+      font-size: 1rem;
+      resize: none;
+    }
+
+    form button {
+      background: var(--azul-primario);
+      color: var(--branco);
+      border: none;
+      padding: 12px;
+      border-radius: var(--borda-radius);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #0051cc;
+    }
+
+    footer {
+      background: var(--azul-primario);
+      color: var(--branco);
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .hero-image {
+        max-width: 100%;
+      }
+
+      .navbar {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="top-bar">
-    <div class="logo">Project Nexos</div>
-    <nav class="desktop-nav">
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      &#9776;
+  <header>
+    <div class="container">
+      <h1 class="logo">Project Nexos</h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     </div>
   </header>
 
-  <nav class="mobile-nav" id="mobileMenu">
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#contato">Contato</a>
-  </nav>
-
-  <section class="hero">
-    <div class="overlay"></div>
-    <img src="inovacao1.webp" class="background" alt="Fundo Inovação" />
-    <img src="inovacao.webp" class="main-image" alt="Inovação" />
-    <h1>Bem-vindo ao Project Nexos</h1>
-    <p>Conectando inovação e eficiência</p>
+  <section class="hero" data-aos="fade-up">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Conectando ideias. Facilitando inovações.</h2>
+        <p>A plataforma que integra projetos, design e colaboração em um só lugar.</p>
+        <a href="#servicos" class="btn">Explorar</a>
+      </div>
+      <div class="hero-image">
+        <img src="img/inovação.webp" alt="Tecnologia e inovação - Project Nexos"/>
+      </div>
+    </div>
   </section>
 
-  <section id="sobre">
-    <h2 class="titulo">Sobre o Project Nexos</h2>
-    <p>Uma plataforma criada para integrar inteligência, design e tecnologia...</p>
+  <section id="sobre" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Sobre o Project Nexos</h2>
+      <p>Uma plataforma completa para criar, gerenciar e compartilhar projetos com sua equipe em tempo real.</p>
+    </div>
   </section>
 
-  <section id="servicos">
-    <h2 class="titulo">Serviços</h2>
-    <ul>
-      <li>Consultoria em inovação</li>
-      <li>Design inteligente</li>
-      <li>Soluções integradas</li>
-    </ul>
+  <section id="servicos" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>Serviços</h2>
+      <div class="servicos-grid">
+        <div class="servico" data-aos="zoom-in">
+          <i class="fas fa-clipboard-list"></i>
+          <h3>Gerenciamento</h3>
+          <p>Planeje e acompanhe suas tarefas com clareza.</p>
+        </div>
+        <div class="servico" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-pencil-ruler"></i>
+          <h3>Design Integrado</h3>
+          <p>Crie designs direto na plataforma com a ferramenta Vectora.</p>
+        </div>
+        <div class="servico" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-users"></i>
+          <h3>Colaboração</h3>
+          <p>Trabalhe com sua equipe em tempo real de forma simples.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contato">
-    <h2 class="titulo">Contato</h2>
-    <p>Envie um e-mail para: contato@projectnexos.com</p>
+  <section id="contato" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Contato</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu email" required />
+        <textarea placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
   </section>
 
-  <footer class="footer">
-    <p class="copyright">© 2025 Project Nexos. Todos os direitos reservados.</p>
-  </footer>
+  <section id="institucional" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <span style="
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          background: linear-gradient(135deg, var(--azul-primario), #003c99);
+          color: white;
+          font-weight: bold;
+          font-size: 1.2rem;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          font-family: 'Poppins', sans-serif;
+        ">N</span>
+        Nexos Intelligence
+      </h2>
+      <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section class="footer">
+    <div class="container">
+      <p style="font-size: 0.8rem;">© 2025 Project Nexos. Todos os direitos reservados.</p>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
