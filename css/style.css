@@ -378,4 +378,11 @@ footer p {
   }
 
   .intelligence-content {
-    flex-direction
+    flex-direction: column;
+  }
+
+  .intelligence-text {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+}
