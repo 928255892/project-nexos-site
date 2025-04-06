@@ -30,7 +30,7 @@ body {
 header {
   background: var(--branco);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 20px 0;
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -45,7 +45,7 @@ header {
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 25px;
   padding: 0;
   margin: 0;
 }
@@ -88,7 +88,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../img/inovação1.webp');
+  background-image: url('img/inovação1.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -100,8 +100,6 @@ header {
   flex: 1;
   color: var(--branco);
   z-index: 1;
-  animation: fadeSlideUp 1s ease-out both;
-  animation-delay: 0.2s;
 }
 
 .hero-content h2 {
@@ -133,8 +131,6 @@ header {
   flex: 1;
   max-width: 500px;
   z-index: 1;
-  animation: fadeSlideUp 1s ease-out both;
-  animation-delay: 0.4s;
 }
 
 .hero-image img {
@@ -145,128 +141,86 @@ header {
 
 /* ======= Seções gerais ======= */
 .section {
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.section h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 40px;
-  color: var(--azul-primario);
-}
-
-.section p {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
+  padding: 60px 0;
+  background-color: var(--branco);
 }
 
 .section.light {
   background-color: var(--cinza-claro);
 }
 
-/* ======= Efeitos visuais por seção ======= */
-#servicos::before,
-#contato::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../img/inovação1.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(8px) brightness(0.85);
-  opacity: 0.25;
-  z-index: 0;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--azul-primario);
 }
 
-#servicos .container,
-#contato .container {
-  position: relative;
-  z-index: 1;
+p {
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
-/* ======= Serviços ======= */
+/* ======= Grid de Serviços ======= */
 .servicos-grid {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .servico {
   background: var(--branco);
   padding: 30px;
-  border-radius: var(--borda-radius);
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  flex: 1 1 250px;
-  transition: transform 0.3s ease;
+  border-radius: var(--borda-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.servico:hover {
-  transform: translateY(-6px);
+.servico h3 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: var(--azul-primario);
+}
+
+.servico p {
+  color: #555;
 }
 
 .servico i {
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--azul-primario);
-  margin-bottom: 20px;
-}
-
-/* ======= Contato ======= */
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-form input,
-form textarea {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: var(--borda-radius);
-  font-size: 1rem;
-  resize: none;
-}
-
-form button {
-  background: var(--azul-primario);
-  color: var(--branco);
-  border: none;
-  padding: 12px;
-  border-radius: var(--borda-radius);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-form button:hover {
-  background: #0051cc;
 }
 
 /* ======= Rodapé ======= */
-footer {
-  background: var(--azul-primario);
-  color: var(--branco);
+.footer {
+  background-color: var(--azul-claro);
+  padding: 20px 0;
   text-align: center;
-  padding: 20px;
 }
 
-/* ======= Responsividade ======= */
+.footer p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ======= Media Queries ======= */
 @media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navbar.active ul {
+    display: flex;
+  }
+
   .hero {
-    flex-direction: column-reverse;
-    text-align: center;
-    padding: 60px 20px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-content h2 {
@@ -278,41 +232,6 @@ footer {
   }
 
   .hero-image {
-    max-width: 100%;
-  }
-
-  .navbar {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 25px;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px 0;
-    display: block;
-    background-color: var(--branco);
-  }
-
-  .navbar a {
-    font-size: 1.2rem;
-  }
-}
-
-/* ======= Animações ======= */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    margin-top: 30px;
   }
 }
