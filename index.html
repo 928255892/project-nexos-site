@@ -4,120 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project Nexos</title>
-
-  <!-- Fonte Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-
-  <!-- Ícones Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <!-- Animações AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-
-  <!-- CSS Integrado -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1 class="logo">Project Nexos</h1>
-      <nav class="navbar">
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+  <header class="top-bar">
+    <div class="logo">Project Nexos</div>
+    <nav class="desktop-nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
     </div>
   </header>
 
-  <section class="hero" data-aos="fade-up">
-    <div class="container">
-      <div class="hero-content">
-        <h2>Conectando ideias. Facilitando inovações.</h2>
-        <p>A plataforma que integra projetos, design e colaboração em um só lugar.</p>
-        <a href="#servicos" class="btn">Explorar</a>
-      </div>
-      <div class="hero-image">
-        <img src="img/inovação.webp" alt="Tecnologia e inovação - Project Nexos"/>
-      </div>
-    </div>
+  <nav class="mobile-nav" id="mobileMenu">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <img src="inovacao1.webp" class="background" alt="Fundo Inovação" />
+    <img src="inovacao.webp" class="main-image" alt="Inovação" />
+    <h1>Bem-vindo ao Project Nexos</h1>
+    <p>Conectando inovação e eficiência</p>
   </section>
 
-  <section id="sobre" class="section" data-aos="fade-up">
-    <div class="container">
-      <h2>Sobre o Project Nexos</h2>
-      <p>Uma plataforma completa para criar, gerenciar e compartilhar projetos com sua equipe em tempo real.</p>
-    </div>
+  <section id="sobre">
+    <h2 class="titulo">Sobre o Project Nexos</h2>
+    <p>Uma plataforma criada para integrar inteligência, design e tecnologia...</p>
   </section>
 
-  <section id="servicos" class="section light" data-aos="fade-up">
-    <div class="container">
-      <h2>Serviços</h2>
-      <div class="servicos-grid">
-        <div class="servico" data-aos="zoom-in">
-          <i class="fas fa-clipboard-list"></i>
-          <h3>Gerenciamento</h3>
-          <p>Planeje e acompanhe suas tarefas com clareza.</p>
-        </div>
-        <div class="servico" data-aos="zoom-in" data-aos-delay="100">
-          <i class="fas fa-pencil-ruler"></i>
-          <h3>Design Integrado</h3>
-          <p>Crie designs direto na plataforma com a ferramenta Vectora.</p>
-        </div>
-        <div class="servico" data-aos="zoom-in" data-aos-delay="200">
-          <i class="fas fa-users"></i>
-          <h3>Colaboração</h3>
-          <p>Trabalhe com sua equipe em tempo real de forma simples.</p>
-        </div>
-      </div>
-    </div>
+  <section id="servicos">
+    <h2 class="titulo">Serviços</h2>
+    <ul>
+      <li>Consultoria em inovação</li>
+      <li>Design inteligente</li>
+      <li>Soluções integradas</li>
+    </ul>
   </section>
 
-  <section id="contato" class="section" data-aos="fade-up">
-    <div class="container">
-      <h2>Contato</h2>
-      <form>
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu email" required />
-        <textarea placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+  <section id="contato">
+    <h2 class="titulo">Contato</h2>
+    <p>Envie um e-mail para: contato@projectnexos.com</p>
   </section>
 
-  <section id="institucional" class="section light" data-aos="fade-up">
-    <div class="container">
-      <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <span style="
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 8px;
-          background: linear-gradient(135deg, var(--azul-primario), #003c99);
-          color: white;
-          font-weight: bold;
-          font-size: 1.2rem;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-          font-family: 'Poppins', sans-serif;
-        ">N</span>
-        Nexos Intelligence
-      </h2>
-      <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
-    </div>
-  </section>
+  <footer class="footer">
+    <p class="copyright">© 2025 Project Nexos. Todos os direitos reservados.</p>
+  </footer>
 
-  <section class="footer">
-    <div class="container">
-      <p style="font-size: 0.8rem;">© 2025 Project Nexos. Todos os direitos reservados.</p>
-    </div>
-  </section>
-
-  <script src="js/script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>AOS.init();</script>
+  <script src="script.js"></script>
 </body>
 </html>
