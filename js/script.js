@@ -1,19 +1,34 @@
-// Script de funcionalidade para o menu mobile
+// Script para ativar/desativar o menu mobile
 document.getElementById('menuToggle').addEventListener('click', function() {
-  document.querySelector('header').classList.toggle('active');
+    // Altera a classe active na header para abrir/fechar o menu
+    document.querySelector('header').classList.toggle('active');
+    document.querySelector('.navbar').classList.toggle('active');  // Adicionando a classe 'active' ao menu de navegação
 });
 
-// Funcionalidade para os efeitos de rolagem e animações da biblioteca AOS
+// Animações AOS (Animate on Scroll)
 AOS.init({
-  duration: 1000, // Definindo duração para as animações
-  offset: 200, // Definindo o deslocamento das animações
-  easing: 'ease-in-out', // Efeito de transição suave
-  once: true // As animações ocorrem uma única vez
+    duration: 1000,  // Duração da animação
+    offset: 200,     // Distância para disparar a animação
+    easing: 'ease-in-out',  // Suaviza as animações
+    once: true,      // As animações ocorrem uma única vez durante o scroll
 });
 
-// Menu mobile: tornar visível ao clicar
+// Função para correção do menu mobile
 const menuToggle = document.getElementById('menuToggle');
 const navbar = document.querySelector('.navbar');
+
+// Adicionando e removendo a classe 'active' ao clicar no menu mobile
 menuToggle.addEventListener('click', () => {
-  navbar.classList.toggle('active');
+    navbar.classList.toggle('active');
+});
+
+// A função abaixo garante que o layout do menu seja responsivo e o estilo não seja alterado
+// O código do menu mobile apenas altera a visibilidade do menu e não deve afetar o design.
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Esse trecho certifica-se de que o menu e a barra de navegação sejam inicialmente carregados corretamente
+    const navbarItems = document.querySelectorAll('.navbar a');
+    navbarItems.forEach(item => {
+        item.style.transition = "color 0.3s ease";  // Garantindo transições suaves nas interações com o menu
+    });
 });
