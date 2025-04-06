@@ -1,22 +1,22 @@
 /* ======= Fonte base ======= */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  color: #1c1c1e;
-  background-color: #f8f9fb;
+  color: #2c3e50;
+  background-color: #ecf0f1;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
 
 /* ======= Cores do modelo 2 ======= */
 :root {
-  --azul-primario: #0066ff;
-  --azul-claro: #d6e5ff;
-  --cinza-claro: #f0f2f5;
-  --preto: #1c1c1e;
+  --verde-primario: #27ae60;
+  --verde-claro: #2ecc71;
+  --cinza-claro: #bdc3c7;
+  --preto: #2c3e50;
   --branco: #ffffff;
-  --borda-radius: 12px;
+  --borda-radius: 8px;
 }
 
 /* ======= Containers ======= */
@@ -32,17 +32,17 @@ body {
 /* ======= Cabeçalho ======= */
 header {
   background: var(--branco);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 2px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo {
-  font-size: 1.3rem;
-  color: var(--azul-primario);
-  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--verde-primario);
+  font-weight: bold;
 }
 
 .navbar {
@@ -54,7 +54,7 @@ header {
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   padding: 0;
   margin: 0;
 }
@@ -62,20 +62,20 @@ header {
 .navbar a {
   color: var(--preto);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
   transition: color 0.3s;
 }
 
 .navbar a:hover {
-  color: var(--azul-primario);
+  color: var(--verde-primario);
 }
 
 .mobile-menu-toggle {
   display: none;
   background: none;
   border: none;
-  font-size: 1rem;
-  color: var(--azul-primario);
+  font-size: 1.2rem;
+  color: var(--verde-primario);
 }
 
 .hero {
@@ -83,8 +83,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  padding: 80px 0;
+  gap: 30px;
+  padding: 60px 0;
   flex-wrap: wrap;
   overflow: hidden;
 }
@@ -96,11 +96,11 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../img/inovação1.webp');
+  background-image: url('../img/inovacao2.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(6px) brightness(0.6);
+  filter: blur(8px) brightness(0.7);
   z-index: -1;
 }
 
@@ -111,64 +111,64 @@ header {
 }
 
 .hero-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
 .hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
+  font-size: 1rem;
+  margin-bottom: 25px;
 }
 
 .btn {
-  background: var(--azul-primario);
+  background: var(--verde-primario);
   color: var(--branco);
-  padding: 12px 28px;
+  padding: 10px 20px;
   border: none;
   border-radius: var(--borda-radius);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   transition: background 0.3s;
 }
 
 .btn:hover {
-  background: #0051cc;
+  background: var(--verde-claro);
 }
 
 .hero-image {
   flex: 1;
-  max-width: 500px;
+  max-width: 450px;
   z-index: 1;
 }
 
 .hero-image img {
   width: 100%;
   border-radius: var(--borda-radius);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
   position: relative;
   overflow: hidden;
 }
 
 .section h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: center;
-  margin-bottom: 40px;
-  color: var(--azul-primario);
+  margin-bottom: 30px;
+  color: var(--verde-primario);
 }
 
 .section p {
   text-align: center;
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
 .section.light {
   background-color: var(--cinza-claro);
-  background-image: url('img/tech-texture.svg');
+  background-image: url('img/tech-pattern.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -177,54 +177,54 @@ header {
 
 .servicos-grid {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .servico {
   background: var(--branco);
-  padding: 30px;
+  padding: 20px;
   border-radius: var(--borda-radius);
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  flex: 1 1 250px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  flex: 1 1 220px;
   transition: transform 0.3s ease;
 }
 
 .servico:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 }
 
 .servico i {
-  font-size: 2rem;
-  color: var(--azul-primario);
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: var(--verde-primario);
+  margin-bottom: 15px;
 }
 
 form {
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 form input,
 form textarea {
-  padding: 15px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: var(--borda-radius);
-  font-size: 1rem;
+  font-size: 0.95rem;
   resize: none;
 }
 
 form button {
-  background: var(--azul-primario);
+  background: var(--verde-primario);
   color: var(--branco);
   border: none;
-  padding: 12px;
+  padding: 10px;
   border-radius: var(--borda-radius);
   font-weight: bold;
   cursor: pointer;
@@ -232,14 +232,14 @@ form button {
 }
 
 form button:hover {
-  background: #0051cc;
+  background: var(--verde-claro);
 }
 
 footer {
-  background: var(--azul-primario);
+  background: var(--verde-primario);
   color: var(--branco);
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,45 +248,46 @@ footer {
 footer p {
   margin: 0 auto;
   text-align: center;
+  font-size: 0.8rem;
 }
 
 .diferenciais-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top: 30px;
   justify-content: center;
 }
 
 .diferencial {
   background: var(--branco);
-  padding: 30px;
+  padding: 20px;
   border-radius: var(--borda-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
-  flex: 1 1 250px;
+  flex: 1 1 220px;
   transition: transform 0.3s ease;
 }
 
 .diferencial:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 }
 
 .diferencial i {
-  font-size: 2rem;
-  color: var(--azul-primario);
-  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: var(--verde-primario);
+  margin-bottom: 10px;
 }
 
 .diferencial h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
   color: var(--preto);
 }
 
 .diferencial p {
-  font-size: 0.95rem;
-  color: #444;
+  font-size: 0.9rem;
+  color: #5d6d7e;
 }
 
 .intelligence-content {
@@ -297,22 +298,22 @@ footer p {
 
 .intelligence-text {
   flex: 1;
-  padding-right: 20px;
+  padding-right: 15px;
 }
 
 .intelligence-image {
   flex: 1;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .intelligence-image img {
   width: 100%;
   border-radius: var(--borda-radius);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .mission {
-  background-color: rgba(0, 102, 255, 0.1);
+  background-color: rgba(39, 174, 96, 0.1);
 }
 
 .mission-grid {
@@ -323,23 +324,23 @@ footer p {
 
 .mission-item {
   flex: 1;
-  margin: 10px;
+  margin: 8px;
 }
 
 .mission-item i {
   font-size: 2rem;
-  color: var(--azul-primario);
-  margin-bottom: 10px;
+  color: var(--verde-primario);
+  margin-bottom: 8px;
 }
 
 .mission-item h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--preto);
 }
 
 .mission-item p {
-  font-size: 1rem;
-  color: #444;
+  font-size: 0.9rem;
+  color: #5d6d7e;
 }
 
 @media (max-width: 768px) {
@@ -356,15 +357,15 @@ footer p {
   .hero {
     flex-direction: column-reverse;
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
   }
 
   .hero-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .hero-content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .hero-image {
@@ -388,31 +389,31 @@ footer p {
   }
 
   .section {
-    padding: 40px 0;
+    padding: 30px 0;
   }
 
   .section h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .section p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .servico {
-    padding: 20px;
+    padding: 15px;
   }
 
   .servico i {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .diferencial {
-    padding: 20px;
+    padding: 15px;
   }
 
   .diferencial i {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .intelligence-content {
@@ -421,7 +422,7 @@ footer p {
 
   .intelligence-text {
     padding-right: 0;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
   }
 
   .mission-grid {
@@ -429,6 +430,6 @@ footer p {
   }
 
   .mission-item {
-    margin: 10px 0;
+    margin: 8px 0;
   }
 }
