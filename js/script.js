@@ -28,11 +28,11 @@ btnTopo.innerHTML = '&#8679;';
 document.body.appendChild(btnTopo);
 
 btnTopo.style.position = 'fixed';
-btnTopo.style.bottom = '30px';
-btnTopo.style.right = '30px';
+btnTopo.style.bottom = '17px';
+btnTopo.style.right = '12px';
 btnTopo.style.padding = '10px 14px';
-btnTopo.style.fontSize = '20px';
-btnTopo.style.borderRadius = '50%';
+btnTopo.style.fontSize = '30px';
+btnTopo.style.borderRadius = '30%';
 btnTopo.style.border = 'none';
 btnTopo.style.background = '#0066ff';
 btnTopo.style.color = '#fff';
