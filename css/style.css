@@ -122,7 +122,7 @@ header {
 
 .btn {
   background: var(--verde-primario);
-  color: var(--branco);
+  color: var (--branco);
   padding: 10px 20px;
   border: none;
   border-radius: var(--borda-radius);
