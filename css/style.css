@@ -343,10 +343,20 @@ footer p {
 }
 
 @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .hero {
     flex-direction: column-reverse;
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
   }
 
   .hero-content h2 {
@@ -377,6 +387,34 @@ footer p {
     top: 25px;
   }
 
+  .section {
+    padding: 40px 0;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .servico {
+    padding: 20px;
+  }
+
+  .servico i {
+    font-size: 1.5rem;
+  }
+
+  .diferencial {
+    padding: 20px;
+  }
+
+  .diferencial i {
+    font-size: 1.5rem;
+  }
+
   .intelligence-content {
     flex-direction: column;
   }
@@ -384,5 +422,13 @@ footer p {
   .intelligence-text {
     padding-right: 0;
     padding-bottom: 20px;
+  }
+
+  .mission-grid {
+    flex-direction: column;
+  }
+
+  .mission-item {
+    margin: 10px 0;
   }
 }
