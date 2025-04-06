@@ -19,6 +19,13 @@ const navbar = document.querySelector('.navbar');
 
 menuToggle.addEventListener('click', () => {
   navbar.classList.toggle('active');
+  if (navbar.classList.contains('active')) {
+    navbar.style.height = 'auto';
+    navbar.style.backgroundColor = '#0066ff';
+  } else {
+    navbar.style.height = '0';
+    navbar.style.backgroundColor = 'transparent';
+  }
 });
 
 // Botão voltar ao topo
@@ -59,16 +66,4 @@ btnTopo.addEventListener('click', () => {
 AOS.init({
   duration: 800,
   easing: 'ease-in-out',
-  once: true
-});
-
-// Scroll suave para âncoras
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const section = document.querySelector(this.getAttribute('href'));
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+ 
