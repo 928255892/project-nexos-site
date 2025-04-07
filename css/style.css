@@ -239,7 +239,7 @@ footer {
   background: var(--azul-primario);
   color: var(--branco);
   text-align: center;
-  padding: 20px;
+  padding: 10px; /* Ajustado */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,13 +248,13 @@ footer {
 footer p {
   margin: 0 auto;
   text-align: center;
+  font-size: 0.75rem; /* Ajustado */
 }
 
 .diferenciais-grid {
   display: flex;
-  flex-wrap: wrap;
   gap: 40px;
-  margin-top: 40px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -262,38 +262,19 @@ footer p {
   background: var(--branco);
   padding: 30px;
   border-radius: var(--borda-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   flex: 1 1 250px;
-  transition: transform 0.3s ease;
 }
 
-.diferencial:hover {
-  transform: translateY(-6px);
-}
-
-.diferencial i {
-  font-size: 2rem;
-  color: var(--azul-primario);
-  margin-bottom: 15px;
-}
-
-.diferencial h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: var(--preto);
-}
-
-.diferencial p {
-  font-size: 0.95rem;
-  color: #444;
-}
-
+/* ======= Responsividade ======= */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column-reverse;
-    text-align: center;
-    padding: 60px 20px;
+  .navbar {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
   }
 
   .hero-content h2 {
@@ -304,35 +285,11 @@ footer p {
     font-size: 1rem;
   }
 
-  .hero-image {
+  .hero-image img {
     max-width: 100%;
   }
 
-  .navbar ul {
-    display: none;
-    flex-direction: column;
-  }
-
-  .navbar.active ul {
-    display: flex;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 25px;
-  }
-}
-
-/* ======= Animações ======= */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .section h2 {
+    font-size: 1.5rem;
   }
 }
