@@ -1,34 +1,3 @@
-// Animação Lottie do "N"
-document.addEventListener("DOMContentLoaded", function () {
-  if (typeof lottie !== 'undefined') {
-    lottie.loadAnimation({
-      container: document.getElementById('nAnimation'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'js/nexos-neon-n.json' // Caminho correto para o JSON
-    });
-  } else {
-    console.warn('Lottie não foi carregado.');
-  }
-});
-
-// Código para alternar o menu no modo móvel
-document.getElementById('menuToggle').addEventListener('click', function() {
-  document.querySelector('.navbar').classList.toggle('show');
-});
-
-menuToggle.addEventListener('click', () => {
-  navbar.classList.toggle('active');
-  if (navbar.classList.contains('active')) {
-    navbar.style.height = 'auto';
-    navbar.style.backgroundColor = '#0066ff';
-  } else {
-    navbar.style.height = '0';
-    navbar.style.backgroundColor = 'transparent';
-  }
-});
-
 // Botão voltar ao topo
 const btnTopo = document.createElement('button');
 btnTopo.id = 'btnTopo';
@@ -67,4 +36,4 @@ btnTopo.addEventListener('click', () => {
 AOS.init({
   duration: 800,
   easing: 'ease-in-out',
- 
+});
