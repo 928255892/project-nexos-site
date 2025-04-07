@@ -13,9 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Menu mobile
-const menuToggle = document.querySelector('#menuToggle');
-const navbar = document.querySelector('.navbar');
+// Código para alternar o menu no modo móvel
+document.getElementById('menuToggle').addEventListener('click', function() {
+  document.querySelector('.navbar').classList.toggle('show');
+});
 
 menuToggle.addEventListener('click', () => {
   navbar.classList.toggle('active');
