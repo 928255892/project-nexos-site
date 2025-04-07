@@ -1,3 +1,27 @@
+// Função para copiar o texto para a área de transferência
+document.querySelectorAll('.btn-copiar').forEach(button => {
+  button.addEventListener('click', function() {
+    const targetId = this.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const range = document.createRange();
+      range.selectNode(targetElement);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+
+      try {
+        document.execCommand('copy');
+        alert('Código copiado com sucesso!');
+      } catch (err) {
+        alert('Falha ao copiar!');
+      }
+
+      window.getSelection().removeAllRanges();
+    }
+  });
+});
+
 // Botão voltar ao topo
 const btnTopo = document.createElement('button');
 btnTopo.id = 'btnTopo';
