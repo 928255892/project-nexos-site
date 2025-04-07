@@ -5,35 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Nexos</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="top-bar">
     <div class="logo">Project Nexos</div>
     <nav class="desktop-menu">
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#contato">Contato</a>
     </nav>
-    <div class="mobile-menu-icon" onclick="toggleMobileMenu()">☰</div>
-    <nav class="mobile-menu" id="mobileMenu">
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
 
-  <section class="hero">
-    <h1>Bem-vindo ao Project Nexos</h1>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section class="hero center">
+    <h1>Bem-vindo ao <span>Project Nexos</span></h1>
     <p>Conectando inovação, inteligência e soluções em um só lugar.</p>
   </section>
 
-  <section id="sobre">
+  <section class="sobre center" id="sobre">
     <h2>Sobre o Project Nexos</h2>
     <p>O Project Nexos é uma plataforma inovadora que integra tecnologia e criatividade para transformar ideias em soluções práticas.</p>
   </section>
 
-  <section id="servicos">
+  <section class="servicos center" id="servicos">
     <h2>Serviços</h2>
     <ul>
       <li>Consultoria estratégica</li>
@@ -42,30 +45,29 @@
     </ul>
   </section>
 
-  <section id="diferencial">
+  <section class="diferencial center">
     <h2>Nexos Intelligence</h2>
     <p>Missão, Visão e Valores que impulsionam nossa jornada.</p>
   </section>
 
-  <section id="contato">
+  <section class="contato center" id="contato">
     <h2>Contato</h2>
-    <p>Entre em contato conosco: contato@projectnexos.com</p>
+    <p>Entre em contato conosco: <a href="mailto:contato@projectnexos.com">contato@projectnexos.com</a></p>
   </section>
 
-  <section class="institucional">
-    <div class="acesso-rapido">
+  <footer class="rodape">
+    <div class="rodape-links">
       <h3>Acesso Rápido</h3>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#contato">Contato</a>
+      <div class="auth-links">
+        <a href="#login">Login</a> | <a href="#cadastro">Cadastro</a>
+      </div>
     </div>
-    <div class="login-cadastro">
-      <a href="#">Login</a> | <a href="#">Cadastro</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Project Nexos. Todos os direitos reservados.</p>
+    <div class="copyright">© 2025 Project Nexos. Todos os direitos reservados.</div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
