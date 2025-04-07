@@ -1,158 +1,434 @@
-/* Global Styles */
+/* ======= Fonte base ======= */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1c1c1e;
+  background-color: #f8f9fb;
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
+/* ======= Cores do modelo 2 ======= */
+:root {
+  --azul-primario: #0066ff;
+  --azul-claro: #d6e5ff;
+  --cinza-claro: #f0f2f5;
+  --preto: #1c1c1e;
+  --branco: #ffffff;
+  --borda-radius: 12px;
+}
+
+/* ======= Containers ======= */
 .container {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-h1, h2, h3 {
-    color: #333;
+/* ======= Cabeçalho ======= */
+header {
+  background: var(--branco);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 2px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-p {
-    color: #666;
+.logo {
+  font-size: 1.3rem;
+  color: var(--azul-primario);
+  font-weight: 600;
 }
 
-/* Hero Section */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar a {
+  color: var(--preto);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--azul-primario);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--azul-primario);
+}
+
 .hero {
-    background: url('inovação.webp') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 100px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 0;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/inovação1.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px) brightness(0.6);
+  z-index: -1;
 }
 
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 1em;
+.hero-content {
+  flex: 1;
+  color: var(--branco);
+  z-index: 1;
 }
 
-.cta-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
 }
 
-/* Sobre Section */
-.sobre {
-    background-color: white;
-    padding: 50px 0;
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
 }
 
-.sobre h2 {
-    font-size: 2em;
-    text-align: center;
+.btn {
+  background: var(--azul-primario);
+  color: var(--branco);
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--borda-radius);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
-/* Serviços Section */
-.servicos {
-    background-color: #f9f9f9;
-    padding: 50px 0;
+.btn:hover {
+  background: #0051cc;
 }
 
-.servicos h2 {
-    text-align: center;
-    font-size: 2em;
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+  z-index: 1;
 }
 
-.card {
-    display: inline-block;
-    width: 30%;
-    background-color: white;
-    margin: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.hero-image img {
+  width: 100%;
+  border-radius: var(--borda-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.card h3 {
-    font-size: 1.5em;
+.section {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Diferenciais Section */
-.diferenciais {
-    background-color: #e9ecef;
-    padding: 50px 0;
+.section h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--azul-primario);
 }
 
-.diferenciais h2 {
-    text-align: center;
-    font-size: 2em;
+.section p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.diferencial-item {
-    margin: 20px 0;
-    text-align: center;
-    font-size: 1.2em;
+.section.light {
+  background-color: var(--cinza-claro);
+  background-image: url('img/tech-texture.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
 }
 
-/* Nexos Intelligence Section */
-.nexos-intelligence {
-    background-color: white;
-    padding: 50px 0;
+.servicos-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-.nexos-intelligence h2 {
-    text-align: center;
-    font-size: 2em;
+.servico {
+  background: var(--branco);
+  padding: 30px;
+  border-radius: var(--borda-radius);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  flex: 1 1 250px;
+  transition: transform 0.3s ease;
 }
 
-/* Missão, Visão e Valores Section */
-.missao-visao-valores {
-    background-color: #f9f9f9;
-    padding: 50px 0;
+.servico:hover {
+  transform: translateY(-6px);
 }
 
-.missao-visao-valores h2 {
-    text-align: center;
-    font-size: 2em;
+.servico i {
+  font-size: 2rem;
+  color: var(--azul-primario);
+  margin-bottom: 20px;
 }
 
-.missao, .visao, .valores {
-    text-align: center;
-    margin: 20px;
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.missao h3, .visao h3, .valores h3 {
-    font-size: 1.5em;
+form input,
+form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: var(--borda-radius);
+  font-size: 1rem;
+  resize: none;
 }
 
-/* Contato Section */
-.contato {
-    background-color: white;
-    padding: 50px 0;
-    text-align: center;
+form button {
+  background: var(--azul-primario);
+  color: var(--branco);
+  border: none;
+  padding: 12px;
+  border-radius: var(--borda-radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Rodapé */
-.rodape {
-    background-color: #343a40;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+form button:hover {
+  background: #0051cc;
 }
 
-/* Responsividade */
+footer {
+  background: var(--azul-primario);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.diferenciais-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.diferencial {
+  background: var(--branco);
+  padding: 30px;
+  border-radius: var(--borda-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  flex: 1 1 250px;
+  transition: transform 0.3s ease;
+}
+
+.diferencial:hover {
+  transform: translateY(-6px);
+}
+
+.diferencial i {
+  font-size: 2rem;
+  color: var(--azul-primario);
+  margin-bottom: 15px;
+}
+
+.diferencial h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--preto);
+}
+
+.diferencial p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.intelligence-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intelligence-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.intelligence-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.intelligence-image img {
+  width: 100%;
+  border-radius: var(--borda-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mission {
+  background-color: rgba(0, 102, 255, 0.1);
+}
+
+.mission-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.mission-item {
+  flex: 1;
+  margin: 10px;
+}
+
+.mission-item i {
+  font-size: 2rem;
+  color: var(--azul-primario);
+  margin-bottom: 10px;
+}
+
+.mission-item h3 {
+  font-size: 1.2rem;
+  color: var(--preto);
+}
+
+.mission-item p {
+  font-size: 1rem;
+  color: #444;
+}
+
 @media (max-width: 768px) {
-    .card {
-        width: 100%;
-        margin: 10px 0;
-    }
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .container {
-        width: 100%;
-        padding: 0 15px;
-    }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+  }
+
+  .navbar.active ul {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .servico {
+    padding: 20px;
+  }
+
+  .servico i {
+    font-size: 1.5rem;
+  }
+
+  .diferencial {
+    padding: 20px;
+  }
+
+  .diferencial i {
+    font-size: 1.5rem;
+  }
+
+  .intelligence-content {
+    flex-direction: column;
+  }
+
+  .intelligence-text {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .mission-grid {
+    flex-direction: column;
+  }
+
+  .mission-item {
+    margin: 10px 0;
+  }
 }
