@@ -1,108 +1,195 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Nexos</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Nexos - Sugestão 1</title>
+
+  <!-- Fonte Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Animações AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+  <!-- CSS Integrado -->
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1 class="logo">Project Nexos</h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferencial">Nosso Diferencial</a></li>
+          <li><a href="#intelligence">Nexos Intelligence</a></li>
+          <li><a href="#missao">Missão, Visão e Valores</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#login">Login</a></li>
+          <li><a href="#cadastro">Cadastro</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Conectando Inovação ao Futuro</h1>
-            <p>Uma nova era de soluções inteligentes começa aqui.</p>
-            <a href="#sobre" class="cta-btn">Saiba Mais</a>
+  <section class="hero" data-aos="fade-up">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Conectando ideias. Facilitando inovações.</h2>
+        <p>A plataforma que integra projetos, design e colaboração em um só lugar.</p>
+        <a href="#servicos" class="btn">Explorar</a>
+      </div>
+      <div class="hero-image">
+        <img src="img/inovação.webp" alt="Tecnologia e inovação - Project Nexos"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Sobre o Project Nexos</h2>
+      <p>Uma plataforma completa para criar, gerenciar e compartilhar projetos com sua equipe em tempo real.</p>
+    </div>
+  </section>
+
+  <section id="servicos" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>Serviços</h2>
+      <div class="servicos-grid">
+        <div class="servico" data-aos="zoom-in">
+          <i class="fas fa-clipboard-list"></i>
+          <h3>Gerenciamento</h3>
+          <p>Planeje e acompanhe suas tarefas com clareza.</p>
         </div>
-    </section>
-
-    <!-- Sobre Section -->
-    <section id="sobre" class="sobre">
-        <div class="container">
-            <h2>Sobre o Project Nexos</h2>
-            <p>O Project Nexos é uma plataforma inteligente que conecta inovação, eficiência e tecnologia de forma integrada e intuitiva.</p>
+        <div class="servico" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-pencil-ruler"></i>
+          <h3>Design Integrado</h3>
+          <p>Crie designs direto na plataforma com a ferramenta Vectora.</p>
         </div>
-    </section>
-
-    <!-- Serviços Section -->
-    <section class="servicos">
-        <div class="container">
-            <h2>Serviços</h2>
-            <div class="card">
-                <h3>Integração Inteligente</h3>
-                <p>Conectamos dados e soluções com precisão.</p>
-            </div>
-            <div class="card">
-                <h3>Design Futurista</h3>
-                <p>Interfaces pensadas para o amanhã.</p>
-            </div>
-            <div class="card">
-                <h3>Automação Eficiente</h3>
-                <p>Menos esforço, mais resultado.</p>
-            </div>
+        <div class="servico" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-users"></i>
+          <h3>Colaboração</h3>
+          <p>Trabalhe com sua equipe em tempo real de forma simples.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Nosso Diferencial Section -->
-    <section class="diferenciais">
-        <div class="container">
-            <h2>Nossos Diferenciais</h2>
-            <div class="diferencial-item">
-                <h3>🔒 Segurança Avançada</h3>
-            </div>
-            <div class="diferencial-item">
-                <h3>⚡ Performance Otimizada</h3>
-            </div>
-            <div class="diferencial-item">
-                <h3>🌐 Conectividade Total</h3>
-            </div>
-            <div class="diferencial-item">
-                <h3>🧠 Inteligência Integrada</h3>
-            </div>
+  <section id="diferencial" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>O diferencial do Project Nexos</h2>
+      <p>Mais do que uma plataforma — uma nova forma de conectar ideias, times e inovação. Conheça o que torna o Project Nexos único.</p>
+      
+      <div class="diferenciais-grid">
+        <div class="diferencial" data-aos="zoom-in">
+          <i class="fas fa-network-wired"></i>
+          <h3>Integração Total</h3>
+          <p>Gerencie projetos, crie designs e colabore em tempo real, tudo em um só lugar.</p>
         </div>
-    </section>
-
-    <!-- Nexos Intelligence Section -->
-    <section id="nexos-intelligence" class="nexos-intelligence">
-        <div class="container">
-            <h2>Nexos Intelligence</h2>
-            <p>Soluções baseadas em dados, inteligência artificial e automação para transformar ideias em realidades sustentáveis.</p>
+        <div class="diferencial" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-brain"></i>
+          <h3>Inteligência Estratégica</h3>
+          <p>Com o Nexos Intelligence, decisões são guiadas por visão, inovação e análise.</p>
         </div>
-    </section>
-
-    <!-- Missão, Visão e Valores Section -->
-    <section class="missao-visao-valores">
-        <div class="container">
-            <h2>Missão, Visão e Valores</h2>
-            <div class="missao">
-                <h3>Missão</h3>
-                <p>Capacitar pessoas e negócios com soluções inteligentes.</p>
-            </div>
-            <div class="visao">
-                <h3>Visão</h3>
-                <p>Ser referência em inovação digital em mercados emergentes.</p>
-            </div>
-            <div class="valores">
-                <h3>Valores</h3>
-                <p>Ética, inovação contínua e excelência em tudo que fazemos.</p>
-            </div>
+        <div class="diferencial" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-lock"></i>
+          <h3>Segurança e Confidencialidade</h3>
+          <p>Protegemos suas ideias com protocolos de segurança e privacidade avançados.</p>
         </div>
-    </section>
-
-    <!-- Contato Section -->
-    <section class="contato">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <p>Email: contato@projectnexos.com</p>
+        <div class="diferencial" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-user-secret"></i>
+          <h3>Identidade Discreta</h3>
+          <p>Valorizamos a essência dos projetos, não a exposição pública.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Rodapé -->
-    <footer class="rodape">
-        <p>© 2025 Project Nexos. Todos os direitos reservados.</p>
-    </footer>
+  <section id="intelligence" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Nexos Intelligence</h2>
+      <div class="intelligence-content">
+        <div class="intelligence-text">
+          <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
+        </div>
+        <div class="intelligence-image">
+          <img src="img/intelligence-graphic.webp" alt="Nexos Intelligence"/>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section id="missao" class="section mission" data-aos="fade-up">
+    <div class="container">
+      <h2>Missão, Visão e Valores</h2>
+      <div class="mission-grid">
+        <div class="mission-item">
+          <i class="fas fa-bullseye"></i>
+          <h3>Missão</h3>
+          <p>Conectar ideias e facilitar inovações.</p>
+        </div>
+        <div class="mission-item">
+          <i class="fas fa-eye"></i>
+          <h3>Visão</h3>
+          <p>Ser a plataforma líder em integração de projetos.</p>
+        </div>
+        <div class="mission-item">
+          <i class="fas fa-heart"></i>
+          <h3>Valores</h3>
+          <p>Inovação, Colaboração, Segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>Contato</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu email" required />
+        <textarea placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="login" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Login</h2>
+      <form>
+        <input type="email" placeholder="Seu email" required />
+        <input type="password" placeholder="Sua senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="cadastro" class="section light" data-aos="fade-up">
+    <div class="container">
+      <h2>Cadastro</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu email" required />
+        <input type="password" placeholder="Sua senha" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p style="font-size: 0.6rem;">© 2025 Project Nexos. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
