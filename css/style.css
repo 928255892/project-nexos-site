@@ -1,131 +1,131 @@
-/* Reset e estrutura base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a0a0a;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0a0f1c;
   color: #ffffff;
   line-height: 1.6;
 }
 
-/* Cabeçalho */
-header {
-  background-color: #ffffff;
-  color: #000000;
+a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.top-bar {
+  background: #ffffff;
+  color: #000;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 50px;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 
-nav.desktop-menu a,
-nav.mobile-menu a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #000000;
+.desktop-menu {
+  display: flex;
+  gap: 20px;
 }
 
-.mobile-menu-icon {
+.menu-icon {
   display: none;
   font-size: 24px;
   cursor: pointer;
 }
 
-nav.mobile-menu {
+.mobile-menu {
   display: none;
   flex-direction: column;
-  background-color: #ffffff;
-  padding: 10px;
-  position: absolute;
-  top: 60px;
-  right: 20px;
+  background: #1c2333;
+  padding: 15px;
 }
 
-nav.mobile-menu a {
-  margin: 10px 0;
+.mobile-menu a {
+  color: white;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
 }
 
-/* 🔧 Todas as seções agora centralizadas e com espaçamento vertical otimizado */
-section {
+.hero, .sobre, .servicos, .diferencial, .contato {
+  min-height: 80vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: #1da1f2;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #1da1f2;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 8px 0;
+}
+
+footer.rodape {
+  background: #0e1525;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
+.rodape-links {
+  margin-bottom: 10px;
+}
+
+.rodape-links a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.auth-links {
+  margin-top: 5px;
+}
+
+.center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
-  min-height: 80vh;
-  text-align: center;
 }
 
-/* 🔧 Hero com fundo */
-.hero {
-  background: url('inovacao1.webp') center/cover no-repeat;
-  color: #ffffff;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-/* 🔧 Redução de altura da barra inferior e superior */
-footer, .institucional {
-  min-height: auto;
-  padding: 40px 20px;
-}
-
-/* 🔧 Rodapé e institucional */
-footer {
-  background-color: #001f3f;
-  text-align: center;
-  font-size: 0.8rem;
-}
-
-.institucional {
-  background-color: #003366;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.institucional a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 5px;
-}
-
-/* 🔧 Frases destacadas em azul (títulos de seção) com tamanho reduzido */
-h2, h3 {
-  color: #00aaff;
-  font-size: 1.6rem;
-}
-
-/* Responsividade */
+/* Responsivo */
 @media (max-width: 768px) {
-  .mobile-menu-icon {
-    display: block;
-  }
-
-  nav.desktop-menu {
+  .desktop-menu {
     display: none;
   }
 
-  section {
-    padding: 40px 16px;
-    min-height: auto;
+  .menu-icon {
+    display: block;
   }
 
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  footer {
-    font-size: 0.7rem;
+  .mobile-menu.show {
+    display: flex;
   }
 }
