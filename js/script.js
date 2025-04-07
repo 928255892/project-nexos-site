@@ -37,3 +37,20 @@ AOS.init({
   duration: 800,
   easing: 'ease-in-out',
 });
+// Botão "Copiar"
+document.querySelectorAll('.btn-copiar').forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const texto = document.getElementById(targetId).innerText;
+
+    navigator.clipboard.writeText(texto)
+      .then(() => {
+        button.textContent = 'Copiado!';
+        setTimeout(() => button.textContent = 'Copiar', 2000);
+      })
+      .catch(() => {
+        button.textContent = 'Erro';
+        setTimeout(() => button.textContent = 'Copiar', 2000);
+      });
+  });
+});
