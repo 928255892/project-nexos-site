@@ -1,10 +1,6 @@
-// script.js
-
-// Este script é reservado para funcionalidades futuras
-// Exemplo: Scroll suave, abertura de menus, integração com backend etc.
-
+// script.js — funcionalidades básicas para interação
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll suave para âncoras
+  // Scroll suave ao clicar nos links de navegação com hash #
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
