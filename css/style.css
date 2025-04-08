@@ -24,7 +24,7 @@ body {
 /* Cabeçalho */
 header {
   background-color: #fff;
-  padding: 10px 0;
+  padding: 5px 0; /* Altura reduzida */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -32,14 +32,14 @@ header {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1rem; /* Tamanho da fonte reduzido */
   font-weight: 600;
   color: #0077ff;
 }
 
 .navbar ul {
   display: flex;
-  gap: 25px;
+  gap: 15px; /* Reduzido para compactar os itens */
   list-style: none;
 }
 
@@ -47,6 +47,7 @@ header {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: 0.9rem; /* Tamanho da fonte reduzido */
   transition: color 0.3s;
 }
 
@@ -70,7 +71,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to bottom right, #e1ecf9, #f0f4f8);
-  padding: 80px 20px;
+  padding: 60px 20px; /* Altura reduzida */
   position: relative;
 }
 
@@ -92,21 +93,21 @@ header {
 }
 
 .hero-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem; /* Tamanho da fonte reduzido */
+  margin-bottom: 15px; /* Margem ajustada */
   color: #fff;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Tamanho da fonte reduzido */
   color: #f0f0f0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .hero .btn {
   background-color: #0077ff;
   color: white;
-  padding: 12px 25px;
+  padding: 10px 20px; /* Botão com tamanho reduzido */
   border: none;
   border-radius: 30px;
   font-weight: bold;
@@ -155,14 +156,14 @@ header {
 .diferenciais-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px; /* Reduzido para otimizar o espaço */
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px; /* Reduzido */
 }
 
 .servico, .diferencial {
   background-color: white;
-  padding: 30px;
+  padding: 20px; /* Reduzido */
   border-radius: 10px;
   flex: 1 1 250px;
   max-width: 300px;
@@ -182,7 +183,7 @@ header {
 
 .servico h3, .diferencial h3 {
   margin-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem; /* Tamanho da fonte reduzido */
 }
 
 /* Formulários */
@@ -262,7 +263,7 @@ footer {
   background-color: #0077ff;
   color: white;
   text-align: center;
-  padding: 10px 0;
+  padding: 5px 0; /* Reduzido */
 }
 
 footer p {
