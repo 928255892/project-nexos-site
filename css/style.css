@@ -33,7 +33,7 @@ body {
 header {
   background: var(--branco);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 2px 0; /* Ajustado */
+  padding: 2px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -62,7 +62,7 @@ header {
 .navbar a {
   color: var(--preto);
   text-decoration: none;
-  font-weight: 600; /* Realce */
+  font-weight: 600;
   transition: color 0.3s;
 }
 
@@ -70,14 +70,7 @@ header {
   color: var(--azul-primario);
 }
 
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1rem; /* Reduzido */
-  color: var(--azul-primario); /* Cor ajustada */
-}
-
+/* ======= Hero Section ======= */
 .hero {
   position: relative;
   display: flex;
@@ -147,6 +140,7 @@ header {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* ======= Seções ======= */
 .section {
   padding: 80px 0;
   position: relative;
@@ -154,7 +148,7 @@ header {
 }
 
 .section h2 {
-  font-size: 1.8rem; /* Reduzido */
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 40px;
   color: var(--azul-primario);
@@ -235,11 +229,12 @@ form button:hover {
   background: #0051cc;
 }
 
+/* ======= Rodapé ======= */
 footer {
   background: var(--azul-primario);
   color: var(--branco);
   text-align: center;
-  padding: 10px; /* Ajustado */
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,10 +242,10 @@ footer {
 
 footer p {
   margin: 0 auto;
-  text-align: center;
-  font-size: 0.75rem; /* Ajustado */
+  font-size: 0.75rem;
 }
 
+/* ======= Diferenciais ======= */
 .diferenciais-grid {
   display: flex;
   gap: 40px;
@@ -267,14 +262,39 @@ footer p {
   flex: 1 1 250px;
 }
 
-/* ======= Responsividade ======= */
+/* ======= Bloco Copiar ======= */
+.copiar-bloco {
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.btn-copiar {
+  background-color: #0066ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-copiar:hover {
+  background-color: #0044cc;
+}
+
+#copiadoFeedback {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* ======= Responsivo ======= */
 @media (max-width: 768px) {
   .navbar {
     display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
   }
 
   .hero-content h2 {
@@ -293,69 +313,3 @@ footer p {
     font-size: 1.5rem;
   }
 }
-.btn-copiar {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #0066ff;
-  color: #fff;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.3s;
-}
-
-.btn-copiar {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #0066ff;
-  color: #fff;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.3s;
-}
-
-.btn-copiar:hover {
-  background-color: #004cc4;
-}
-/* Outros estilos do seu site */
-
-/* Estilo do bloco de copiar */
-.copiar-bloco {
-  margin: 20px 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-/* Estilo do botão de copiar */
-.btn-copiar {
-  background-color: #0066ff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-/* Efeito ao passar o mouse (hover) */
-.btn-copiar:hover {
-  background-color: #0044cc;
-}
-
-/* Feedback de "copiado!" */
-#copiadoFeedback {
-  font-size: 14px;
-  margin-left: 10px;
-  color: #28a745;
-  font-weight: bold;
-}
-
-/* Outros estilos adicionais do seu site */
