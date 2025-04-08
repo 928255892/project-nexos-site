@@ -25,6 +25,7 @@ body {
 header {
   background-color: #fff;
   padding: 2px 0; /* Altura reduzida ao máximo */
+  margin: 0; /* Remover margens extras */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -264,6 +265,7 @@ footer {
   color: white;
   text-align: center;
   padding: 2px 0; /* Altura reduzida ao máximo */
+  margin: 0; /* Remover margens extras */
 }
 
 footer p {
