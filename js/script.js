@@ -22,6 +22,7 @@ btnTopo.id = 'btnTopo';
 btnTopo.innerHTML = '&#8679;';
 document.body.appendChild(btnTopo);
 
+// Estilo do botão de voltar ao topo
 btnTopo.style.position = 'fixed';
 btnTopo.style.bottom = '17px';
 btnTopo.style.right = '12px';
@@ -35,10 +36,12 @@ btnTopo.style.cursor = 'pointer';
 btnTopo.style.display = 'none';
 btnTopo.style.zIndex = '999';
 
+// Exibir o botão "Voltar ao Topo" após rolar 300px
 window.addEventListener('scroll', () => {
   btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
+// Função de rolar para o topo suavemente
 btnTopo.addEventListener('click', () => {
   window.scrollTo({
     top: 0,
