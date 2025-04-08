@@ -49,8 +49,9 @@ btnTopo.addEventListener('click', () => {
   });
 });
 
-// Inicializar animações AOS
+// Inicializando AOS com maior velocidade de animação
 AOS.init({
-  duration: 800,
+  duration: 500, // Duração de 500ms para uma animação mais rápida
   easing: 'ease-in-out',
 });
+
