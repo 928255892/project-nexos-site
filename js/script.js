@@ -51,7 +51,7 @@ btnTopo.addEventListener('click', () => {
 
 // Inicializando AOS com maior velocidade de animação
 AOS.init({
-  duration: 300, // Duração de 300ms para uma animação mais rápida
+  duration: 100, // Duração de 100ms para uma animação mais rápida
   easing: 'ease-in-out',
 });
 
