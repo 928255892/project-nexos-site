@@ -59,17 +59,17 @@
       <h2>Serviços</h2>
       <div class="container">
         <div class="servicos-grid">
-          <div class="servico" data-aos="zoom-in">
+          <div class="servico" data-aos="zoom-in" data-aos-delay="100">
             <i class="fas fa-clipboard-list"></i>
             <h3>Gerenciamento</h3>
             <p>Planeje e acompanhe suas tarefas com clareza.</p>
           </div>
-          <div class="servico" data-aos="zoom-in" data-aos-delay="100">
+          <div class="servico" data-aos="zoom-in" data-aos-delay="200">
             <i class="fas fa-pencil-ruler"></i>
             <h3>Design Integrado</h3>
             <p>Crie designs direto na plataforma com a ferramenta Vectora.</p>
           </div>
-          <div class="servico" data-aos="zoom-in" data-aos-delay="200">
+          <div class="servico" data-aos="zoom-in" data-aos-delay="300">
             <i class="fas fa-users"></i>
             <h3>Colaboração</h3>
             <p>Trabalhe com sua equipe em tempo real de forma simples.</p>
@@ -83,22 +83,22 @@
       <p>Mais do que uma plataforma — uma nova forma de conectar ideias, times e inovação. Conheça o que torna o Project Nexos único.</p>
       <div class="container">
         <div class="diferenciais-grid">
-          <div class="diferencial" data-aos="zoom-in">
+          <div class="diferencial" data-aos="zoom-in" data-aos-delay="100">
             <i class="fas fa-network-wired"></i>
             <h3>Integração Total</h3>
             <p>Gerencie projetos, crie designs e colabore em tempo real, tudo em um só lugar.</p>
           </div>
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="100">
+          <div class="diferencial" data-aos="zoom-in" data-aos-delay="200">
             <i class="fas fa-brain"></i>
             <h3>Inteligência Estratégica</h3>
             <p>Com o Nexos Intelligence, decisões são guiadas por visão, inovação e análise.</p>
           </div>
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="200">
+          <div class="diferencial" data-aos="zoom-in" data-aos-delay="300">
             <i class="fas fa-lock"></i>
             <h3>Segurança e Confidencialidade</h3>
             <p>Protegemos suas ideias com protocolos de segurança e privacidade avançados.</p>
           </div>
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="300">
+          <div class="diferencial" data-aos="zoom-in" data-aos-delay="400">
             <i class="fas fa-user-secret"></i>
             <h3>Identidade Discreta</h3>
             <p>Valorizamos a essência dos projetos, não a exposição pública. Foco total nos resultados.</p>
@@ -120,13 +120,13 @@
     </section>
 
     <section id="institucional" class="section light" data-aos="fade-up">
-      <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">Nexos Intelligence</h2>
+      <h2>Nexos Intelligence</h2>
       <div class="container">
         <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
       </div>
     </section>
 
-    <section id="login" class="section" data-aos="fade-up">
+    <section id="login" class="section" data-aos="none">
       <h2>Login</h2>
       <div class="container">
         <form action="#" method="post">
@@ -137,7 +137,7 @@
       </div>
     </section>
 
-    <section id="cadastro" class="section light" data-aos="fade-up">
+    <section id="cadastro" class="section light" data-aos="none">
       <h2>Cadastro</h2>
       <div class="container">
         <form action="#" method="post">
@@ -171,7 +171,14 @@
   <!-- Scripts -->
   <script src="js/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    AOS.init({
+      duration: 800,  // Duração da animação
+      easing: 'ease-in-out',  // Tipo de transição
+      once: true,  // Animação ocorre apenas uma vez
+      offset: 100,  // Início da animação antes de alcançar a posição do elemento
+    });
+  </script>
 
 </body>
 </html>
