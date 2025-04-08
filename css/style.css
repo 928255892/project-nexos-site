@@ -24,7 +24,7 @@ body {
 /* Cabeçalho */
 header {
   background-color: #fff;
-  padding: 1px 0; /* Altura reduzida ao máximo */
+  padding: 3px 0; /* Altura reduzida ao máximo */
   margin: 0; /* Remover margens extras */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
