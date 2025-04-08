@@ -1,28 +1,22 @@
-// Função para copiar o texto para a área de transferência
+// Botão de copiar código
 document.querySelectorAll('.btn-copiar').forEach(button => {
-  button.addEventListener('click', function() {
-    const targetId = this.getAttribute('data-target');
-    const targetElement = document.getElementById(targetId);
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const texto = document.getElementById(targetId).innerText;
 
-    if (targetElement) {
-      const range = document.createRange();
-      range.selectNode(targetElement);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-
-      try {
-        document.execCommand('copy');
-        alert('Código copiado com sucesso!');
-      } catch (err) {
-        alert('Falha ao copiar!');
-      }
-
-      window.getSelection().removeAllRanges();
-    }
+    navigator.clipboard.writeText(texto)
+      .then(() => {
+        button.textContent = 'Copiado!';
+        setTimeout(() => button.textContent = 'Copiar', 2000);
+      })
+      .catch(() => {
+        button.textContent = 'Erro';
+        setTimeout(() => button.textContent = 'Copiar', 2000);
+      });
   });
 });
 
-// Botão voltar ao topo
+// Botão "Voltar ao Topo"
 const btnTopo = document.createElement('button');
 btnTopo.id = 'btnTopo';
 btnTopo.innerHTML = '&#8679;';
@@ -42,11 +36,7 @@ btnTopo.style.display = 'none';
 btnTopo.style.zIndex = '999';
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    btnTopo.style.display = 'block';
-  } else {
-    btnTopo.style.display = 'none';
-  }
+  btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
 btnTopo.addEventListener('click', () => {
@@ -60,21 +50,4 @@ btnTopo.addEventListener('click', () => {
 AOS.init({
   duration: 800,
   easing: 'ease-in-out',
-});
-// Botão "Copiar"
-document.querySelectorAll('.btn-copiar').forEach(button => {
-  button.addEventListener('click', () => {
-    const targetId = button.getAttribute('data-target');
-    const texto = document.getElementById(targetId).innerText;
-
-    navigator.clipboard.writeText(texto)
-      .then(() => {
-        button.textContent = 'Copiado!';
-        setTimeout(() => button.textContent = 'Copiar', 2000);
-      })
-      .catch(() => {
-        button.textContent = 'Erro';
-        setTimeout(() => button.textContent = 'Copiar', 2000);
-      });
-  });
 });
