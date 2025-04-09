@@ -1,5 +1,5 @@
 /* ================================
-   VARIÁVEIS DE CORES E GERAIS
+   VARIÁVEIS E GERAIS
    ================================ */
 :root {
   --cor-primaria: #0a192f;
@@ -11,25 +11,40 @@
   --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: var(--fonte);
   background-color: var(--cor-fundo);
   color: var(--cor-branco);
+  position: relative;
 }
 
 /* ================================
-   PADRÃO DE FUNDO VETORIAL GLOBAL
+   FUNDO VETORIAL GLOBAL
    ================================ */
 .bg-vetorial {
   background-image: url("img/bg-nexos-pattern.svg");
   background-repeat: repeat;
   background-size: contain;
   opacity: 0.05;
-  pointer-events: none;
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
+}
+
+/* ================================
+   CONTAINER
+   ================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* ================================
@@ -37,25 +52,20 @@ body {
    ================================ */
 .header {
   background-color: var(--cor-primaria);
-  padding: 20px;
-}
-
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .logo {
   color: var(--cor-destaque);
   font-size: 1.5em;
+  font-weight: bold;
   text-decoration: none;
 }
 
 .menu ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 20px;
 }
@@ -71,14 +81,13 @@ body {
 }
 
 /* ================================
-   HERO COM SOBREPOSIÇÃO E PADRÃO
+   HERO
    ================================ */
 .hero {
-  position: relative;
   background-image: url("img/inovação1.webp");
   background-size: cover;
   background-position: center;
-  color: var(--cor-branco);
+  position: relative;
   text-align: center;
   padding: 100px 20px;
   overflow: hidden;
@@ -86,7 +95,7 @@ body {
 
 .hero::before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -108,16 +117,30 @@ body {
   z-index: 3;
 }
 
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: var(--cor-destaque);
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 /* ================================
    SEÇÕES GERAIS
    ================================ */
 section {
   padding: 80px 20px;
   text-align: center;
+  position: relative;
+  z-index: 5;
 }
 
 section h2 {
-  font-size: 2em;
+  font-size: 2.2em;
   margin-bottom: 20px;
   color: var(--cor-destaque);
 }
@@ -140,7 +163,7 @@ ul li {
 }
 
 /* ================================
-   RODAPÉ COM CIRCUITO
+   RODAPÉ COM VETOR
    ================================ */
 .footer {
   background-color: var(--cor-primaria);
@@ -168,4 +191,8 @@ ul li {
 .footer .container {
   position: relative;
   z-index: 2;
+}
+
+.footer p {
+  font-size: 0.9em;
 }
