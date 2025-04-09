@@ -1,39 +1,52 @@
-// Função para copiar o conteúdo do código para a área de transferência
+/* ========================================
+   Project Nexos – script.js
+   Funcionalidades Interativas e Animações
+======================================== */
+
+/* =======================
+   Copiar Código para Área de Transferência
+======================= */
 const copiarBtn = document.querySelector('.btn-copiar');
 const copiarBloco = document.querySelector('.copiar-bloco pre');
 const copiadoFeedback = document.querySelector('#copiadoFeedback');
 
-if (copiarBtn && copiarBloco) {
+if (copiarBtn && copiarBloco && copiadoFeedback) {
   copiarBtn.addEventListener('click', () => {
     const texto = copiarBloco.textContent;
     navigator.clipboard.writeText(texto).then(() => {
-      copiadoFeedback.style.display = 'inline'; // Exibe o feedback
+      copiadoFeedback.style.display = 'inline';
       setTimeout(() => {
-        copiadoFeedback.style.display = 'none'; // Esconde após 2 segundos
+        copiadoFeedback.style.display = 'none';
       }, 2000);
     }).catch(err => {
-      console.error('Erro ao copiar texto: ', err);
+      console.error('Erro ao copiar texto:', err);
     });
   });
 }
 
-// Função para carregar animações AOS
+/* =======================
+   Animações com AOS
+======================= */
 AOS.init({
-  duration: 1000,  // Tempo da animação
-  offset: 100,    // Distância até começar a animação
+  duration: 1000,  // Duração das animações
+  offset: 100,     // Distância até iniciar animação
 });
 
-// Exemplo de ação para esconder menu no mobile, se necessário (caso tenha necessidade de algum script para o mobile)
+/* =======================
+   Controle do Menu Mobile (caso necessário)
+======================= */
 const menuBtn = document.querySelector('#menu-btn');
 const menu = document.querySelector('#menu');
 
 if (menuBtn && menu) {
   menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('active'); // Alterna visibilidade do menu
+    menu.classList.toggle('active');
   });
 }
 
-// Função para controle de animação de mudança no logotipo (se necessário)
+/* =======================
+   Efeito de Scroll no Logotipo
+======================= */
 const logo = document.querySelector('.logo');
 
 if (logo) {
