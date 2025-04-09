@@ -1,297 +1,309 @@
-/* Variáveis de Cores */
+/* ==========================================================================
+   VARIÁVEIS GLOBAIS
+   ========================================================================== */
 :root {
-  --cor-principal: #00aaff;
-  --cor-secundaria: #333;
-  --cor-fundo: #f4f4f4;
-  --cor-escuro: #121212;
-  --cor-clara: #ffffff;
-  --cor-circuito: #4c6ef5;
-  --cor-destaque: #ff6363;
+  --cor-principal: #0b0f1a;
+  --cor-secundaria: #0066ff;
+  --cor-destaque: #ffffff;
+  --cor-clara: #f5f7fa;
+  --cor-texto: #1d1f21;
+  --cor-texto-secundario: #555;
+  --cor-botao-hover: #004ccc;
+  --cor-overlay: rgba(0, 0, 0, 0.6);
 }
 
-/* Reset de estilos padrões */
-*,
-*::before,
-*::after {
+/* ==========================================================================
+   RESET E BASE
+   ========================================================================== */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--cor-fundo);
-  color: var(--cor-secundaria);
+  background-color: var(--cor-clara);
+  color: var(--cor-texto);
+  scroll-behavior: smooth;
   line-height: 1.6;
 }
 
-/* Cabeçalho */
-header {
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   CONTAINERS E SEÇÕES
+   ========================================================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section.light {
   background-color: var(--cor-clara);
-  position: relative;
-  padding: 1rem 0;
-  border-bottom: 2px solid var(--cor-escuro);
 }
 
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo {
+h2 {
   font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
   color: var(--cor-principal);
+}
+
+/* ==========================================================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+header {
+  background-color: var(--cor-principal);
+  color: var(--cor-destaque);
+  padding: 20px 0 0;
+  position: relative;
+}
+
+.logo {
+  font-size: 2.2rem;
   font-weight: 600;
 }
 
-header nav ul {
-  display: flex;
-  list-style: none;
-}
-
-header nav ul li {
-  margin: 0 1rem;
-}
-
-header nav ul li a {
-  color: var(--cor-secundaria);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem;
-}
-
-header nav ul li a:hover {
-  color: var(--cor-principal);
-}
-
 #pattern-header {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
   width: 100%;
-  z-index: -1;
+  overflow: hidden;
 }
 
 #pattern-header img {
   width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Hero */
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem 2rem;
-  background-image: url('img/inovação1.webp');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  color: var(--cor-clara);
-}
-
-.hero .hero-content {
-  max-width: 50%;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero .btn {
+.navbar {
   background-color: var(--cor-principal);
-  color: var(--cor-clara);
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 3px;
-}
-
-.hero .hero-image img {
-  max-width: 40%;
-  border-radius: 15px;
-}
-
-.hero .hero-image {
-  text-align: right;
-}
-
-/* Seções */
-.section {
-  padding: 4rem 2rem;
+  padding: 10px 0;
   text-align: center;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
-.section .container {
-  max-width: 1200px;
-  margin: 0 auto;
+.navbar a {
+  color: var(--cor-destaque);
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
+.navbar a:hover {
+  color: var(--cor-secundaria);
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(to bottom, var(--cor-principal), #10131f);
+  color: var(--cor-destaque);
+  text-align: left;
+  position: relative;
+}
+
+.hero .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-content {
+  flex: 1 1 500px;
+  padding: 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  flex: 1 1 400px;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+.btn {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+/* Botão copiar */
+.btn-copiar {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.btn-copiar:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+/* ==========================================================================
+   SERVIÇOS E DIFERENCIAIS
+   ========================================================================== */
 .servicos-grid,
 .diferenciais-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .servico,
 .diferencial {
-  background-color: var(--cor-clara);
-  padding: 2rem;
+  background-color: #ffffff;
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.servico h3,
-.diferencial h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .servico i,
 .diferencial i {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--cor-principal);
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: var(--cor-secundaria);
 }
 
-.servico p,
-.diferencial p {
-  font-size: 1rem;
+/* ==========================================================================
+   FORMULÁRIOS
+   ========================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Formulários */
 input,
 textarea {
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--cor-escuro);
-  border-radius: 5px;
-}
-
-button {
-  background-color: var(--cor-principal);
-  color: var(--cor-clara);
-  border: none;
-  padding: 1rem 3rem;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 12px;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
 }
 
-button:hover {
-  background-color: var(--cor-destaque);
+/* ==========================================================================
+   SEÇÃO NEXOS INTELLIGENCE
+   ========================================================================== */
+.institucional-overlay {
+  background-image: url('../img/intelligence-overlay.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: var(--cor-overlay);
+  color: var(--cor-destaque);
 }
 
-/* Botão Copiar */
+/* ==========================================================================
+   PÁGINAS DE LOGIN / CADASTRO
+   ========================================================================== */
+#login,
+#cadastro {
+  padding-top: 60px;
+}
+
+/* ==========================================================================
+   BLOCO DE CÓDIGO COM COPIAR
+   ========================================================================== */
 .copiar-bloco {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 6px;
+  position: relative;
 }
 
-.copiar-bloco pre {
-  background-color: var(--cor-escuro);
-  color: var(--cor-clara);
-  padding: 1rem;
-  border-radius: 5px;
-  width: 80%;
-  overflow-x: auto;
+pre {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
 }
 
-.copiar-bloco .btn-copiar {
-  background-color: var(--cor-principal);
-  color: var(--cor-clara);
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-#copiadoFeedback {
-  margin-left: 1rem;
-  color: var(--cor-principal);
-  font-size: 1.1rem;
-  display: none;
-}
-
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
 footer {
-  background-color: var(--cor-escuro);
-  color: var(--cor-clara);
-  padding: 2rem 0;
+  background-color: var(--cor-principal);
+  color: var(--cor-destaque);
+  padding: 40px 0 20px;
   text-align: center;
   position: relative;
 }
 
-footer .footer-pattern {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.footer-pattern img {
   width: 100%;
+  display: block;
+  margin-bottom: 20px;
 }
 
-footer .footer-pattern img {
-  width: 100%;
-}
-
-footer p {
-  font-size: 0.8rem;
-  margin: 0;
-}
-
-/* Responsividade */
+/* ==========================================================================
+   RESPONSIVO
+   ========================================================================== */
 @media (max-width: 768px) {
-  .hero {
+  .hero .container {
     flex-direction: column;
     text-align: center;
   }
 
-  .hero .hero-content {
-    max-width: 100%;
-    margin-bottom: 2rem;
+  .hero-content h2 {
+    font-size: 2rem;
   }
 
-  .hero .hero-image img {
-    max-width: 80%;
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
   }
-
-  .servicos-grid,
-  .diferenciais-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Animação AOS */
-[data-aos="fade-up"] {
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-[data-aos="fade-up"].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-[data-aos="zoom-in"] {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-[data-aos="zoom-in"].aos-animate {
-  opacity: 1;
-  transform: scale(1);
 }
