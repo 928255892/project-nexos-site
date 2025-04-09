@@ -1,3 +1,12 @@
+:root {
+  --cor-primaria: #0f172a;
+  --cor-secundaria: #1e293b;
+  --cor-destaque: #38bdf8;
+  --cor-fundo: #0a0f1c;
+  --cor-branco: #ffffff;
+  --cor-cinza: #94a3b8;
+}
+
 /* ================================
    VARIÁVEIS E GERAIS
    ================================ */
