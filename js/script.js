@@ -27,9 +27,11 @@ if (copiarBtn && copiarBloco && copiadoFeedback) {
 /* =======================
    Animações com AOS
 ======================= */
-AOS.init({
-  duration: 1000,  // Duração das animações
-  offset: 100,     // Distância até iniciar animação
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({
+    duration: 1000,  // Duração das animações
+    offset: 100      // Distância até iniciar animação
+  });
 });
 
 /* =======================
