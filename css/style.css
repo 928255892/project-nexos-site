@@ -162,6 +162,65 @@ ul li {
   margin: 10px 0;
 }
 
+/* ========================================
+   Formulários: Login e Cadastro
+======================================== */
+
+section#login,
+section#cadastro {
+  padding: 60px 20px;
+  background-color: var(--cor-fundo-secundario);
+  text-align: center;
+}
+
+section#login h2,
+section#cadastro h2 {
+  color: var(--cor-destaque);
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--cor-primaria);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cor-branco);
+  text-align: left;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-cinza);
+  border-radius: 4px;
+  color: var(--cor-branco);
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--cor-destaque);
+}
+
 /* ================================
    RODAPÉ COM VETOR
    ================================ */
