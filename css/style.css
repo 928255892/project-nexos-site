@@ -56,19 +56,20 @@ body {
   padding: 0 20px;
 }
 
-/* ===================== */
-/* CABEÇALHO E NAVEGAÇÃO */
-/* ===================== */
-
+/* ================================
+   CABEÇALHO
+   ================================ */
 .header {
-  /* seus estilos aqui */
+  background-color: var(--cor-primaria);
+  padding: 20px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .logo {
-  font-family: 'Orbitron', sans-serif; /* futurista */
   color: var(--cor-destaque);
-  font-size: 2em;
-  font-weight: 700;
+  font-size: 1.5em;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -319,4 +320,4 @@ form button:hover {
     text-align: center;
     padding: 20px;
   }
-}
+} 
