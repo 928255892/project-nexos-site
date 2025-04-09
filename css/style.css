@@ -1,323 +1,309 @@
-/* Reset básico e fonte padrão */
+/* ==========================================================================
+   VARIÁVEIS GLOBAIS
+   ========================================================================== */
+:root {
+  --cor-principal: #0b0f1a;
+  --cor-secundaria: #0066ff;
+  --cor-destaque: #ffffff;
+  --cor-clara: #f5f7fa;
+  --cor-texto: #1d1f21;
+  --cor-texto-secundario: #555;
+  --cor-botao-hover: #004ccc;
+  --cor-overlay: rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   RESET E BASE
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: var(--cor-clara);
+  color: var(--cor-texto);
+  scroll-behavior: smooth;
   line-height: 1.6;
-  color: #333;
-  background-color: #f5f7fa;
 }
 
-/* Container padrão */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   CONTAINERS E SEÇÕES
+   ========================================================================== */
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-/* Cabeçalho */
-header {
-  background-color: #fff;
-  padding: 2px 0; /* Altura reduzida ao máximo */
-  margin: 0; /* Remover margens extras */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 1rem; /* Tamanho da fonte reduzido */
-  font-weight: 600;
-  color: #0077ff;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 15px; /* Reduzido para compactar os itens */
-  list-style: none;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 0.9rem; /* Tamanho da fonte reduzido */
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #0077ff;
-}
-
-/* Ícone menu mobile */
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #0077ff;
-  cursor: pointer;
-}
-
-/* HERO */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(to bottom right, #e1ecf9, #f0f4f8);
-  padding: 40px 20px; /* Altura reduzida */
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  background-image: url('../img/inovação1.webp');
-  background-size: cover;
-  background-position: center;
-  filter: blur(6px) brightness(0.5);
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 0;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 600px;
-}
-
-.hero-content h2 {
-  font-size: 2.2rem; /* Tamanho da fonte reduzido */
-  margin-bottom: 15px; /* Margem ajustada */
-  color: #fff;
-}
-
-.hero-content p {
-  font-size: 1rem; /* Tamanho da fonte reduzido */
-  color: #f0f0f0;
-  margin-bottom: 15px;
-}
-
-.hero .btn {
-  background-color: #0077ff;
-  color: white;
-  padding: 10px 20px; /* Botão com tamanho reduzido */
-  border: none;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.hero .btn:hover {
-  background-color: #005ecb;
-}
-
-.hero-image img {
-  max-width: 450px;
-  width: 100%;
-  z-index: 1;
-  position: relative;
-  border-radius: 10px;
-}
-
-/* Seções */
 .section {
-  padding: 60px 20px;
-  background-color: #fff;
-  text-align: center;
+  padding: 80px 0;
 }
 
 .section.light {
-  background-color: #f0f4f8;
+  background-color: var(--cor-clara);
 }
 
-.section h2 {
+h2 {
   font-size: 2rem;
-  color: #0077ff;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--cor-principal);
+}
+
+/* ==========================================================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+header {
+  background-color: var(--cor-principal);
+  color: var(--cor-destaque);
+  padding: 20px 0 0;
+  position: relative;
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+#pattern-header {
+  width: 100%;
+  overflow: hidden;
+}
+
+#pattern-header img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.navbar {
+  background-color: var(--cor-principal);
+  padding: 10px 0;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.navbar a {
+  color: var(--cor-destaque);
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--cor-secundaria);
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(to bottom, var(--cor-principal), #10131f);
+  color: var(--cor-destaque);
+  text-align: left;
+  position: relative;
+}
+
+.hero .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-content {
+  flex: 1 1 500px;
+  padding: 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
   margin-bottom: 30px;
 }
 
-.section p {
-  max-width: 800px;
-  margin: 0 auto 20px;
-  font-size: 1rem;
-  color: #555;
+.hero-image {
+  flex: 1 1 400px;
+  padding: 20px;
 }
 
-/* Serviços e Diferenciais */
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+.btn {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+/* Botão copiar */
+.btn-copiar {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.btn-copiar:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+/* ==========================================================================
+   SERVIÇOS E DIFERENCIAIS
+   ========================================================================== */
 .servicos-grid,
 .diferenciais-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Reduzido para otimizar o espaço */
-  justify-content: center;
-  margin-top: 20px; /* Reduzido */
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.servico, .diferencial {
-  background-color: white;
-  padding: 20px; /* Reduzido */
-  border-radius: 10px;
-  flex: 1 1 250px;
-  max-width: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-  transition: transform 0.3s;
+.servico,
+.diferencial {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-.servico:hover, .diferencial:hover {
-  transform: translateY(-5px);
-}
-
-.servico i, .diferencial i {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #0077ff;
-}
-
-.servico h3, .diferencial h3 {
+.servico i,
+.diferencial i {
+  font-size: 2.4rem;
   margin-bottom: 10px;
-  font-size: 1rem; /* Tamanho da fonte reduzido */
+  color: var(--cor-secundaria);
 }
 
-/* Formulários */
+/* ==========================================================================
+   FORMULÁRIOS
+   ========================================================================== */
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 500px;
-  margin: auto;
 }
 
-form input,
-form textarea {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-}
-
-form button {
-  background-color: #0077ff;
-  color: white;
+input,
+textarea {
   padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
 }
 
-form button:hover {
-  background-color: #005ecb;
+/* ==========================================================================
+   SEÇÃO NEXOS INTELLIGENCE
+   ========================================================================== */
+.institucional-overlay {
+  background-image: url('../img/intelligence-overlay.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: var(--cor-overlay);
+  color: var(--cor-destaque);
 }
 
-/* Botão copiar */
+/* ==========================================================================
+   PÁGINAS DE LOGIN / CADASTRO
+   ========================================================================== */
+#login,
+#cadastro {
+  padding-top: 60px;
+}
+
+/* ==========================================================================
+   BLOCO DE CÓDIGO COM COPIAR
+   ========================================================================== */
 .copiar-bloco {
-  background: #fff;
+  background-color: #f0f0f0;
   padding: 20px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 6px;
+  position: relative;
 }
 
 pre {
-  background-color: #f3f3f3;
-  padding: 15px;
-  border-radius: 5px;
-  width: 100%;
-  overflow-x: auto;
-}
-
-.btn-copiar {
-  margin-top: 10px;
-  padding: 8px 18px;
-  background-color: #0077ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btn-copiar:hover {
-  background-color: #005ecb;
-}
-
-#copiadoFeedback {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: green;
-}
-
-/* Rodapé */
-footer {
-  background-color: #0077ff;
-  color: white;
-  text-align: center;
-  padding: 2px 0; /* Altura reduzida ao máximo */
-  margin: 0; /* Remover margens extras */
-}
-
-footer p {
-  font-size: 0.5rem; /* Tamanho da fonte reduzido */
+  background: transparent;
+  padding: 0;
   margin: 0;
+  font-family: monospace;
 }
 
-/* Menu Responsivo */
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+footer {
+  background-color: var(--cor-principal);
+  color: var(--cor-destaque);
+  padding: 40px 0 20px;
+  text-align: center;
+  position: relative;
+}
+
+.footer-pattern img {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVO
+   ========================================================================== */
 @media (max-width: 768px) {
-  .navbar ul {
-    display: none;
-    flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    right: 20px;
-    top: 70px;
-    width: 200px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    z-index: 999;
-  }
-
-  .navbar ul.active {
-    display: flex;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  header .container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .hero {
+  .hero .container {
     flex-direction: column;
     text-align: center;
-    gap: 30px;
   }
 
-  .hero-image img {
-    max-width: 90%;
+  .hero-content h2 {
+    font-size: 2rem;
   }
 
-  .servicos-grid,
-  .diferenciais-grid {
+  .navbar ul {
     flex-direction: column;
+    gap: 15px;
   }
 }
