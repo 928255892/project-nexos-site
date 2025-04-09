@@ -54,5 +54,3 @@ AOS.init({
   duration: 1000, // Duração de 1000ms para uma animação mais rápida
   easing: 'ease-in-out',
 });
-
-
