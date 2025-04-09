@@ -16,6 +16,87 @@
 
   <!-- CSS Integrado -->
   <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* Cabeçalho */
+    header {
+      background-color: #fff;
+      padding: 10px 0; /* Ajuste a altura conforme necessário */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0077ff;
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #0077ff;
+    }
+
+    /* Ícone do menu mobile */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #0077ff;
+      cursor: pointer;
+    }
+
+    /* Menu Responsivo */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 999;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,6 +112,7 @@
           <li><a href="#cadastro">Cadastro</a></li>
         </ul>
       </nav>
+      <button class="mobile-menu-toggle">&#9776;</button>
     </div>
   </header>
 
@@ -78,35 +160,6 @@
       </div>
     </section>
 
-    <section id="diferencial" class="section light" data-aos="fade-up">
-      <h2>O diferencial do Project Nexos</h2>
-      <p>Mais do que uma plataforma — uma nova forma de conectar ideias, times e inovação. Conheça o que torna o Project Nexos único.</p>
-      <div class="container">
-        <div class="diferenciais-grid">
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="100">
-            <i class="fas fa-network-wired"></i>
-            <h3>Integração Total</h3>
-            <p>Gerencie projetos, crie designs e colabore em tempo real, tudo em um só lugar.</p>
-          </div>
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="200">
-            <i class="fas fa-brain"></i>
-            <h3>Inteligência Estratégica</h3>
-            <p>Com o Nexos Intelligence, decisões são guiadas por visão, inovação e análise.</p>
-          </div>
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="300">
-            <i class="fas fa-lock"></i>
-            <h3>Segurança e Confidencialidade</h3>
-            <p>Protegemos suas ideias com protocolos de segurança e privacidade avançados.</p>
-          </div>
-          <div class="diferencial" data-aos="zoom-in" data-aos-delay="400">
-            <i class="fas fa-user-secret"></i>
-            <h3>Identidade Discreta</h3>
-            <p>Valorizamos a essência dos projetos, não a exposição pública. Foco total nos resultados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="contato" class="section" data-aos="fade-up">
       <h2>Contato</h2>
       <div class="container">
@@ -118,48 +171,6 @@
         </form>
       </div>
     </section>
-
-    <section id="institucional" class="section light" data-aos="fade-up">
-      <h2>Nexos Intelligence</h2>
-      <div class="container">
-        <p>Uma frente estratégica responsável por pesquisa, inovação e visão corporativa. Operamos com discrição e propósito, guiando o Project Nexos rumo ao futuro.</p>
-      </div>
-    </section>
-
-    <section id="login" class="section" data-aos="none">
-      <h2>Login</h2>
-      <div class="container">
-        <form action="#" method="post">
-          <input type="email" placeholder="Seu email" required />
-          <input type="password" placeholder="Sua senha" required />
-          <button type="submit">Entrar</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="cadastro" class="section light" data-aos="none">
-      <h2>Cadastro</h2>
-      <div class="container">
-        <form action="#" method="post">
-          <input type="text" placeholder="Seu nome" required />
-          <input type="email" placeholder="Seu email" required />
-          <input type="password" placeholder="Sua senha" required />
-          <button type="submit">Cadastrar</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Seção Exemplo de Código com Botão de Copiar -->
-    <section id="copiar" class="section light" data-aos="fade-up">
-      <h2>Exemplo de Código com Botão de Copiar</h2>
-      <div class="container">
-        <div class="copiar-bloco">
-          <pre id="textoCopiar">npm install project-nexos</pre>
-          <button class="btn-copiar" data-target="textoCopiar">Copiar</button>
-          <span id="copiadoFeedback" style="display: none;">Copiado!</span>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -169,7 +180,15 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/script.js"></script>
+  <script>
+    // Ativar/Desativar o menu mobile
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navbarLinks = document.querySelector('.navbar ul');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+    });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({
