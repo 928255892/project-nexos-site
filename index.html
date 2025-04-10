@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+   // Menu Mobile Toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const menuMobile = document.getElementById("menuMobile");
+  menuToggle.addEventListener("click", () => {
+    menuMobile.classList.toggle("open");
+  });
  <!-- Menu Mobile (hambúrguer sofisticado) -->
 <div class="menu-mobile-toggle" id="menuToggle">
   <span></span>
@@ -134,13 +140,6 @@
   <script src="js/script.js"></script>
 </body>
 <script>
-  // Menu Mobile Toggle
-  const menuToggle = document.getElementById("menuToggle");
-  const menuMobile = document.getElementById("menuMobile");
-
-  menuToggle.addEventListener("click", () => {
-    menuMobile.classList.toggle("open");
-  });
 
   // Botão Voltar ao Topo
   const btnVoltarTopo = document.getElementById("btnVoltarTopo");
