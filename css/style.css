@@ -497,7 +497,7 @@ button:hover,
   }
 
   .header .container {
-    flex-direction: column;
+    flex-direction: revert;
     align-items: flex-start;
   }
 
