@@ -9,18 +9,6 @@ html {
 }
 
 :root {
-  --cor-primaria: #0f172a;
-  --cor-secundaria: #1e293b;
-  --cor-destaque: #38bdf8;
-  --cor-fundo: #0a0f1c;
-  --cor-branco: #ffffff;
-  --cor-cinza: #94a3b8;
-}
-
-/* ================================
-   VARIÁVEIS E GERAIS
-   ================================ */
-:root {
   --cor-primaria: #0a192f;
   --cor-secundaria: #00bcd4;
   --cor-destaque: #64ffda;
@@ -120,411 +108,86 @@ body {
   color: var(--cor-destaque);
 }
 
-/* Hover animado nos links do menu */
-.menu a {
-  position: relative;
+.menu-mobile-toggle {
+  display: none;
 }
 
-.menu a::after {
-  content: '';
+/* ================================
+   MENU MOBILE
+   ================================ */
+
+.menu-mobile {
+  display: none;
   position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: var(--cor-destaque);
-  transition: width 0.3s;
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-/* ========================== */
-/* MENU DE NAVEGAÇÃO FIXO */
-/* ========================== */
-
-.header {
-  width: 100%;
+  top: 70px;
+  right: 20px;
   background-color: var(--cor-primaria);
-  padding: 20px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-}
-
-.menu ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  color: var(--cor-branco);
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.menu a:hover {
-  color: var(--cor-destaque);
-}
-
-/* ================================
-   HERO
-   ================================ */
-.hero {
-  background-image: url("img/inovação1.webp");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  text-align: center;
-  padding: 100px 20px;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero::after {
-  content: "";
-  background-image: url("img/bg-nexos-pattern.svg");
-  background-repeat: repeat;
-  background-size: contain;
-  opacity: 0.05;
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-  color: var(--cor-destaque);
-}
-
-.hero p {
-  font-size: 1.2em;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* ================================
-   SEÇÕES GERAIS
-   ================================ */
-section {
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-  z-index: 5;
-}
-
-section h2 {
-  font-size: 2.2em;
-  margin-bottom: 20px;
-  color: var(--cor-destaque);
-}
-
-section p,
-section ul {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1em;
-  line-height: 1.6;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-}
-
-/* ========================================
-   Formulários: Login e Cadastro
-======================================== */
-
-section#login,
-section#cadastro {
-  padding: 60px 20px;
-  background-color: var(--cor-fundo-secundario);
-  text-align: center;
-}
-
-section#login h2,
-section#cadastro h2 {
-  color: var(--cor-destaque);
-  margin-bottom: 20px;
-}
-
-form {
-  max-width: 400px;
-  margin: 0 auto;
+  width: 250px;
   padding: 20px;
-  background-color: var(--cor-primaria);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-form label {
+.menu-mobile.open {
   display: block;
-  margin-bottom: 8px;
-  color: var(--cor-branco);
-  text-align: left;
-}
-
-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  background-color: var(--cor-fundo);
-  border: 1px solid var(--cor-cinza);
-  border-radius: 4px;
-  color: var(--cor-branco);
-}
-
-/* Efeito de foco nos campos */
-input:focus {
-  border-color: var(--cor-destaque);
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
-}
-
-/* Estilo animado dos botões */
-button,
-.btn-login,
-.btn-cadastro {
-  background-color: var(--cor-secundaria);
-  color: var(--cor-branco);
-  padding: 12px 24px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover,
-.btn-login:hover,
-.btn-cadastro:hover {
-  background-color: var(--cor-destaque);
-  transform: scale(1.03);
-}
-
-/* ================================
-   RODAPÉ COM VETOR
-   ================================ */
-.footer {
-  background-color: var(--cor-primaria);
-  color: var(--cor-cinza);
-  text-align: center;
-  padding: 40px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer::before {
-  content: "";
-  background-image: url("img/footer-circuit.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  opacity: 0.3;
-  z-index: 1;
-}
-
-.footer .container {
-  position: relative;
-  z-index: 2;
-}
-
-.footer p {
-  font-size: 0.9em;
-}
-
-/* ========================================
-   Responsividade para telas menores
-======================================== */
-@media (max-width: 768px) {
-  header {
-    padding: 15px 0;
-    text-align: center;
-  }
-
-  .logo {
-    display: block;
-    margin: 0 auto 10px auto;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hero h1 {
-    font-size: 2em;
-    text-align: center;
-  }
-
-  .hero p {
-    font-size: 1em;
-    text-align: center;
-  }
-
-  section {
-    padding: 50px 20px;
-  }
-
-  .diferencial-item,
-  .servico {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .form-container {
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  form {
-    width: 100%;
-    padding: 20px 10px;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-  }
-} 
-
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .header .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-}
-/* ---------- MENU MOBILE ---------- */
-.menu-mobile-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-  width: 30px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.menu-mobile-toggle span {
-  display: block;
-  height: 3px;
-  background-color: var(--cor-branco);
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-/* Estilo do menu */
-.menu-mobile {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 60%;
-  height: 100%;
-  background-color: var(--cor-primaria);
-  padding: 60px 20px;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-  transition: right 0.4s ease;
-  z-index: 998;
 }
 
 .menu-mobile ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .menu-mobile li {
-  margin-bottom: 25px;
+  margin: 10px 0;
 }
 
 .menu-mobile a {
   color: var(--cor-branco);
-  font-size: 1.2em;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 1.2em;
+  transition: color 0.3s;
 }
 
 .menu-mobile a:hover {
   color: var(--cor-destaque);
 }
 
-/* Ativação do menu */
-.menu-mobile.open {
-  right: 0;
-}
-
-/* ---------- BOTÃO VOLTAR AO TOPO ---------- */
-#btnVoltarTopo {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--cor-secundaria);
-  color: var(--cor-branco);
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  font-size: 18px;
+/* ================================
+   MENU HAMBÚRGUER
+   ================================ */
+.menu-mobile-toggle {
+  display: block;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  z-index: 997;
-  display: none; /* será exibido com JS */
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
 }
 
-#btnVoltarTopo:hover {
-  background-color: var(--cor-destaque);
-  transform: scale(1.1);
+.menu-mobile-toggle span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: var(--cor-branco);
+  margin: 6px 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-mobile-toggle span.active:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-mobile-toggle span.active:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-mobile-toggle span.active:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ================================
+   RODAPÉ
+   ================================ */
+
+.footer {
+  background-color: var(--cor-primaria);
+  padding: 20px 0;
+  text-align: center;
 }
