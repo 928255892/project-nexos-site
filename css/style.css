@@ -147,7 +147,7 @@ body {
 .header {
   width: 100%;
   background-color: var(--cor-primaria);
-  padding: 20px 0;
+  padding: 0px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -159,7 +159,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
+  padding: 05%;
 }
 
 .menu ul {
@@ -261,7 +261,7 @@ ul {
 }
 
 ul li {
-  margin: 10px 0;
+  margin: 0px 0;
 }
 
 /* ========================================
@@ -432,7 +432,7 @@ button:hover,
   .menu ul {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 1px;
   }
 
   .header .container {
