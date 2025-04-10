@@ -42,6 +42,67 @@ body {
   color: var(--cor-branco);
   position: relative;
 }
+/* ---------- MENU MOBILE ---------- */
+.menu-mobile-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-mobile-toggle span {
+  display: block;
+  height: 3px;
+  background-color: var(--cor-branco);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Estilo do menu */
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100%;
+  background-color: var(--cor-primaria);
+  padding: 60px 20px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+  transition: right 0.4s ease;
+  z-index: 998;
+}
+
+.menu-mobile ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-mobile li {
+  margin-bottom: 25px;
+}
+
+.menu-mobile a {
+  color: var(--cor-branco);
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-mobile a:hover {
+  color: var(--cor-destaque);
+}
+
+/* Ativação do menu */
+.menu-mobile.open {
+  right: 0;
+}
 
 /* ========================== */
 /* FUNDO VETORIAL GLOBAL */
@@ -443,67 +504,6 @@ button:hover,
   .logo {
     margin-bottom: 10px;
   }
-}
-/* ---------- MENU MOBILE ---------- */
-.menu-mobile-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-  width: 30px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.menu-mobile-toggle span {
-  display: block;
-  height: 3px;
-  background-color: var(--cor-branco);
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-/* Estilo do menu */
-.menu-mobile {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 60%;
-  height: 100%;
-  background-color: var(--cor-primaria);
-  padding: 60px 20px;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-  transition: right 0.4s ease;
-  z-index: 998;
-}
-
-.menu-mobile ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-mobile li {
-  margin-bottom: 25px;
-}
-
-.menu-mobile a {
-  color: var(--cor-branco);
-  font-size: 1.2em;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.menu-mobile a:hover {
-  color: var(--cor-destaque);
-}
-
-/* Ativação do menu */
-.menu-mobile.open {
-  right: 0;
 }
 
 /* ---------- BOTÃO VOLTAR AO TOPO ---------- */
