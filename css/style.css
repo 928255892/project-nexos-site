@@ -252,7 +252,7 @@ body {
   background-position: center;
   position: relative;
   text-align: center;
-  padding: 100px 20px;
+  padding: 70px 20px;
   overflow: hidden;
 }
 
@@ -296,7 +296,7 @@ body {
    SEÇÕES GERAIS
    ================================ */
 section {
-  padding: 80px 20px;
+  padding: 70px 20px;
   text-align: center;
   position: relative;
   z-index: 5;
