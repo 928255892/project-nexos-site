@@ -12,106 +12,125 @@
 <!-- Botão Voltar ao Topo -->
 <button id="btnVoltarTopo" title="Voltar ao topo">↑</button>
 
-  <div class="bg-vetorial"></div>
-  <!-- Fundo vetorial global -->
-  <div class="bg-vetorial"></div>
+<div class="bg-vetorial"></div>
 
-  <header class="header">
-    <div class="container">
-      <a href="#inicio" class="logo">
-  <img src="img/logotipo-nexos.webp" alt="Logotipo Project Nexos" class="logo-img">
-</a>
-      <nav class="menu">
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#Soluções Inteligentes">Soluções Inteligentes</a></li>
-          <li><a href="#login">Login</a></li>
-          <li><a href="#cadastro">Cadastro</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <!-- Seção Hero -->
-  <section class="hero" id="inicio">
-    <div class="container" data-aos="fade-up">
-      <h1>Conectando Inovação ao Futuro</h1>
-      <p>Soluções inteligentes para um mundo interligado.</p>
-    </div>
-  </section>
-
-  <!-- Sobre -->
-  <section class="sobre" id="sobre">
-    <div class="container" data-aos="fade-up">
-      <h2>Sobre o Project Nexos</h2>
-      <p>Plataforma moderna voltada para integrar tecnologias e criar experiências impactantes. Um ecossistema de inovação contínua.</p>
-    </div>
-  </section>
-
-  <!-- Soluções Inteligentes -->
-  <section class="Soluções Inteligentes" id="Soluções Inteligentes">
-    <div class="container" data-aos="fade-up">
-      <h2>Soluções Inteligentes</h2>
+<header class="header">
+  <div class="container">
+    <a href="#inicio" class="logo">
+      <img src="img/logotipo-nexos.webp" alt="Logotipo Project Nexos" class="logo-img">
+    </a>
+    <nav class="menu">
       <ul>
-        <li>Integração de sistemas</li>
-        <li>Ferramentas de design inteligente</li>
-        <li>Soluções personalizadas</li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#inteligencia">Nexos Intelligence</a></li>
+        <li><a href="#solucoes-inteligentes">Soluções Inteligentes</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#cadastro">Cadastro</a></li>
       </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Seção Hero -->
+<section class="hero" id="inicio">
+  <div class="container" data-aos="fade-up">
+    <h1>Conectando Inovação ao Futuro</h1>
+    <p>Soluções inteligentes para um mundo interligado.</p>
+  </div>
+</section>
+
+<!-- Sobre -->
+<section class="sobre" id="sobre">
+  <div class="container" data-aos="fade-up">
+    <h2>Sobre o Project Nexos</h2>
+    <p>Plataforma moderna voltada para integrar tecnologias e criar experiências impactantes. Um ecossistema de inovação contínua.</p>
+  </div>
+</section>
+
+<!-- Nexos Intelligence -->
+<section class="nexos-intelligence" id="inteligencia">
+  <div class="container" data-aos="fade-up">
+    <h2>Nexos Intelligence</h2>
+    <div class="inteligencia-cards">
+      <div class="card-vidro">
+        <h3>Missão</h3>
+        <p>Conectar inovação, eficiência e acessibilidade tecnológica para todos.</p>
+      </div>
+      <div class="card-vidro">
+        <h3>Visão</h3>
+        <p>Ser referência em soluções inteligentes que transformam realidades.</p>
+      </div>
+      <div class="card-vidro">
+        <h3>Valores</h3>
+        <p>Inovação contínua, ética digital, inclusão e excelência.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Seção Login -->
-  <section id="login">
-    <h2>Login</h2>
-    <form action="/api/auth/login" method="POST">
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
-    
-      <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" required>
-    
-      <button type="submit" class="btn-login">Entrar</button>
-    </form>
-  </section>
+<!-- Soluções Inteligentes -->
+<section class="solucoes-inteligentes" id="solucoes-inteligentes">
+  <div class="container" data-aos="fade-up">
+    <h2>Soluções Inteligentes</h2>
+    <ul>
+      <li>Integração de sistemas</li>
+      <li>Ferramentas de design inteligente</li>
+      <li>Soluções personalizadas</li>
+    </ul>
+  </div>
+</section>
 
-  <!-- Seção Cadastro -->
-  <section id="cadastro">
-    <h2>Cadastro</h2>
-    <form action="/api/auth/cadastro" method="POST">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-    
-      <label for="email-cadastro">E-mail:</label>
-      <input type="email" id="email-cadastro" name="email" required>
-    
-      <label for="senha-cadastro">Senha:</label>
-      <input type="password" id="senha-cadastro" name="senha" required>
-    
-      <button type="submit" class="btn-cadastro">Cadastrar</button>
-    </form>
-  </section>
+<!-- Seção Login -->
+<section id="login">
+  <h2>Login</h2>
+  <form action="/api/auth/login" method="POST">
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
 
-  <!-- Contato -->
-  <section class="contato" id="contato">
-    <div class="container" data-aos="fade-up">
-      <h2>Contato</h2>
-      <p>Entre em contato pelo e-mail: <a href="mailto:contato@nexos.ao">contato@nexos.ao</a></p>
-    </div>
-  </section>
-  
-  <!-- Rodapé com circuito -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Project Nexos. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="js/script.js"></script>
-</body>
+    <button type="submit" class="btn-login">Entrar</button>
+  </form>
+</section>
+
+<!-- Seção Cadastro -->
+<section id="cadastro">
+  <h2>Cadastro</h2>
+  <form action="/api/auth/cadastro" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email-cadastro">E-mail:</label>
+    <input type="email" id="email-cadastro" name="email" required>
+
+    <label for="senha-cadastro">Senha:</label>
+    <input type="password" id="senha-cadastro" name="senha" required>
+
+    <button type="submit" class="btn-cadastro">Cadastrar</button>
+  </form>
+</section>
+
+<!-- Contato -->
+<section class="contato" id="contato">
+  <div class="container" data-aos="fade-up">
+    <h2>Contato</h2>
+    <p>Entre em contato pelo e-mail: <a href="mailto:contato@nexos.ao">contato@nexos.ao</a></p>
+  </div>
+</section>
+
+<!-- Rodapé -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Project Nexos. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="js/script.js"></script>
+
 <script>
-
   // Botão Voltar ao Topo
   const btnVoltarTopo = document.getElementById("btnVoltarTopo");
 
@@ -127,4 +146,6 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>
+
+</body>
 </html>
