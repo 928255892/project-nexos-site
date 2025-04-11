@@ -116,24 +116,29 @@ body {
 }
 
 .logo {
-  color: var(--cor-destaque);
-  font-size: 0.7em;
-  font-weight: bold;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* se quiser espaço entre a imagem e algum texto da logo */
 }
 
 .logo-img {
-  height: 15px;
+  height: 25px;
   width: auto;
   display: block;
   object-fit: contain;
-  margin-top: 2px; /* Ajuste fino vertical */
+}
+
+.menu {
+  display: flex;
+  align-items: center;
 }
 
 .menu ul {
-  list-style: none;
   display: flex;
   gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu a {
@@ -182,9 +187,9 @@ body {
 
 .header .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: -1%;
+  justify-content: space-between; /* Espaço entre logo e menu */
+  align-items: center; /* Alinha verticalmente */
+  padding: 0 20px; /* Espaçamento lateral opcional */
 }
 
 .menu ul {
