@@ -294,7 +294,7 @@ section {
 }
 
 section h2 {
-  font-size: 1.9em;
+  font-size: 1.5em;
   margin-bottom: 15px;
   color: var(--cor-destaque);
 }
@@ -322,7 +322,7 @@ ul li {
 
 section#login,
 section#cadastro {
-  padding: 60px 20px;
+  padding: 25px 20px;
   background-color: var(--cor-fundo-secundario);
   text-align: center;
 }
@@ -420,7 +420,7 @@ button:hover,
   }
 
   .hero h1 {
-    font-size: 1.9em;
+    font-size: 1.5em;
     text-align: center;
   }
 
