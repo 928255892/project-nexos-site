@@ -21,12 +21,12 @@ html {
    VARIÁVEIS E GERAIS
    ================================ */
 :root {
-  --cor-primaria: #0a192f;
-  --cor-secundaria: #00bcd4;
-  --cor-destaque: #64ffda;
-  --cor-fundo: #020c1b;
-  --cor-branco: #ffffff;
-  --cor-cinza: #8892b0;
+  --cor-primaria: #D9D9D9;
+  --cor-secundaria: #0072FF;
+  --cor-destaque: #0072FF;
+  --cor-fundo: #FFFFFF;
+  --cor-branco: #000000;
+  --cor-cinza: #FFFFFF;
   --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
