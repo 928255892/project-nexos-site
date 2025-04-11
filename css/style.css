@@ -172,24 +172,28 @@ body {
 }
 
 /* ==========================
-   MENU DE NAVEGAÇÃO FIXO
+   MENU DE NAVEGAÇÃO FIXO - ESTILO VIDRO FUTURISTA
    ========================== */
 .header {
   width: 100%;
-  background-color: var(--cor-primaria);
-  padding: 0px 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
+
+  background: rgba(10, 10, 30, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .header .container {
   display: flex;
-  justify-content: space-between; /* Espaço entre logo e menu */
-  align-items: center; /* Alinha verticalmente */
-  padding: 0 5px; /* Espaçamento lateral opcional */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .menu ul {
