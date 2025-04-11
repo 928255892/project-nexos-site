@@ -380,7 +380,7 @@ button,
 .btn-login,
 .btn-cadastro {
   background-color: var(--cor-secundaria);
-  color: var(--cor-branco);
+  color: #ffffff; /* texto branco direto, sem depender da variável */
   padding: 12px 24px;
   border: none;
   border-radius: 10px;
