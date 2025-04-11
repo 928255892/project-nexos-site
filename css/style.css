@@ -33,6 +33,7 @@ body {
   color: var(--cor-branco);
   position: relative;
 }
+
 /* ---------- MENU MOBILE ---------- */
 .menu-mobile-toggle {
   position: fixed;
@@ -157,10 +158,52 @@ body {
   width: 100%;
 }
 
+/* ==========================
+   MENU DE NAVEGAÇÃO FIXO
+   ========================== */
+.header {
+  width: 100%;
+  background-color: var(--cor-primaria);
+  padding: 0px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: -1%;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--cor-branco);
+  text-decoration: none;
+  font-size: 0.7em;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--cor-destaque);
+}
+
 /* ================================
    HERO
    ================================ */
 .hero {
+  background-image: url("img/inovação1.webp");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -230,7 +273,6 @@ ul li {
 /* ========================================
    Formulários: Login e Cadastro
 ======================================== */
-
 section#login,
 section#cadastro {
   padding: 25px 20px;
@@ -282,7 +324,7 @@ button,
 .btn-login,
 .btn-cadastro {
   background-color: var(--cor-secundaria);
-  color: #ffffff; /* texto branco direto, sem depender da variável */
+  color: #ffffff;
   padding: 12px 24px;
   border: none;
   border-radius: 10px;
@@ -297,6 +339,18 @@ button:hover,
 .btn-cadastro:hover {
   background-color: var(--cor-destaque);
   transform: scale(1.03);
+}
+
+/* ================================
+   RODAPÉ
+   ================================ */
+.footer {
+  background-color: var(--cor-primaria);
+  color: var(--cor-cinza);
+  text-align: center;
+  padding: 0px 0px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* ========================================
@@ -387,7 +441,7 @@ button:hover,
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   z-index: 997;
-  display: none; /* será exibido com JS */
+  display: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
