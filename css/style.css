@@ -441,7 +441,7 @@ button:hover,
   bottom: 20px;
   right: 14px;
   background-color: var(--cor-secundaria);
-  color: var(--cor-branco);
+  color: var(#FFFFFF);
   border: none;
   padding: 2px 10px;
   border-radius: 35%;
