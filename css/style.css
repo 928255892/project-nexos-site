@@ -189,7 +189,7 @@ body {
   display: flex;
   justify-content: space-between; /* Espaço entre logo e menu */
   align-items: center; /* Alinha verticalmente */
-  padding: 0 20px; /* Espaçamento lateral opcional */
+  padding: 0 5px; /* Espaçamento lateral opcional */
 }
 
 .menu ul {
@@ -204,7 +204,7 @@ body {
   color: var(--cor-branco);
   text-decoration: none;
   font-size: 0.7em;
-  font-weight: 400;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
@@ -436,7 +436,7 @@ button:hover,
   }
 
   .logo {
-    margin-bottom: 7px;
+    margin-bottom: 4px;
   }
 }
 
@@ -445,8 +445,8 @@ button:hover,
   position: fixed;
   bottom: 20px;
   right: 14px;
-  background-color: var(--cor-secundaria);
-  color: var(#FFFFFF);
+  background-color: var(#FFFFFF);
+  color: var(#000000);
   border: none;
   padding: 2px 10px;
   border-radius: 35%;
@@ -455,7 +455,7 @@ button:hover,
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   z-index: 997;
   display: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.1s ease, transform 0.1s ease;
 }
 
 #btnVoltarTopo:hover {
