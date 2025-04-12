@@ -112,8 +112,8 @@ body {
   position: relative;
   color: var(--cor-branco);
   text-decoration: none;
-  font-size: 0.555em;
-  font-weight: 350;
+  font-size: 0.655em;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -347,7 +347,7 @@ button:hover,
   }
 
   section {
-    padding: 40px 20px;
+    padding: 25px 10px;
   }
 
   .form-container {
@@ -357,7 +357,7 @@ button:hover,
 
   form {
     width: 100%;
-    padding: 20px 10px;
+    padding: 15px 10px;
   }
 
   .footer {
