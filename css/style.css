@@ -13,7 +13,7 @@ html {
 }
 
 /* ================================
-   FUNDO VETORIAL + MISTURA
+   FUNDO VETORIAL WEBP OTIMIZADO
    ================================ */
 body {
   font-family: var(--fonte);
@@ -21,12 +21,13 @@ body {
   color: var(--cor-preto);
   position: relative;
 
-  /* Padrão vetorial SVG com efeito de fusão */
-  background-image: url("img/padrao-vetorial.svg");
+  /* Padrão vetorial .webp leve com mistura sutil */
+  background-image: url("img/padrao-vetorial.webp");
   background-repeat: repeat;
-  background-size: 300px;
+  background-size: 280px auto;
   background-blend-mode: soft-light;
   background-attachment: scroll;
+  background-position: top left;
 }
 
 /* ================================
