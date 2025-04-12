@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const User = require('../models/User'); // Certifique-se de que o modelo de User está configurado
+const bcrypt = require('bcryptjs'); // ← Aqui está a correção
+const User = require('../models/User');
 
 // Rota para cadastro
 router.post('/cadastro', async (req, res) => {
