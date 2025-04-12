@@ -292,18 +292,19 @@ button:hover,
 #btnVoltarTopo {
   position: fixed;
   bottom: 20px;
-  right: 14px;
-  background-color: var(--cor-branco);
-  color: var(--cor-preto);
+  right: 20px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
   border: none;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  z-index: 997;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   display: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Aumentado para garantir que fique sempre visível */
 }
 
 #btnVoltarTopo:hover {
