@@ -111,6 +111,7 @@ body {
 .menu a {
   position: relative;
   color: var(--cor-branco);
+   --cor-destaque: #FFFFFF;
   text-decoration: none;
   font-size: 0.655em;
   font-weight: 500;
@@ -281,7 +282,7 @@ button:hover,
   background-color: var(--cor-primaria);
   color: var(--cor-cinza);
   text-align: center;
-  padding: 10px 5px;
+  padding: 20px 10px;
   position: relative;
   overflow: hidden;
 }
