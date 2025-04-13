@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require('express'); 
 const router = express.Router();
-const bcrypt = require('bcryptjs'); // ← Aqui está a correção
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
 // Rota para cadastro
@@ -16,7 +16,7 @@ router.post('/cadastro', async (req, res) => {
     const newUser = new User({
       nome,
       email,
-      senha: hashedPassword,
+      senha, // senha simples aqui – será criptografada no model
     });
 
     await newUser.save();
@@ -36,14 +36,10 @@ router.post('/login', async (req, res) => {
       return res.status(400).send('Usuário não encontrado.');
     }
 
-    const isMatch = await bcrypt.compare(senha, user.senha);
+    const isMatch = await user.comparePassword(senha);
     if (!isMatch) {
       return res.status(400).send('Senha incorreta.');
     }
-
-    // Lógica para gerar e retornar o JWT (JSON Web Token) se necessário
-    // Exemplo de um token JWT (se você for usar)
-    // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).send('Login bem-sucedido!');
   } catch (error) {
