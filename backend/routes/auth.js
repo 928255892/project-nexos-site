@@ -1,6 +1,6 @@
-const express = require('express'); 
+const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken'); // ← Importa JWT
 const User = require('../models/User');
 
 // Rota para cadastro
@@ -16,7 +16,7 @@ router.post('/cadastro', async (req, res) => {
     const newUser = new User({
       nome,
       email,
-      senha, // senha simples aqui – será criptografada no model
+      senha, // será criptografada automaticamente no model
     });
 
     await newUser.save();
@@ -41,7 +41,14 @@ router.post('/login', async (req, res) => {
       return res.status(400).send('Senha incorreta.');
     }
 
-    res.status(200).send('Login bem-sucedido!');
+    // Gera o token JWT
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.status(200).json({ mensagem: 'Login bem-sucedido!', token });
   } catch (error) {
     res.status(500).send('Erro ao fazer login.');
   }
