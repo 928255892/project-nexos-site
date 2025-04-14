@@ -52,6 +52,7 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     res.status(500).send('Erro ao fazer login.');
   }
+  
 });
 const authMiddleware = require('../middleware/authMiddleware');
 
