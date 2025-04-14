@@ -53,4 +53,14 @@ router.post('/login', async (req, res) => {
     res.status(500).send('Erro ao fazer login.');
   }
 
+});
+const authMiddleware = require('../middleware/authMiddleware');
+
+// Exemplo de rota protegida
+router.get('/protegida', authMiddleware, (req, res) => {
+  res.json({
+    mensagem: `Olá, ${req.user.nome}! Seu e-mail é ${req.user.email}. Acesso autorizado.`,
+  });
+});
+
 module.exports = router;
