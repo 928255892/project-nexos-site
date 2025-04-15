@@ -1,87 +1,81 @@
-/* style.css */
-
-/* Variáveis de Cores */
-:root {
-  --primary-color: #0051ff;
-  --background-color: #f4f7fc;
-  --text-color: #333;
-  --card-bg: #ffffff;
-  --button-bg: #0051ff;
-  --button-text: #fff;
-}
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ================================
+   DASHBOARD - Project Nexos
+   Estilo visual integrado à identidade
+   ================================ */
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  font-family: var(--fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-preto);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  background-image: url("img/padrao-vetorial.webp");
+  background-repeat: repeat;
+  background-size: 280px auto;
+  background-blend-mode: soft-light;
+  background-attachment: scroll;
+  background-position: top left;
 }
 
-/* Container do Painel */
+/* Container principal */
 .container {
-  background-color: var(--card-bg);
+  background-color: var(--cor-fundo-secundario);
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   max-width: 500px;
+  width: 100%;
   text-align: center;
-  animation: fadeIn 0.4s ease;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 /* Título */
 .container h1 {
-  font-size: 28px;
+  font-size: 2em;
   margin-bottom: 24px;
-  color: var(--primary-color);
+  color: var(--cor-destaque);
 }
 
-/* Informações do Usuário */
+/* Informações do usuário */
 .container p {
   font-size: 18px;
   margin: 12px 0;
-  color: #444;
+  color: var(--cor-preto);
 }
 
 .container p strong {
   font-weight: 600;
-  color: #111;
+  color: var(--cor-destaque);
 }
 
-/* Botão */
+/* Botão de Logout */
 button {
   margin-top: 30px;
-  padding: 12px 24px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  padding: 12px 28px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #003ecc;
+  background-color: var(--cor-destaque);
+  transform: scale(1.03);
 }
 
-/* Animação de entrada */
+/* Animação */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
-  } to {
+    transform: translateY(10px);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
   }
