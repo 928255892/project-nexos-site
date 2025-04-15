@@ -35,6 +35,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .user-profile img {
@@ -43,16 +51,19 @@ body {
   border-radius: 50%;
   margin-bottom: 15px;
   object-fit: cover;
+  transition: all 0.3s ease;
 }
 
 .user-profile h2 {
   font-size: 1.3em;
   margin-bottom: 5px;
+  word-break: break-word;
 }
 
 .user-profile p {
   font-size: 0.95em;
   color: var(--cor-branco);
+  word-break: break-word;
 }
 
 .sidebar button {
@@ -64,7 +75,7 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sidebar button:hover {
@@ -76,6 +87,7 @@ body {
 .main-content {
   flex-grow: 1;
   padding: 40px;
+  transition: all 0.3s ease;
 }
 
 .main-content h1 {
@@ -128,6 +140,12 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    text-align: left;
+  }
+
+  .user-profile img {
+    width: 60px;
+    height: 60px;
   }
 
   .main-content {
