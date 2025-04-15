@@ -1,4 +1,3 @@
-<!-- frontend/login.html -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -25,22 +24,28 @@
       const email = document.getElementById('email').value;
       const senha = document.getElementById('senha').value;
 
-      const resposta = await fetch('http://localhost:5000/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, senha })
-      });
+      try {
+        const resposta = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, senha })
+        });
 
-      const dados = await resposta.json();
+        const dados = await resposta.json();
 
-      if (resposta.ok) {
-        localStorage.setItem('token', dados.token);
-        document.getElementById('mensagem').textContent = 'Login bem-sucedido!';
-        // window.location.href = 'dashboard.html'; // ← Ativar isso depois, no momento certo
-      } else {
-        document.getElementById('mensagem').textContent = dados.mensagem || 'Falha no login.';
+        if (resposta.ok) {
+          localStorage.setItem('token', dados.token);
+          document.getElementById('mensagem').textContent = 'Login bem-sucedido!';
+          console.log('Token armazenado:', dados.token);
+          // window.location.href = 'dashboard.html'; // ← Ativar isso quando quiser o redirecionamento automático
+        } else {
+          document.getElementById('mensagem').textContent = dados.mensagem || 'Falha no login.';
+        }
+      } catch (erro) {
+        console.error('Erro ao fazer login:', erro);
+        document.getElementById('mensagem').textContent = 'Erro de conexão com o servidor.';
       }
     });
   </script>
