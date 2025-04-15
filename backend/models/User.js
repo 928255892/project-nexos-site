@@ -22,27 +22,8 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
-    default: '' // URL do avatar ou base64 (você pode usar avatar padrão)
-  },
-  projects: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Project' // Certifique-se de que criará o model Project no futuro
-    }
-  ],
-  notifications: [
-    {
-      mensagem: String,
-      lida: {
-        type: Boolean,
-        default: false
-      },
-      data: {
-        type: Date,
-        default: Date.now
-      }
-    }
-  ]
+    default: 'https://ui-avatars.com/api/?name=Usuario&background=0072FF&color=ffffff'
+  }
 });
 
 // Criptografar senha antes de salvar
