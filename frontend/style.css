@@ -80,3 +80,48 @@ button:hover {
     transform: translateY(0);
   }
 }
+
+/* ================================
+   DASHBOARD - ÁREA DO USUÁRIO
+   ================================ */
+.dashboard-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px;
+  background-color: var(--cor-primaria);
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.dashboard-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: var(--cor-destaque);
+}
+
+.dashboard-container p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.dashboard-container span {
+  font-weight: bold;
+  color: var(--cor-secundaria);
+}
+
+.dashboard-container button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 1em;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-container button:hover {
+  background-color: var(--cor-destaque);
+}
