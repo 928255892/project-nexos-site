@@ -7,27 +7,31 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="dashboard-container">
-    <div class="profile-header">
-      <img id="user-avatar" src="" alt="Avatar do Usuário" />
-      <div class="user-info">
-        <h1 id="username">Carregando...</h1>
-        <p id="useremail">Carregando...</p>
+  <div class="dashboard">
+    <!-- Sidebar com perfil -->
+    <div class="sidebar">
+      <div class="user-profile">
+        <img id="user-avatar" src="" alt="Avatar do Usuário" />
+        <h2 id="user-name">Carregando...</h2>
+        <p id="user-email">Carregando...</p>
       </div>
+      <button id="logout">Sair</button>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <h2>Projetos</h2>
-        <p id="project-count">0</p>
-      </div>
-      <div class="card">
-        <h2>Notificações</h2>
-        <p id="notification-count">0</p>
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+      <h1>Bem-vindo à sua Dashboard</h1>
+      <div class="cards">
+        <div class="card">
+          <h3>Projetos</h3>
+          <p id="project-count">0</p>
+        </div>
+        <div class="card">
+          <h3>Notificações</h3>
+          <p id="notification-count">0</p>
+        </div>
       </div>
     </div>
-
-    <button id="logout">Sair</button>
   </div>
 
   <script src="script.js"></script>
