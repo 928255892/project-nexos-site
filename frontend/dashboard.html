@@ -1,11 +1,71 @@
-<!-- frontend/dashboard.html -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | Project Nexos</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --cor-primaria: #D9D9D9;
+      --cor-secundaria: #0072FF;
+      --cor-destaque: #0072FF;
+      --cor-fundo: #FFFFFF;
+      --cor-fundo-secundario: #F1F1F1;
+      --cor-branco: #FFFFFF;
+      --cor-preto: #000000;
+      --cor-cinza: #888888;
+      --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--fonte);
+      background-color: var(--cor-fundo-secundario);
+      color: var(--cor-preto);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      background-color: var(--cor-primaria);
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--cor-destaque);
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    span {
+      font-weight: bold;
+      color: var(--cor-secundaria);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: var(--cor-secundaria);
+      color: var(--cor-branco);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--cor-destaque);
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -15,51 +75,6 @@
     <button id="logout">Sair</button>
   </div>
 
-  <script>
-    // Verifica o token no localStorage
-    function checkToken() {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        window.location.href = 'login.html';
-      }
-      return token;
-    }
-
-    // Carrega as informações do usuário
-    async function loadUserInfo() {
-      const token = checkToken();
-
-      try {
-        const response = await fetch('http://localhost:5000/api/auth/protegida', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          const partes = data.mensagem.split(' ');
-          document.getElementById('username').textContent = partes[1] || 'Desconhecido';
-          document.getElementById('useremail').textContent = partes[5] || 'Desconhecido';
-        } else {
-          localStorage.removeItem('token');
-          window.location.href = 'login.html';
-        }
-      } catch (error) {
-        console.error('Erro ao carregar usuário:', error);
-        window.location.href = 'login.html';
-      }
-    }
-
-    // Logout
-    document.getElementById('logout').addEventListener('click', () => {
-      localStorage.removeItem('token');
-      window.location.href = 'login.html';
-    });
-
-    // Inicia ao carregar a página
-    loadUserInfo();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
