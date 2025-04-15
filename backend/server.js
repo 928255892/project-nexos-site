@@ -1,10 +1,12 @@
-// Importando dependências 
+// Importando dependências  
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const authRoutes = require('./routes/auth');  // Importando as rotas de autenticação
-const userRoutes = require('./routes/user');  // ← nova rota protegida /me
+
+const authRoutes = require('./routes/auth');       // Rotas de autenticação
+const userRoutes = require('./routes/user');       // Rota protegida /me
+const projectRoutes = require('./routes/projectRoutes'); // ← Nova rota de projetos
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -21,7 +23,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 // Definir rotas
 app.use('/api/auth', authRoutes);
-app.use('/api/user', userRoutes); // ← nova rota
+app.use('/api/user', userRoutes);
+app.use('/api/projects', projectRoutes); // ← Registro da nova rota
 
 // Iniciar o servidor
 const port = process.env.PORT || 5000;
