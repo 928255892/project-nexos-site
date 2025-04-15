@@ -2,7 +2,6 @@
 function checkToken() {
     const token = localStorage.getItem('token');
 
-    // Verificação desativada temporariamente para não redirecionar
     if (!token) {
         console.warn('Token ausente. Redirecionamento desativado para testes.');
         // window.location.href = 'login.html';  // Redireciona para login se não houver token
@@ -15,6 +14,8 @@ function checkToken() {
 async function loadUserInfo() {
     const token = checkToken();
 
+    if (!token) return;
+
     try {
         const response = await fetch('http://localhost:5000/api/auth/protegida', {
             method: 'GET',
@@ -25,24 +26,28 @@ async function loadUserInfo() {
 
         if (response.ok) {
             const data = await response.json();
-            document.getElementById('username').textContent = data.mensagem.split(' ')[1]; // Exibe o nome
-            document.getElementById('useremail').textContent = data.mensagem.split(' ')[5]; // Exibe o email
+            document.getElementById('username').textContent = data.mensagem.split(' ')[1]; // Nome
+            document.getElementById('useremail').textContent = data.mensagem.split(' ')[5]; // Email
         } else {
             console.warn('Token inválido ou acesso negado. Redirecionamento desativado para testes.');
-            // window.location.href = 'login.html';  // Redireciona para login se a rota protegida falhar
+            // window.location.href = 'login.html';
         }
     } catch (error) {
         console.error('Erro ao carregar informações do usuário:', error);
     }
 }
 
-// Função de logout
-document.getElementById('logout').addEventListener('click', () => {
-    localStorage.removeItem('token');  // Remove o token
+// Função de logout (somente se existir o botão na página)
+const logoutBtn = document.getElementById('logout');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('token');
+        console.log('Logout efetuado. Redirecionamento desativado para testes.');
+        // window.location.href = 'login.html';
+    });
+}
 
-    console.log('Logout efetuado. Redirecionamento desativado para testes.');
-    // window.location.href = 'login.html';  // Redireciona para a página de login
-});
-
-// Carregar as informações do usuário quando o dashboard for carregado
-loadUserInfo();
+// Executa apenas se estiver no dashboard
+if (document.getElementById('username') && document.getElementById('useremail')) {
+    loadUserInfo();
+}
