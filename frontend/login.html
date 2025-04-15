@@ -1,3 +1,4 @@
+<!-- frontend/login.html -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -37,15 +38,16 @@
 
         if (resposta.ok) {
           localStorage.setItem('token', dados.token);
-          document.getElementById('mensagem').textContent = 'Login bem-sucedido!';
-          console.log('Token armazenado:', dados.token);
-          // window.location.href = 'dashboard.html'; // ← Ativar isso quando quiser o redirecionamento automático
+          document.getElementById('mensagem').textContent = 'Login bem-sucedido! Redirecionando...';
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000); // espera 1 segundo antes de redirecionar
         } else {
           document.getElementById('mensagem').textContent = dados.mensagem || 'Falha no login.';
         }
-      } catch (erro) {
-        console.error('Erro ao fazer login:', erro);
-        document.getElementById('mensagem').textContent = 'Erro de conexão com o servidor.';
+      } catch (error) {
+        console.error('Erro ao realizar login:', error);
+        document.getElementById('mensagem').textContent = 'Erro na conexão com o servidor.';
       }
     });
   </script>
