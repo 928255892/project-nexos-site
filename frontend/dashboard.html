@@ -2,36 +2,32 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | Project Nexos</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="dashboard">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="user-profile">
-        <img id="avatar" src="img/avatar-placeholder.png" alt="Avatar do Usuário">
-        <h2 id="username">Carregando...</h2>
-        <p id="useremail">...</p>
+  <div class="dashboard-container">
+    <div class="profile-header">
+      <img id="user-avatar" src="" alt="Avatar do Usuário" />
+      <div class="user-info">
+        <h1 id="username">Carregando...</h1>
+        <p id="useremail">Carregando...</p>
       </div>
-      <button id="logout">Sair</button>
-    </aside>
+    </div>
 
-    <!-- Conteúdo Principal -->
-    <main class="main-content">
-      <h1>Painel de Controle</h1>
-      <div class="cards">
-        <div class="card">
-          <h3>Projetos</h3>
-          <p id="projectCount">0</p>
-        </div>
-        <div class="card">
-          <h3>Notificações</h3>
-          <p id="notifications">0</p>
-        </div>
+    <div class="cards">
+      <div class="card">
+        <h2>Projetos</h2>
+        <p id="project-count">0</p>
       </div>
-    </main>
+      <div class="card">
+        <h2>Notificações</h2>
+        <p id="notification-count">0</p>
+      </div>
+    </div>
+
+    <button id="logout">Sair</button>
   </div>
 
   <script src="script.js"></script>
