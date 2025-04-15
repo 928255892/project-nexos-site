@@ -1,3 +1,4 @@
+<!-- frontend/dashboard.html -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -14,6 +15,51 @@
     <button id="logout">Sair</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // Verifica o token no localStorage
+    function checkToken() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = 'login.html';
+      }
+      return token;
+    }
+
+    // Carrega as informações do usuário
+    async function loadUserInfo() {
+      const token = checkToken();
+
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/protegida', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const partes = data.mensagem.split(' ');
+          document.getElementById('username').textContent = partes[1] || 'Desconhecido';
+          document.getElementById('useremail').textContent = partes[5] || 'Desconhecido';
+        } else {
+          localStorage.removeItem('token');
+          window.location.href = 'login.html';
+        }
+      } catch (error) {
+        console.error('Erro ao carregar usuário:', error);
+        window.location.href = 'login.html';
+      }
+    }
+
+    // Logout
+    document.getElementById('logout').addEventListener('click', () => {
+      localStorage.removeItem('token');
+      window.location.href = 'login.html';
+    });
+
+    // Inicia ao carregar a página
+    loadUserInfo();
+  </script>
 </body>
 </html>
