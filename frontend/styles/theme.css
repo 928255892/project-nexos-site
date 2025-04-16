@@ -1,0 +1,36 @@
+/* ========================
+   Tema Claro e Escuro
+======================== */
+body.light {
+  background-color: #ffffff;
+  color: #111;
+}
+
+body.dark {
+  background-color: #111;
+  color: #f0f0f0;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1.2rem;
+  background: #ccc;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}

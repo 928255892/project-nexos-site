@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Project Nexos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader com efeito de respiração -->
+  <div id="loader" class="loader-overlay">
+    <img src="img/logotipo-nexos-símbolo.webp" alt="Carregando o Project Nexos..." class="loader-breathing" />
+  </div>
+
+  <!-- Dashboard principal (oculta inicialmente) -->
+  <div class="dashboard" style="display: none">
+    
+    <!-- Sidebar com dados do usuário -->
+    <aside class="sidebar">
+      <div class="user-profile">
+        <img id="user-avatar" src="" alt="Avatar do Usuário" />
+        <h2 id="user-name">Carregando...</h2>
+        <p id="user-email">Carregando...</p>
+      </div>
+      <button id="logout" aria-label="Sair da conta">Sair</button>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="main-content">
+      <h1>Bem-vindo à sua Dashboard</h1>
+
+      <!-- Cards com informações -->
+      <section class="cards">
+        <div class="card">
+          <h3>Projetos</h3>
+          <p id="project-count">0</p>
+        </div>
+        <div class="card">
+          <h3>Notificações</h3>
+          <p id="notification-count">0</p>
+        </div>
+      </section>
+
+      <!-- Formulário para novo projeto -->
+      <section class="form-section">
+        <h2>Criar Novo Projeto</h2>
+        <form id="project-form">
+          <input type="text" id="titulo" placeholder="Título do Projeto" required />
+          <textarea id="descricao" placeholder="Descrição do Projeto"></textarea>
+          <button type="submit">Salvar Projeto</button>
+        </form>
+        <div id="success-message" class="success-message">Projeto salvo com sucesso!</div>
+      </section>
+
+      <!-- Lista de projetos do usuário -->
+      <section class="project-list">
+        <h2>Seus Projetos</h2>
+        <ul id="lista-projetos"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

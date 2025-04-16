@@ -1,0 +1,49 @@
+/* ========================
+   Utilitários e Públicos
+======================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.btn-entrar {
+  background-color: #0072ff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-entrar:hover {
+  background-color: #0056c7;
+}
+
+.public-header,
+.public-hero {
+  padding: 2rem;
+  text-align: center;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}

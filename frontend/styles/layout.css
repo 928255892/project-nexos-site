@@ -1,0 +1,60 @@
+/* ========================
+   Layout Principal: Dashboard
+======================== */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  width: 250px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+}
+
+.main-content h1 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: var(--cor-destaque);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .user-profile {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .user-profile img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+}
