@@ -1,0 +1,246 @@
+/* =================== BASE =================== */
+:root {
+  --cor-azul-escuro: #0a1a2f;
+  --cor-azul-claro: #00c6ff;
+  --fundo-claro: #ffffff;
+  --fundo-escuro: #121212;
+  --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--fundo-claro);
+  transition: background 0.3s;
+}
+
+/* Remover highlight azul no mobile */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =================== CABEÇALHO =================== */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+/* =================== BOTÃO TEMA =================== */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 64px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.theme-toggle .icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.theme-toggle .icon.active {
+  opacity: 1;
+}
+
+.toggle-indicador {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
+  border-radius: 16px;
+  transition: transform 0.3s;
+}
+
+/* =================== ÍCONES DAS SEÇÕES =================== */
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper svg {
+  width: 48px;
+  height: 48px;
+  stroke: url(#gradienteAzul);
+  stroke-width: 2.5;
+}
+
+/* Gradiente SVG */
+svg defs {
+  display: none;
+}
+body::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+body svg {
+  pointer-events: none;
+}
+
+/* =================== SEÇÕES =================== */
+.info-section {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.glass {
+  background: var(--vidro);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+/* =================== BOTÃO TOPO =================== */
+.top-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  color: white;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.top-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* =================== MODO ESCURO =================== */
+body.dark {
+  background-color: var(--fundo-escuro);
+  color: white;
+}
+body.dark .header {
+  background: rgba(0, 0, 0, 0.6);
+}
+body.dark nav a {
+  color: #fff;
+}
+
+.logout-btn {
+  margin-top: 2rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+}
+
+body.dark .logout-btn {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.logout-btn i {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.modal-content label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.btn-cancelar {
+  background: transparent;
+  border: 1px solid #aaa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =================== LOADER FADE-OUT =================== */
+.loader-overlay.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
