@@ -9,18 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const qtdProjetos = document.getElementById("total-projetos");
   const qtdNotificacoes = document.getElementById("total-notificacoes");
   const listaProjetos = document.getElementById("lista-projetos");
+  const successMessage = document.querySelector(".success-message");
   const loader = document.getElementById("loader");
   const dashboard = document.querySelector(".dashboard");
   const btnVerMais = document.getElementById("btn-ver-mais");
-  const btnEditarPerfil = document.getElementById("btn-editar-perfil");
+
+  const btnPerfil = document.getElementById("btn-perfil");
   const modalPerfil = document.getElementById("modal-perfil");
   const formPerfil = document.getElementById("form-perfil");
-
-  // Campos do modal de perfil
-  const campoNome = document.getElementById("perfil-nome");
-  const campoAvatar = document.getElementById("perfil-avatar");
-  const campoSenha = document.getElementById("perfil-senha");
-  const avatarPreview = document.getElementById("avatar-preview");
+  const inputNome = document.getElementById("perfil-nome");
+  const inputAvatar = document.getElementById("perfil-avatar");
+  const previewAvatar = document.getElementById("preview-avatar");
+  const inputSenha = document.getElementById("perfil-senha");
+  const inputConfirmar = document.getElementById("perfil-confirmar");
+  const btnExcluirConta = document.getElementById("btn-excluir-conta");
+  const btnResetarPerfil = document.getElementById("btn-resetar-perfil");
 
   let todosProjetos = [];
   let pagina = 0;
@@ -29,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loader.style.display = "flex";
   if (dashboard) dashboard.style.display = "none";
 
-  // === BUSCA DE DADOS ===
   fetch("http://localhost:3000/api/me", {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -42,12 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
       qtdProjetos.textContent = data.projetos.length || 0;
       qtdNotificacoes.textContent = data.notificacoes?.length || 0;
 
-      renderizarProjetos(data.projetos);
-
       // Preencher modal de perfil
-      campoNome.value = data.nome;
-      campoAvatar.value = data.avatar || "";
-      avatarPreview.src = data.avatar || "https://via.placeholder.com/80";
+      inputNome.value = data.nome;
+      inputAvatar.value = data.avatar || "";
+      previewAvatar.src = data.avatar || "https://via.placeholder.com/80";
+
+      renderizarProjetos(data.projetos);
     })
     .catch(() => window.location.href = "login.html")
     .finally(() => {
@@ -58,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 800);
     });
 
-  // === RENDERIZAÇÃO DE PROJETOS ===
   function renderizarProjetos(projetos) {
     todosProjetos = projetos.sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao));
     pagina = 0;
@@ -80,10 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projetosParaMostrar.forEach(proj => {
       const li = document.createElement("li");
-
       const ehNovo = (new Date() - new Date(proj.dataCriacao)) < (48 * 60 * 60 * 1000);
       const badgeNovo = ehNovo ? `<span class="badge-novo">Novo</span>` : "";
-
       const icones = ["file-code", "folder", "rocket", "zap", "layers"];
       const icone = icones[Math.floor(Math.random() * icones.length)];
 
@@ -109,13 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnVerMais.addEventListener("click", () => carregarMaisProjetos());
 
-  // === MODAL: Editar Projeto ===
   document.getElementById("form-edicao").addEventListener("submit", async (e) => {
     e.preventDefault();
     const id = document.getElementById("edit-id").value;
     const titulo = document.getElementById("edit-titulo").value.trim();
     const descricao = document.getElementById("edit-descricao").value;
-
     if (!titulo) return alert("Título é obrigatório");
 
     try {
@@ -168,13 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.deletarProjeto = async (id) => {
     if (!confirm("Tem certeza que deseja excluir este projeto?")) return;
-
     try {
       const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
-
       if (res.ok) {
         todosProjetos = todosProjetos.filter(p => p._id !== id);
         renderizarProjetos(todosProjetos);
@@ -191,20 +186,42 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   });
 
-  // === MODAL: Editar Perfil ===
-  btnEditarPerfil.addEventListener("click", () => {
+  // Modal de perfil
+  btnPerfil?.addEventListener("click", () => {
     modalPerfil.classList.remove("hidden");
   });
 
-  campoAvatar.addEventListener("input", () => {
-    avatarPreview.src = campoAvatar.value || "https://via.placeholder.com/80";
+  document.getElementById("btn-cancelar-perfil").addEventListener("click", () => {
+    modalPerfil.classList.add("hidden");
+  });
+
+  inputAvatar.addEventListener("input", () => {
+    previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
+  });
+
+  btnResetarPerfil.addEventListener("click", () => {
+    fetch("http://localhost:3000/api/me", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(res => res.json())
+      .then(data => {
+        inputNome.value = data.nome;
+        inputAvatar.value = data.avatar || "";
+        previewAvatar.src = data.avatar || "https://via.placeholder.com/80";
+        inputSenha.value = "";
+        inputConfirmar.value = "";
+      });
   });
 
   formPerfil.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const nome = campoNome.value.trim();
-    const avatar = campoAvatar.value.trim();
-    const senha = campoSenha.value.trim();
+    const nome = inputNome.value.trim();
+    const avatar = inputAvatar.value.trim();
+    const senha = inputSenha.value.trim();
+    const confirmar = inputConfirmar.value.trim();
+
+    if (!nome) return alert("Nome é obrigatório");
+    if (senha && senha !== confirmar) return alert("As senhas não coincidem");
 
     try {
       const res = await fetch("http://localhost:3000/api/usuario/perfil", {
@@ -213,18 +230,16 @@ document.addEventListener("DOMContentLoaded", () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ nome, avatar, senha }),
+        body: JSON.stringify({ nome, avatar, senha })
       });
 
       if (res.ok) {
-        const dadosAtualizados = await res.json();
-        nomeUsuario.textContent = dadosAtualizados.nome;
-        primeiroNome.textContent = dadosAtualizados.nome.split(" ")[0];
-        emailUsuario.textContent = dadosAtualizados.email;
-        avatarUsuario.src = dadosAtualizados.avatar || "https://via.placeholder.com/80";
-        campoSenha.value = "";
+        const usuarioAtualizado = await res.json();
+        nomeUsuario.textContent = usuarioAtualizado.nome;
+        primeiroNome.textContent = usuarioAtualizado.nome.split(" ")[0];
+        avatarUsuario.src = usuarioAtualizado.avatar || "https://via.placeholder.com/80";
         modalPerfil.classList.add("hidden");
-        alert("Perfil atualizado com sucesso!");
+        alert("Perfil atualizado com sucesso.");
       } else {
         alert("Erro ao atualizar perfil.");
       }
@@ -233,21 +248,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.getElementById("btn-excluir-conta").addEventListener("click", async () => {
-    const confirmar = confirm("Tem certeza? Esta ação é permanente e excluirá sua conta.");
-    if (!confirmar) return;
+  btnExcluirConta.addEventListener("click", async () => {
+    if (!confirm("Tem certeza que deseja excluir sua conta? Esta ação é irreversível.")) return;
 
     try {
       const res = await fetch("http://localhost:3000/api/usuario/deletar", {
         method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` }
       });
 
       if (res.ok) {
         localStorage.removeItem("token");
         alert("Conta excluída com sucesso.");
+        console.log("[LOG] Conta do usuário excluída com sucesso.");
         window.location.href = "index.html";
       } else {
         alert("Erro ao excluir conta.");
@@ -256,8 +269,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(err);
     }
   });
-
-  window.fecharModalPerfil = () => {
-    modalPerfil.classList.add("hidden");
-  };
 });
