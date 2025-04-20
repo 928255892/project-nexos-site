@@ -395,3 +395,33 @@ body.dark .login-modal {
 .ver-mais-btn:hover {
   opacity: 0.9;
 }
+
+/* =================== LISTA VAZIA =================== */
+.lista-vazia {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 1.5rem 0;
+}
+body.dark .lista-vazia {
+  color: #bbb;
+}
+
+/* =================== LOGIN MODAL: REFINO RESPONSIVO =================== */
+@media (min-width: 768px) {
+  .login-modal {
+    margin-top: 10vh;
+    max-width: 500px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+  }
+
+  .login-form input {
+    font-size: 1rem;
+  }
+
+  .login-form .btn-entrar {
+    font-size: 1rem;
+  }
+}
