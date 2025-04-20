@@ -1,373 +1,251 @@
-/* =================== BASE =================== */
+/* ========================================================
+   VARIÁVEIS GLOBAIS
+======================================================== */
 :root {
-  --cor-azul-escuro: #0a1a2f;
-  --cor-azul-claro: #00c6ff;
+  --cor-azul-claro: #4fc3f7;
+  --cor-azul-escuro: #0d47a1;
+  --cor-branco: #ffffff;
+  --cor-preto: #121212;
+  --vidro: rgba(255, 255, 255, 0.08);
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --borda-arredondada: 16px;
+}
+
+/* Modo escuro */
+body.dark {
   --fundo-claro: #ffffff;
   --fundo-escuro: #121212;
-  --vidro: rgba(255, 255, 255, 0.1);
+  --texto-claro: #f5f5f5;
+  --texto-escuro: #111111;
+}
+
+/* ========================================================
+   RESET E BASE
+======================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: var(--fundo-claro);
-  transition: background 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--fundo-claro);
+  color: var(--texto-escuro);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-a, button {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* =================== CABEÇALHO =================== */
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-}
-
-nav a {
-  margin-left: 1rem;
-  text-decoration: none;
-  color: #333;
-}
-
-/* =================== BOTÃO TEMA =================== */
-.theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 64px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px;
-  backdrop-filter: blur(6px);
-  cursor: pointer;
-}
-
-.theme-toggle .icon {
-  width: 20px;
-  height: 20px;
-  opacity: 0.5;
-  transition: opacity 0.3s;
-}
-
-.theme-toggle .icon.active {
-  opacity: 1;
-}
-
-.toggle-indicador {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
-  border-radius: 16px;
-  transition: transform 0.3s;
-}
-
-/* =================== ÍCONES DAS SEÇÕES =================== */
-.icon-wrapper {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-wrapper svg {
-  width: 48px;
-  height: 48px;
-  stroke: url(#gradienteAzul);
-  stroke-width: 2.5;
-}
-
-/* =================== SEÇÕES =================== */
-.info-section {
-  padding: 6rem 2rem 4rem;
-  text-align: center;
-}
-
-.glass {
-  background: var(--vidro);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  margin: 2rem auto;
-  max-width: 700px;
-  padding: 2rem;
-}
-
-/* =================== BOTÃO TOPO =================== */
-.top-btn {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.2);
-  color: white;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-}
-
-.top-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-/* =================== MODO ESCURO =================== */
 body.dark {
-  background-color: var(--fundo-escuro);
-  color: white;
+  background: var(--fundo-escuro);
+  color: var(--texto-claro);
 }
 
-body.dark .header {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-body.dark nav a {
-  color: #fff;
-}
-
-/* =================== SIDEBAR =================== */
-.logout-btn {
-  margin-top: 2rem;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.logout-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.03);
-}
-
-body.dark .logout-btn {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.logout-btn i {
-  width: 20px;
-  height: 20px;
-  stroke: white;
-}
-
-/* =================== MODAIS (DETALHES / EDIÇÃO) =================== */
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
+/* ========================================================
+   LAYOUT PRINCIPAL
+======================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Tema escuro */
-body.dark .modal-content.glass {
-  background: linear-gradient(to bottom right, rgba(10, 26, 47, 0.6), rgba(0, 198, 255, 0.1));
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-body.dark .modal-content.glass input,
-body.dark .modal-content.glass textarea {
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-body.dark .modal-content.glass label {
-  color: white;
-}
-
-/* Tema claro */
-body.light .modal-content.glass {
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.85), rgba(200, 240, 255, 0.4));
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  color: #000;
-}
-
-body.light .modal-content.glass input,
-body.light .modal-content.glass textarea {
-  background: rgba(255, 255, 255, 0.6);
-  color: #000;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-body.light .modal-content.glass label {
-  color: #000;
-}
-
-.modal-content label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: 600;
-}
-
-.modal-content input,
-.modal-content textarea {
-  width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.7rem;
-  border-radius: 8px;
-}
-
-.modal-actions {
-  margin-top: 1.5rem;
+/* ========================================================
+   CABEÇALHO
+======================================================== */
+.header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-azul-claro);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
   gap: 1rem;
 }
 
-.btn-cancelar {
-  background: transparent;
-  border: 1px solid #aaa;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.modal-content .btn-entrar i {
+nav a:hover {
+  color: var(--cor-azul-claro);
+}
+
+/* ========================================================
+   BOTÕES E AÇÕES
+======================================================== */
+button {
+  padding: 0.5rem 1rem;
+  background: var(--cor-azul-claro);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #29b6f6;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--cor-azul-claro);
+  color: var(--cor-azul-claro);
+}
+
+.btn-outline:hover {
+  background: var(--cor-azul-claro);
+  color: white;
+}
+
+/* ========================================================
+   ÍCONES
+======================================================== */
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  fill: currentColor;
   margin-right: 0.5rem;
 }
 
-/* =================== LOGIN MODAL =================== */
-.login-modal {
-  max-width: 420px;
-  margin: 8vh auto;
-  padding: 2rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  color: #fff;
-}
-
-body.dark .login-modal {
-  background: rgba(15, 15, 20, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.login-modal h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.login-form .form-group {
-  margin-bottom: 1.2rem;
-}
-
-.login-form label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-}
-
-.login-form input {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 8px;
-  border: 1px solid rgba(200, 200, 200, 0.5);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.login-form input::placeholder {
-  color: #ccc;
-}
-
-.login-form .btn-entrar {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.erro-msg {
-  color: #ff6b6b;
-  font-weight: 500;
-  display: none;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-/* =================== LOADER =================== */
-.loader-overlay.fade-out {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-/* =================== LISTAGEM DE PROJETOS =================== */
-.project-list button {
-  margin-left: 0.5rem;
+/* ========================================================
+   TEMA E TOGGLE
+======================================================== */
+#toggle-tema {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   background: transparent;
   border: none;
   cursor: pointer;
-  color: inherit;
+  z-index: 1000;
 }
 
-.project-list button i {
-  width: 18px;
-  height: 18px;
+#toggle-tema svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
 }
 
-.project-list li {
+/* ========================================================
+   ANIMAÇÃO DE ENTRADA
+======================================================== */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================================
+   BOTÃO VOLTAR AO TOPO
+======================================================== */
+#voltar-topo {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--cor-azul-claro);
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+#voltar-topo svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========================================================
+   SEÇÕES PÚBLICAS
+======================================================== */
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--cor-azul-escuro);
+}
+
+body.dark section h2 {
+  color: var(--cor-azul-claro);
+}
+
+.valor {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0.8rem 0;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.valor svg {
+  margin-right: 1rem;
+  fill: var(--cor-azul-claro);
+  flex-shrink: 0;
+}
+
+.valor p {
+  margin: 0;
+}
+
+/* ========================================================
+   FORMULÁRIOS
+======================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--vidro);
+  padding: 2rem;
+  border-radius: var(--borda-arredondada);
+  backdrop-filter: blur(8px);
+}
+
+input, textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--cor-azul-claro);
+}
+
+/* ========================================================
+   MENSAGENS E BADGES
+======================================================== */
+.mensagem-boasvindas {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--cor-azul-escuro);
+}
+
+body.dark .mensagem-boasvindas {
+  color: var(--cor-azul-claro);
 }
 
 .badge-novo {
@@ -376,52 +254,167 @@ body.dark .login-modal {
   padding: 2px 6px;
   font-size: 12px;
   border-radius: 6px;
-  margin-left: 6px;
+  margin-left: auto;
 }
 
-.ver-mais-btn {
-  margin: 1rem auto;
-  display: block;
-  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 500;
+/* ========================================================
+   CARD DE RESUMO
+======================================================== */
+.card-resumo {
+  background: var(--vidro);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--sombra-suave);
+}
+
+.card-resumo h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.card-resumo p {
+  margin: 0.5rem 0 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: var(--cor-azul-claro);
+}
+
+/* ========================================================
+   PERFIL DO USUÁRIO
+======================================================== */
+.perfil-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.perfil-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cor-azul-claro);
+}
+
+.perfil-info h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.perfil-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+body.dark .perfil-info p {
+  color: #ccc;
+}
+
+/* ========================================================
+   ANIMAÇÃO DE SUCESSO
+======================================================== */
+.anim-sucesso {
+  animation: aparecerSucesso 0.5s ease forwards;
+}
+
+@keyframes aparecerSucesso {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================================
+   LOADER GLOBAL
+======================================================== */
+.loader-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--fundo-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  transition: opacity 0.8s ease;
+}
+
+.loader {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid var(--cor-azul-claro);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========================================================
+   LISTAGEM DE PROJETOS
+======================================================== */
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  background: var(--vidro);
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(8px);
   transition: background 0.3s ease;
 }
 
-.ver-mais-btn:hover {
-  opacity: 0.9;
+.project-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* =================== LISTA VAZIA =================== */
-.lista-vazia {
-  text-align: center;
-  font-style: italic;
-  color: #777;
-  padding: 1.5rem 0;
-}
-body.dark .lista-vazia {
-  color: #bbb;
+body.dark .project-list li:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* =================== LOGIN MODAL: REFINO RESPONSIVO =================== */
-@media (min-width: 768px) {
-  .login-modal {
-    margin-top: 10vh;
-    max-width: 500px;
-    padding: 2.5rem 2rem;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
+/* ========================================================
+   RESPONSIVIDADE
+======================================================== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .login-form input {
-    font-size: 1rem;
+  nav a {
+    margin: 0.5rem 0;
   }
 
-  .login-form .btn-entrar {
-    font-size: 1rem;
+  .perfil-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-resumo {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 }
