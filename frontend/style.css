@@ -244,3 +244,34 @@ body.dark .logout-btn {
   transition: opacity 0.8s ease;
 }
 
+/* =================== MODAL DETALHES E EDIÇÃO =================== */
+.modal-content.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.modal-content.glass input,
+.modal-content.glass textarea {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.modal-content.glass label {
+  color: white;
+}
+.modal-content .btn-entrar i {
+  margin-right: 0.5rem;
+}
+.project-list button {
+  margin-left: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+.project-list button i {
+  width: 18px;
+  height: 18px;
+}
+
