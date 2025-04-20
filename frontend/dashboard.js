@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const previewAvatar = document.getElementById("preview-avatar");
   const inputSenha = document.getElementById("perfil-senha");
   const inputConfirmar = document.getElementById("perfil-confirmar");
-  const btnExcluirConta = document.querySelector(".btn-excluir");
-  const btnResetarPerfil = document.querySelector(".btn-cancelar");
-  const abasPerfil = document.querySelectorAll(".perfil-abas .aba");
-  const conteudosAbas = document.querySelectorAll(".perfil-form .aba-conteudo");
+  const btnExcluirConta = document.getElementById("btn-excluir-conta");
+  const btnResetarPerfil = document.getElementById("btn-resetar-perfil");
+  const abas = document.querySelectorAll(".aba");
+  const conteudos = document.querySelectorAll(".perfil-aba");
 
   let todosProjetos = [];
   let pagina = 0;
@@ -186,19 +186,23 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   });
 
-  window.abrirModalPerfil = () => {
-    modalPerfil.classList.remove("hidden");
-  };
-
-  document.addEventListener("click", (e) => {
-    if (e.target.matches(".aba")) {
-      abasPerfil.forEach(btn => btn.classList.remove("ativa"));
-      conteudosAbas.forEach(c => c.classList.add("hidden"));
-      e.target.classList.add("ativa");
-      const abaIndex = Array.from(abasPerfil).indexOf(e.target);
-      conteudosAbas[abaIndex].classList.remove("hidden");
-    }
+  // Ativação de abas
+  abas.forEach((aba, index) => {
+    aba.addEventListener("click", () => {
+      abas.forEach(a => a.classList.remove("ativa"));
+      conteudos.forEach(c => c.classList.add("hidden"));
+      aba.classList.add("ativa");
+      conteudos[index].classList.remove("hidden");
+      localStorage.setItem("perfilAbaAtiva", index);
+    });
   });
+
+  const abaAtivaSalva = localStorage.getItem("perfilAbaAtiva");
+  if (abaAtivaSalva) {
+    abas[abaAtivaSalva]?.click();
+  } else {
+    abas[0]?.click();
+  }
 
   inputAvatar.addEventListener("input", () => {
     previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
