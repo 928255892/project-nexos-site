@@ -10,7 +10,7 @@ app.use(express.json());
 // Rotas
 app.use('/api/auth', require('./routes/auth'));        // Login e cadastro
 app.use('/api/me', require('./routes/user'));          // Perfil e /me
-app.use('/api/project', require('./routes/project')); // project
+app.use('/api/projeto', require('./routes/projeto')); // Projeto
 
 // Conexão MongoDB
 mongoose.connect(process.env.MONGO_URI)
