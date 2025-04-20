@@ -76,26 +76,6 @@ nav a {
   transition: transform 0.3s;
 }
 
-/* =================== ÍCONES DAS SEÇÕES =================== */
-.icon-wrapper {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-wrapper svg {
-  width: 48px;
-  height: 48px;
-  stroke: url(#gradienteAzul);
-  stroke-width: 2.5;
-}
-
 /* =================== SEÇÕES =================== */
 .info-section {
   padding: 6rem 2rem 4rem;
@@ -109,29 +89,6 @@ nav a {
   margin: 2rem auto;
   max-width: 700px;
   padding: 2rem;
-}
-
-/* =================== BOTÃO TOPO =================== */
-.top-btn {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.2);
-  color: white;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-}
-
-.top-btn svg {
-  width: 20px;
-  height: 20px;
 }
 
 /* =================== MODO ESCURO =================== */
@@ -178,7 +135,7 @@ body.dark .logout-btn {
   stroke: white;
 }
 
-/* =================== MODAIS (DETALHES / EDIÇÃO) =================== */
+/* =================== MODAIS =================== */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -200,50 +157,19 @@ body.dark .logout-btn {
   width: 100%;
   max-width: 420px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Tema escuro */
-body.dark .modal-content.glass {
-  background: linear-gradient(to bottom right, rgba(10, 26, 47, 0.6), rgba(0, 198, 255, 0.1));
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  color: #fff;
 }
 
-body.dark .modal-content.glass input,
-body.dark .modal-content.glass textarea {
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+body.dark .modal-content.glass {
+  background: linear-gradient(to bottom right, rgba(10, 26, 47, 0.6), rgba(0, 198, 255, 0.1));
 }
 
-body.dark .modal-content.glass label {
-  color: white;
-}
-
-/* Tema claro */
 body.light .modal-content.glass {
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.85), rgba(200, 240, 255, 0.4));
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
   color: #000;
-}
-
-body.light .modal-content.glass input,
-body.light .modal-content.glass textarea {
-  background: rgba(255, 255, 255, 0.6);
-  color: #000;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-body.light .modal-content.glass label {
-  color: #000;
-}
-
-.modal-content label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: 600;
 }
 
 .modal-content input,
@@ -252,6 +178,15 @@ body.light .modal-content.glass label {
   margin-top: 0.5rem;
   padding: 0.7rem;
   border-radius: 8px;
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
 }
 
 .modal-actions {
@@ -261,167 +196,124 @@ body.light .modal-content.glass label {
   gap: 1rem;
 }
 
-.btn-cancelar {
+/* =================== MODAL PERFIL =================== */
+#modal-perfil .modal-content {
+  max-width: 480px;
+}
+
+#modal-perfil .modal-actions {
+  justify-content: space-between;
+}
+
+.modal-content.perfil-modal {
+  max-width: 460px;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.modal-content.perfil-modal h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.perfil-form label {
+  display: block;
+  margin: 1rem 0 0.4rem;
+  font-weight: 600;
+}
+
+.perfil-form input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.perfil-form input::placeholder {
+  color: #ccc;
+}
+
+.perfil-form .avatar-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.perfil-form .avatar-preview img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cor-azul-claro);
+}
+
+.perfil-form .modal-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-excluir {
   background: transparent;
-  border: 1px solid #aaa;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.modal-content .btn-entrar i {
-  margin-right: 0.5rem;
+.btn-excluir:hover {
+  background: rgba(255, 107, 107, 0.08);
 }
 
-/* =================== LOGIN MODAL =================== */
-.login-modal {
-  max-width: 420px;
-  margin: 8vh auto;
-  padding: 2rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  color: #fff;
+body.light .perfil-form input {
+  background: rgba(255, 255, 255, 0.6);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-body.dark .login-modal {
-  background: rgba(15, 15, 20, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+body.light .perfil-form input::placeholder {
+  color: #666;
 }
 
-.login-modal h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.login-form .form-group {
-  margin-bottom: 1.2rem;
-}
-
-.login-form label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-}
-
-.login-form input {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 8px;
-  border: 1px solid rgba(200, 200, 200, 0.5);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.login-form input::placeholder {
-  color: #ccc;
-}
-
-.login-form .btn-entrar {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.erro-msg {
-  color: #ff6b6b;
-  font-weight: 500;
-  display: none;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-/* =================== LOADER =================== */
-.loader-overlay.fade-out {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-/* =================== LISTAGEM DE PROJETOS =================== */
-.project-list button {
-  margin-left: 0.5rem;
+/* =================== BOTÕES =================== */
+.btn-perigo {
   background: transparent;
-  border: none;
-  cursor: pointer;
-  color: inherit;
-}
-
-.project-list button i {
-  width: 18px;
-  height: 18px;
-}
-
-.project-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0.8rem 0;
-}
-
-.badge-novo {
-  background: var(--cor-azul-claro);
-  color: white;
-  padding: 2px 6px;
-  font-size: 12px;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  padding: 8px 12px;
   border-radius: 6px;
-  margin-left: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.ver-mais-btn {
-  margin: 1rem auto;
-  display: block;
+.btn-perigo:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.btn-entrar {
   background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
   color: white;
   border: none;
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.ver-mais-btn:hover {
-  opacity: 0.9;
-}
-
-/* =================== LISTA VAZIA =================== */
-.lista-vazia {
-  text-align: center;
-  font-style: italic;
-  color: #777;
-  padding: 1.5rem 0;
-}
-body.dark .lista-vazia {
-  color: #bbb;
-}
-
-/* =================== LOGIN MODAL: REFINO RESPONSIVO =================== */
-@media (min-width: 768px) {
-  .login-modal {
-    margin-top: 10vh;
-    max-width: 500px;
-    padding: 2.5rem 2rem;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
-  }
-
-  .login-form input {
-    font-size: 1rem;
-  }
-
-  .login-form .btn-entrar {
-    font-size: 1rem;
+/* =================== RESPONSIVO PERFIL =================== */
+@media (max-width: 480px) {
+  #modal-perfil .modal-content {
+    padding: 1.5rem;
   }
 }
