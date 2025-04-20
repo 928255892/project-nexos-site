@@ -26,12 +26,12 @@
         </div>
       </div>
 
-      <button onclick="abrirModalPerfil()" class="logout-btn" aria-label="Editar Perfil">
+      <button onclick="abrirModalPerfil()" class="logout-btn" id="btn-perfil">
         <i data-lucide="user-cog"></i>
         <span>Editar Perfil</span>
       </button>
 
-      <button id="logout-btn" class="logout-btn" aria-label="Sair">
+      <button id="logout-btn" class="logout-btn">
         <i data-lucide="log-out"></i>
         <span>Sair</span>
       </button>
@@ -65,51 +65,20 @@
     </main>
   </div>
 
-  <!-- Modal: Editar Projeto -->
-  <div id="modal-edicao" class="modal hidden">
-    <div class="modal-content glass">
-      <h3>Editar Projeto</h3>
-      <form id="form-edicao">
-        <input type="hidden" id="edit-id" />
-        <label for="edit-titulo">Título *</label>
-        <input type="text" id="edit-titulo" required />
-        <label for="edit-descricao">Descrição</label>
-        <textarea id="edit-descricao" rows="4"></textarea>
-        <div class="modal-actions">
-          <button type="submit" class="btn-entrar">
-            <i data-lucide="check-circle"></i> Salvar
-          </button>
-          <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal: Detalhes -->
-  <div id="modal-detalhes" class="modal hidden">
-    <div class="modal-content glass">
-      <h3 id="detalhe-titulo">Detalhes</h3>
-      <p><strong>Descrição:</strong> <span id="detalhe-descricao"></span></p>
-      <p><strong>Data de criação:</strong> <span id="detalhe-data"></span></p>
-      <div class="modal-actions">
-        <button type="button" class="btn-cancelar" onclick="fecharModalDetalhes()">Fechar</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Modal: Perfil -->
   <div id="modal-perfil" class="modal hidden">
     <div class="modal-content perfil-modal">
-      <h3>Editar Perfil</h3>
+      <h3><i data-lucide="settings"></i> Gerenciar Perfil</h3>
       <div class="perfil-abas">
-        <button class="aba ativa" data-aba="geral">Geral</button>
-        <button class="aba" data-aba="seguranca">Segurança</button>
-        <button class="aba" data-aba="preferencias">Preferências</button>
-        <button class="aba" data-aba="conta">Conta</button>
+        <button class="aba ativa" data-aba="geral"><i data-lucide="user"></i> Geral</button>
+        <button class="aba" data-aba="seguranca"><i data-lucide="shield"></i> Segurança</button>
+        <button class="aba" data-aba="preferencias"><i data-lucide="sliders"></i> Preferências</button>
+        <button class="aba" data-aba="conta"><i data-lucide="trash"></i> Conta</button>
       </div>
 
       <form id="form-perfil" class="perfil-form">
-        <div class="conteudo-aba" id="aba-geral">
+        <!-- Aba Geral -->
+        <div class="perfil-conteudo" data-conteudo="geral">
           <label for="perfil-nome">Nome</label>
           <input type="text" id="perfil-nome" required />
 
@@ -121,7 +90,8 @@
           </div>
         </div>
 
-        <div class="conteudo-aba hidden" id="aba-seguranca">
+        <!-- Aba Segurança -->
+        <div class="perfil-conteudo hidden" data-conteudo="seguranca">
           <label for="perfil-senha">Nova Senha</label>
           <input type="password" id="perfil-senha" minlength="6" placeholder="Deixe em branco para manter" />
 
@@ -129,28 +99,38 @@
           <input type="password" id="perfil-confirmar" placeholder="Confirme a nova senha" />
         </div>
 
-        <div class="conteudo-aba hidden" id="aba-preferencias">
-          <p>Preferências do usuário (tema padrão, idioma etc.)</p>
-          <!-- Conteúdo futuro -->
+        <!-- Aba Preferências -->
+        <div class="perfil-conteudo hidden" data-conteudo="preferencias">
+          <label>Idioma</label>
+          <select id="perfil-idioma">
+            <option value="pt">Português</option>
+            <option value="en">Inglês</option>
+          </select>
+
+          <label>Tema Padrão</label>
+          <select id="perfil-tema">
+            <option value="light">Claro</option>
+            <option value="dark">Escuro</option>
+          </select>
         </div>
 
-        <div class="conteudo-aba hidden" id="aba-conta">
-          <p>Gerenciar configurações da conta</p>
-          <!-- Conteúdo futuro -->
+        <!-- Aba Conta -->
+        <div class="perfil-conteudo hidden" data-conteudo="conta">
+          <p class="texto-aviso">Ao excluir sua conta, todos os dados vinculados serão removidos.</p>
+          <button type="button" class="btn-excluir" id="btn-excluir-conta">
+            <i data-lucide="trash-2"></i> Excluir Conta
+          </button>
         </div>
 
         <div class="modal-actions">
           <button type="submit" class="btn-entrar"><i data-lucide="save"></i> Salvar</button>
-          <button type="button" class="btn-cancelar" onclick="resetarPerfil()">Redefinir</button>
-          <button type="button" class="btn-excluir" onclick="confirmarExclusaoConta()">
-            <i data-lucide="trash-2"></i> Excluir Conta
-          </button>
+          <button type="button" class="btn-cancelar" id="btn-resetar-perfil">Redefinir</button>
+          <button type="button" class="btn-cancelar" id="btn-cancelar-perfil">Cancelar</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Toast de mensagem -->
   <div id="toast" class="toast hidden"></div>
 
   <script src="dashboard.js"></script>
