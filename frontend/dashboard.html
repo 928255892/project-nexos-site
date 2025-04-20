@@ -26,11 +26,6 @@
         </div>
       </div>
 
-      <button id="editar-perfil-btn" class="editar-perfil-btn" aria-label="Editar Perfil">
-        <i data-lucide="user-cog"></i>
-        <span>Editar Perfil</span>
-      </button>
-
       <button id="logout-btn" class="logout-btn" aria-label="Sair">
         <i data-lucide="log-out"></i>
         <span>Sair</span>
@@ -94,35 +89,6 @@
       <div class="modal-actions">
         <button type="button" class="btn-cancelar" onclick="fecharModalDetalhes()">Fechar</button>
       </div>
-    </div>
-  </div>
-
-  <!-- Modal: Editar Perfil -->
-  <div id="modal-perfil" class="modal hidden">
-    <div class="modal-content glass">
-      <h3>Editar Perfil</h3>
-      <form id="form-perfil">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" required />
-
-        <label for="avatar">URL do Avatar</label>
-        <input type="url" id="avatar" name="avatar" />
-
-        <label for="senha">Nova Senha</label>
-        <input type="password" id="senha" name="senha" />
-
-        <label for="confirmar-senha">Confirmar Nova Senha</label>
-        <input type="password" id="confirmar-senha" name="confirmar-senha" />
-
-        <div class="modal-actions">
-          <button type="submit" class="btn-entrar">
-            <i data-lucide="check-circle"></i> Salvar
-          </button>
-          <button type="button" class="btn-cancelar" onclick="document.getElementById('modal-perfil').classList.add('hidden')">
-            Cancelar
-          </button>
-        </div>
-      </form>
     </div>
   </div>
 
