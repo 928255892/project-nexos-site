@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const successMessage = document.querySelector(".success-message");
   const loader = document.getElementById("loader");
   const dashboard = document.querySelector(".dashboard");
+  const btnVerMais = document.getElementById("btn-ver-mais");
+
+  let todosProjetos = [];
+  let pagina = 0;
+  const projetosPorPagina = 5;
 
   loader.style.display = "flex";
   if (dashboard) dashboard.style.display = "none";
@@ -39,27 +44,53 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 800);
     });
 
+  // 🔁 BLOCO 2 - NOVA FUNÇÃO: renderizar projetos com ordenação, paginação, ícones e badge
   function renderizarProjetos(projetos) {
+    todosProjetos = projetos.sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao));
+    pagina = 0;
     listaProjetos.innerHTML = "";
+    carregarMaisProjetos();
+  }
 
-    if (!projetos.length) {
-      listaProjetos.innerHTML = "<li>Nenhum projeto encontrado.</li>";
-      return;
-    }
+  function carregarMaisProjetos() {
+    const inicio = pagina * projetosPorPagina;
+    const fim = inicio + projetosPorPagina;
+    const projetosParaMostrar = todosProjetos.slice(inicio, fim);
 
-    projetos.forEach(proj => {
+    projetosParaMostrar.forEach(proj => {
       const li = document.createElement("li");
+
+      const ehNovo = (new Date() - new Date(proj.dataCriacao)) < (48 * 60 * 60 * 1000);
+      const badgeNovo = ehNovo ? `<span class="badge-novo">Novo</span>` : "";
+
+      const icones = ["file-code", "folder", "rocket", "zap", "layers"];
+      const icone = icones[Math.floor(Math.random() * icones.length)];
+
       li.innerHTML = `
-        <strong>${proj.titulo}</strong>
+        <i data-lucide="${icone}"></i>
+        <strong>${proj.titulo}</strong> ${badgeNovo}
         <button onclick='abrirDetalhes(${JSON.stringify(proj)})'><i data-lucide="eye"></i></button>
         <button onclick='abrirModal(${JSON.stringify(proj)})'><i data-lucide="pencil"></i></button>
         <button onclick='deletarProjeto("${proj._id}")'><i data-lucide="trash-2"></i></button>
       `;
       listaProjetos.appendChild(li);
     });
+
+    pagina++;
     lucide.createIcons();
+
+    if (todosProjetos.length > pagina * projetosPorPagina) {
+      btnVerMais.classList.remove("hidden");
+    } else {
+      btnVerMais.classList.add("hidden");
+    }
   }
 
+  btnVerMais.addEventListener("click", () => {
+    carregarMaisProjetos();
+  });
+
+  // Edição de projeto
   document.getElementById("form-edicao").addEventListener("submit", async (e) => {
     e.preventDefault();
     const id = document.getElementById("edit-id").value;
@@ -81,16 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.ok) {
         fecharModal();
         const projetoAtualizado = await res.json();
-        const index = [...listaProjetos.children].findIndex(li =>
-          li.innerText.includes(projetoAtualizado.titulo)
-        );
-        if (index >= 0) {
-          renderizarProjetos([...document.querySelectorAll("#lista-projetos li")].map(li => ({
-            titulo: li.querySelector("strong").textContent,
-            _id: li.dataset.id,
-          })));
-        } else {
-          location.reload();
+        const index = todosProjetos.findIndex(p => p._id === projetoAtualizado._id);
+        if (index !== -1) {
+          todosProjetos[index] = projetoAtualizado;
+          renderizarProjetos(todosProjetos);
         }
       } else {
         alert("Erro ao atualizar projeto");
@@ -132,7 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (res.ok) {
-        document.querySelector(`#lista-projetos button[onclick*="${id}"]`).parentElement.remove();
+        todosProjetos = todosProjetos.filter(p => p._id !== id);
+        renderizarProjetos(todosProjetos);
       } else {
         alert("Erro ao deletar projeto.");
       }
