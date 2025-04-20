@@ -102,28 +102,42 @@
     <div class="modal-content perfil-modal">
       <h3>Editar Perfil</h3>
       <div class="perfil-abas">
-        <button class="aba ativa">Geral</button>
-        <button class="aba" disabled>Segurança</button>
-        <button class="aba" disabled>Preferências</button>
-        <button class="aba" disabled>Conta</button>
+        <button class="aba ativa" data-aba="geral">Geral</button>
+        <button class="aba" data-aba="seguranca">Segurança</button>
+        <button class="aba" data-aba="preferencias">Preferências</button>
+        <button class="aba" data-aba="conta">Conta</button>
       </div>
 
       <form id="form-perfil" class="perfil-form">
-        <label for="perfil-nome">Nome</label>
-        <input type="text" id="perfil-nome" required />
+        <div class="conteudo-aba" id="aba-geral">
+          <label for="perfil-nome">Nome</label>
+          <input type="text" id="perfil-nome" required />
 
-        <label for="perfil-avatar">Avatar (URL)</label>
-        <input type="url" id="perfil-avatar" />
+          <label for="perfil-avatar">Avatar (URL)</label>
+          <input type="url" id="perfil-avatar" />
 
-        <div class="avatar-preview">
-          <img id="preview-avatar" src="https://via.placeholder.com/80" alt="Preview" />
+          <div class="avatar-preview">
+            <img id="preview-avatar" src="https://via.placeholder.com/80" alt="Preview" />
+          </div>
         </div>
 
-        <label for="perfil-senha">Nova Senha</label>
-        <input type="password" id="perfil-senha" minlength="6" placeholder="Deixe em branco para manter" />
+        <div class="conteudo-aba hidden" id="aba-seguranca">
+          <label for="perfil-senha">Nova Senha</label>
+          <input type="password" id="perfil-senha" minlength="6" placeholder="Deixe em branco para manter" />
 
-        <label for="perfil-confirmar">Confirmar Nova Senha</label>
-        <input type="password" id="perfil-confirmar" placeholder="Confirme a nova senha" />
+          <label for="perfil-confirmar">Confirmar Nova Senha</label>
+          <input type="password" id="perfil-confirmar" placeholder="Confirme a nova senha" />
+        </div>
+
+        <div class="conteudo-aba hidden" id="aba-preferencias">
+          <p>Preferências do usuário (tema padrão, idioma etc.)</p>
+          <!-- Conteúdo futuro -->
+        </div>
+
+        <div class="conteudo-aba hidden" id="aba-conta">
+          <p>Gerenciar configurações da conta</p>
+          <!-- Conteúdo futuro -->
+        </div>
 
         <div class="modal-actions">
           <button type="submit" class="btn-entrar"><i data-lucide="save"></i> Salvar</button>
