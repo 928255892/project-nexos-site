@@ -275,3 +275,35 @@ body.dark .logout-btn {
   height: 18px;
 }
 
+.ver-mais-btn {
+  margin: 1rem auto;
+  display: block;
+  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.ver-mais-btn:hover {
+  opacity: 0.9;
+}
+
+.project-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.8rem 0;
+}
+
+.badge-novo {
+  background: var(--cor-azul-claro);
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+
