@@ -24,10 +24,12 @@
           <h3 id="user-name">Usuário</h3>
           <p id="user-email">email@exemplo.com</p>
         </div>
-        <button id="btn-editar-perfil" class="btn-entrar" style="margin-top: 1rem;">
-          <i data-lucide="settings"></i> Editar Perfil
-        </button>
       </div>
+
+      <button id="btn-editar-perfil" class="logout-btn" aria-label="Editar Perfil">
+        <i data-lucide="user-cog"></i>
+        <span>Editar Perfil</span>
+      </button>
 
       <button id="logout-btn" class="logout-btn" aria-label="Sair">
         <i data-lucide="log-out"></i>
@@ -95,35 +97,47 @@
     </div>
   </div>
 
-  <!-- Modal: Perfil -->
+  <!-- Modal: Editar Perfil -->
   <div id="modal-perfil" class="modal hidden">
     <div class="modal-content perfil-modal">
       <h3>Editar Perfil</h3>
+      <div class="tabs">
+        <button class="tab active" data-tab="geral">Geral</button>
+        <button class="tab" disabled>Segurança</button>
+        <button class="tab" disabled>Preferências</button>
+        <button class="tab" disabled>Conta</button>
+      </div>
       <form id="form-perfil" class="perfil-form">
         <label for="perfil-nome">Nome</label>
-        <input type="text" id="perfil-nome" required />
+        <input type="text" id="perfil-nome" placeholder="Seu nome" required />
 
-        <label for="perfil-avatar">Avatar (URL)</label>
+        <label for="perfil-avatar">URL do Avatar</label>
         <input type="url" id="perfil-avatar" placeholder="https://..." />
         <div class="avatar-preview">
-          <img id="avatar-preview" src="https://via.placeholder.com/80" alt="Preview do Avatar" />
+          <img id="preview-avatar" src="https://via.placeholder.com/80" alt="Preview Avatar" />
         </div>
 
         <label for="perfil-senha">Nova Senha (opcional)</label>
         <input type="password" id="perfil-senha" placeholder="••••••" />
 
+        <label for="perfil-confirmar">Confirmar Nova Senha</label>
+        <input type="password" id="perfil-confirmar" placeholder="••••••" />
+
         <div class="modal-actions">
-          <button type="submit" class="btn-entrar">
-            <i data-lucide="save"></i> Salvar
+          <button type="button" class="btn-cancelar" id="btn-resetar">Redefinir</button>
+          <button type="submit" class="btn-entrar" id="btn-salvar" disabled>
+            <i data-lucide="save"></i> Salvar Alterações
           </button>
-          <button type="button" class="btn-excluir" id="btn-excluir-conta">
-            <i data-lucide="trash-2"></i> Excluir Conta
+          <button type="button" class="btn-perigo btn-excluir" id="btn-excluir-conta">
+            <i data-lucide="trash"></i> Excluir Conta
           </button>
-          <button type="button" class="btn-cancelar" onclick="fecharModalPerfil()">Cancelar</button>
         </div>
       </form>
     </div>
   </div>
+
+  <!-- Toast de sucesso/erro -->
+  <div id="toast" class="toast hidden"></div>
 
   <script src="dashboard.js"></script>
 </body>
