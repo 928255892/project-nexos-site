@@ -44,11 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 800);
     });
 
-  // 🔁 BLOCO 2 - NOVA FUNÇÃO: renderizar projetos com ordenação, paginação, ícones e badge
   function renderizarProjetos(projetos) {
     todosProjetos = projetos.sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao));
     pagina = 0;
     listaProjetos.innerHTML = "";
+
+    if (!todosProjetos.length) {
+      listaProjetos.innerHTML = `<li class="lista-vazia">Você ainda não criou projetos.</li>`;
+      btnVerMais.classList.add("hidden");
+      return;
+    }
+
     carregarMaisProjetos();
   }
 
@@ -90,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarMaisProjetos();
   });
 
-  // Edição de projeto
   document.getElementById("form-edicao").addEventListener("submit", async (e) => {
     e.preventDefault();
     const id = document.getElementById("edit-id").value;
