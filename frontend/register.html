@@ -15,43 +15,42 @@
     <div class="toggle-indicador"></div>
   </div>
 
-  <div class="container">
-    <h1>Criar Conta</h1>
+  <div class="login-modal">
+    <h2>Criar Conta</h2>
 
     <form id="register-form" class="login-form">
       <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" required />
+        <input type="text" id="nome" placeholder="Seu nome" required />
       </div>
 
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input type="email" id="email" required />
+        <input type="email" id="email" placeholder="email@exemplo.com" required />
       </div>
 
       <div class="form-group">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" required minlength="6" />
+        <input type="password" id="senha" placeholder="Mínimo 6 caracteres" required minlength="6" />
       </div>
 
-      <button type="submit" class="btn-entrar">Cadastrar</button>
+      <button type="submit" class="btn-entrar">
+        <i data-lucide="user-plus"></i> Cadastrar
+      </button>
     </form>
 
-    <p id="erro-msg" style="color: red; margin-top: 1rem; display: none;">Erro ao criar conta. Verifique os dados.</p>
+    <p class="erro-msg" id="erro-msg">Erro ao criar conta. Verifique os dados.</p>
 
-    <!-- Link para login -->
     <p style="margin-top: 1.5rem; text-align: center;">
-      Já tem conta? <a href="login.html" style="color: var(--cor-secundaria); text-decoration: underline;">Entrar</a>
+      Já tem conta? <a href="login.html" style="color: var(--cor-azul-claro); text-decoration: underline;">Entrar</a>
     </p>
   </div>
 
   <script>
-    // Redireciona se já estiver logado
     if (localStorage.getItem("token")) {
       window.location.href = "dashboard.html";
     }
 
-    // Cadastro
     document.getElementById('register-form').addEventListener('submit', async function (e) {
       e.preventDefault();
 
@@ -62,9 +61,7 @@
       try {
         const response = await fetch('http://localhost:3000/api/auth/register', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ nome, email, senha }),
         });
 
@@ -83,7 +80,6 @@
       }
     });
 
-    // Tema escuro/claro
     const toggleBtn = document.getElementById("theme-toggle");
     const body = document.body;
     const iconSol = document.getElementById("icon-sol");
