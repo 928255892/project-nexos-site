@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Nexos</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <!-- Fundo animado Vanta -->
+  <!-- Fundo animado (se aplicável) -->
   <div id="vanta-bg"></div>
 
-  <!-- Cabeçalho (inalterado) -->
+  <!-- Alternância de Tema -->
+  <div id="theme-toggle" class="theme-toggle">
+    <span class="icon" id="icon-lua" data-theme="dark"></span>
+    <span class="icon" id="icon-sol" data-theme="light"></span>
+    <div class="toggle-indicador"></div>
+  </div>
+
+  <!-- Cabeçalho -->
   <header class="header">
     <h1>Project Nexos</h1>
     <nav>
@@ -23,14 +29,7 @@
     </nav>
   </header>
 
-  <!-- Botão de alternância de tema -->
-  <div id="theme-toggle" class="theme-toggle">
-    <span class="icon" id="icon-lua" data-theme="dark"></span>
-    <span class="icon" id="icon-sol" data-theme="light"></span>
-    <div class="toggle-indicador"></div>
-  </div>
-
-  <!-- Seções com ícones grandes -->
+  <!-- Seções informativas com estilo glass -->
   <section id="missao" class="info-section glass">
     <div class="icon-wrapper">
       <i data-lucide="target"></i>
@@ -55,7 +54,10 @@
     <p>Inovação, Ética, Colaboração e Sustentabilidade.</p>
   </section>
 
-  <section id="sobre" class="info-section">
+  <section id="sobre" class="info-section glass">
+    <div class="icon-wrapper">
+      <i data-lucide="rocket"></i>
+    </div>
     <h2>Sobre o Project Nexos</h2>
     <p>Uma plataforma pensada para impulsionar projetos criativos e colaborativos.</p>
   </section>
@@ -66,5 +68,41 @@
   </button>
 
   <script src="public.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      const btnTopo = document.getElementById("top-btn");
+      window.addEventListener("scroll", () => {
+        btnTopo.style.display = window.scrollY > 200 ? "flex" : "none";
+      });
+
+      btnTopo.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      const body = document.body;
+      const iconSol = document.getElementById("icon-sol");
+      const iconLua = document.getElementById("icon-lua");
+      const indicador = document.querySelector(".toggle-indicador");
+
+      function aplicarTema(tema) {
+        body.classList.remove("light", "dark");
+        body.classList.add(tema);
+        iconLua.classList.toggle("active", tema === "dark");
+        iconSol.classList.toggle("active", tema === "light");
+        indicador.style.transform = tema === "dark" ? "translateX(0)" : "translateX(32px)";
+        localStorage.setItem("tema", tema);
+      }
+
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const temaAtual = body.classList.contains("dark") ? "dark" : "light";
+        aplicarTema(temaAtual === "dark" ? "light" : "dark");
+      });
+
+      const temaSalvo = localStorage.getItem("tema") || "light";
+      aplicarTema(temaSalvo);
+    });
+  </script>
 </body>
 </html>
