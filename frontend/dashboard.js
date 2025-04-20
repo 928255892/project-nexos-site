@@ -122,22 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
           todosProjetos[index] = projetoAtualizado;
           renderizarProjetos(todosProjetos);
         }
-
-        // Mostrar animação de sucesso
-        if (successMessage) {
-          successMessage.textContent = "Projeto atualizado com sucesso!";
-          successMessage.classList.remove("hidden", "fade-out");
-          successMessage.classList.add("fade-in");
-
-          setTimeout(() => {
-            successMessage.classList.remove("fade-in");
-            successMessage.classList.add("fade-out");
-          }, 2500);
-
-          setTimeout(() => {
-            successMessage.classList.add("hidden");
-          }, 3200);
-        }
       } else {
         alert("Erro ao atualizar projeto");
       }
