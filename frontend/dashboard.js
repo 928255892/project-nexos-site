@@ -9,10 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const qtdProjetos = document.getElementById("total-projetos");
   const qtdNotificacoes = document.getElementById("total-notificacoes");
   const listaProjetos = document.getElementById("lista-projetos");
-  const successMessage = document.querySelector(".success-message");
   const loader = document.getElementById("loader");
   const dashboard = document.querySelector(".dashboard");
   const btnVerMais = document.getElementById("btn-ver-mais");
+  const btnEditarPerfil = document.getElementById("btn-editar-perfil");
+  const modalPerfil = document.getElementById("modal-perfil");
+  const formPerfil = document.getElementById("form-perfil");
+
+  // Campos do modal de perfil
+  const campoNome = document.getElementById("perfil-nome");
+  const campoAvatar = document.getElementById("perfil-avatar");
+  const campoSenha = document.getElementById("perfil-senha");
+  const avatarPreview = document.getElementById("avatar-preview");
 
   let todosProjetos = [];
   let pagina = 0;
@@ -21,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loader.style.display = "flex";
   if (dashboard) dashboard.style.display = "none";
 
+  // === BUSCA DE DADOS ===
   fetch("http://localhost:3000/api/me", {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -34,6 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       qtdNotificacoes.textContent = data.notificacoes?.length || 0;
 
       renderizarProjetos(data.projetos);
+
+      // Preencher modal de perfil
+      campoNome.value = data.nome;
+      campoAvatar.value = data.avatar || "";
+      avatarPreview.src = data.avatar || "https://via.placeholder.com/80";
     })
     .catch(() => window.location.href = "login.html")
     .finally(() => {
@@ -44,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 800);
     });
 
+  // === RENDERIZAÇÃO DE PROJETOS ===
   function renderizarProjetos(projetos) {
     todosProjetos = projetos.sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao));
     pagina = 0;
@@ -92,10 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  btnVerMais.addEventListener("click", () => {
-    carregarMaisProjetos();
-  });
+  btnVerMais.addEventListener("click", () => carregarMaisProjetos());
 
+  // === MODAL: Editar Projeto ===
   document.getElementById("form-edicao").addEventListener("submit", async (e) => {
     e.preventDefault();
     const id = document.getElementById("edit-id").value;
@@ -176,4 +190,74 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("token");
     window.location.href = "login.html";
   });
+
+  // === MODAL: Editar Perfil ===
+  btnEditarPerfil.addEventListener("click", () => {
+    modalPerfil.classList.remove("hidden");
+  });
+
+  campoAvatar.addEventListener("input", () => {
+    avatarPreview.src = campoAvatar.value || "https://via.placeholder.com/80";
+  });
+
+  formPerfil.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nome = campoNome.value.trim();
+    const avatar = campoAvatar.value.trim();
+    const senha = campoSenha.value.trim();
+
+    try {
+      const res = await fetch("http://localhost:3000/api/usuario/perfil", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ nome, avatar, senha }),
+      });
+
+      if (res.ok) {
+        const dadosAtualizados = await res.json();
+        nomeUsuario.textContent = dadosAtualizados.nome;
+        primeiroNome.textContent = dadosAtualizados.nome.split(" ")[0];
+        emailUsuario.textContent = dadosAtualizados.email;
+        avatarUsuario.src = dadosAtualizados.avatar || "https://via.placeholder.com/80";
+        campoSenha.value = "";
+        modalPerfil.classList.add("hidden");
+        alert("Perfil atualizado com sucesso!");
+      } else {
+        alert("Erro ao atualizar perfil.");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  document.getElementById("btn-excluir-conta").addEventListener("click", async () => {
+    const confirmar = confirm("Tem certeza? Esta ação é permanente e excluirá sua conta.");
+    if (!confirmar) return;
+
+    try {
+      const res = await fetch("http://localhost:3000/api/usuario/deletar", {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.ok) {
+        localStorage.removeItem("token");
+        alert("Conta excluída com sucesso.");
+        window.location.href = "index.html";
+      } else {
+        alert("Erro ao excluir conta.");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  window.fecharModalPerfil = () => {
+    modalPerfil.classList.add("hidden");
+  };
 });
