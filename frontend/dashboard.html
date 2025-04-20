@@ -26,6 +26,11 @@
         </div>
       </div>
 
+      <button id="btn-editar-perfil" class="logout-btn" aria-label="Editar Perfil">
+        <i data-lucide="user"></i>
+        <span>Editar Perfil</span>
+      </button>
+
       <button id="logout-btn" class="logout-btn" aria-label="Sair">
         <i data-lucide="log-out"></i>
         <span>Sair</span>
@@ -88,6 +93,38 @@
       <p><strong>Data de criação:</strong> <span id="detalhe-data"></span></p>
       <div class="modal-actions">
         <button type="button" class="btn-cancelar" onclick="fecharModalDetalhes()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Perfil do Usuário -->
+  <div id="modal-perfil" class="modal hidden">
+    <div class="modal-content glass">
+      <h3>Editar Perfil</h3>
+      <form id="form-perfil">
+        <label for="perfil-nome">Nome *</label>
+        <input type="text" id="perfil-nome" required />
+
+        <label for="perfil-avatar">Avatar (URL)</label>
+        <input type="url" id="perfil-avatar" />
+
+        <label for="perfil-senha">Nova Senha</label>
+        <input type="password" id="perfil-senha" minlength="6" />
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-entrar">
+            <i data-lucide="save"></i> Salvar
+          </button>
+          <button type="button" class="btn-cancelar" onclick="fecharModalPerfil()">Cancelar</button>
+        </div>
+      </form>
+
+      <hr style="margin: 1.5rem 0; opacity: 0.2;" />
+
+      <div class="modal-actions">
+        <button id="btn-excluir-conta" class="btn-cancelar" style="color: red; border-color: red;">
+          <i data-lucide="trash"></i> Excluir Conta
+        </button>
       </div>
     </div>
   </div>
