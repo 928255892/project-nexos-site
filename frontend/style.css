@@ -155,7 +155,7 @@ body.dark .logout-btn {
   padding: 2rem;
   border-radius: 12px;
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px);
@@ -196,52 +196,57 @@ body.light .modal-content.glass {
   gap: 1rem;
 }
 
-/* =================== MODAL PERFIL =================== */
-#modal-perfil .modal-content {
-  max-width: 480px;
-}
-
-#modal-perfil .modal-actions {
-  justify-content: space-between;
-}
-
-.modal-content.perfil-modal {
-  max-width: 460px;
-  padding: 2rem;
+/* =================== MODAL PERFIL COM ABAS =================== */
+.perfil-modal {
+  max-width: 500px;
   border-radius: 20px;
-  text-align: left;
-  position: relative;
 }
 
-.modal-content.perfil-modal h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+.perfil-abas {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.perfil-form label {
-  display: block;
-  margin: 1rem 0 0.4rem;
+.perfil-abas .aba {
+  flex: 1;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
   font-weight: 600;
-}
-
-.perfil-form input {
-  width: 100%;
-  padding: 0.7rem;
   border-radius: 8px;
-  border: 1px solid rgba(200, 200, 200, 0.3);
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.perfil-form input::placeholder {
-  color: #ccc;
+.perfil-abas .aba.ativa {
+  border-color: var(--cor-azul-claro);
+  background: rgba(0, 198, 255, 0.12);
+  color: var(--cor-azul-claro);
+}
+
+.perfil-section {
+  display: none;
+}
+
+.perfil-section.ativa {
+  display: block;
+}
+
+.perfil-form input,
+.perfil-form textarea {
+  margin-bottom: 1rem;
 }
 
 .perfil-form .avatar-preview {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .perfil-form .avatar-preview img {
@@ -253,34 +258,11 @@ body.light .modal-content.glass {
 }
 
 .perfil-form .modal-actions {
-  margin-top: 2rem;
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
-}
-
-.btn-excluir {
-  background: transparent;
-  color: #ff6b6b;
-  border: 1px solid #ff6b6b;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-excluir:hover {
-  background: rgba(255, 107, 107, 0.08);
-}
-
-body.light .perfil-form input {
-  background: rgba(255, 255, 255, 0.6);
-  color: black;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-body.light .perfil-form input::placeholder {
-  color: #666;
+  margin-top: 2rem;
 }
 
 /* =================== BOTÕES =================== */
@@ -311,9 +293,13 @@ body.light .perfil-form input::placeholder {
   gap: 0.5rem;
 }
 
-/* =================== RESPONSIVO PERFIL =================== */
+/* =================== RESPONSIVO =================== */
 @media (max-width: 480px) {
-  #modal-perfil .modal-content {
-    padding: 1.5rem;
+  .perfil-abas {
+    flex-direction: column;
+  }
+  .perfil-form .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
