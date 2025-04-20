@@ -13,10 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
   const dashboard = document.querySelector(".dashboard");
 
-  // Inicialmente oculta a dashboard
+  loader.style.display = "flex";
   if (dashboard) dashboard.style.display = "none";
 
-  // Busca os dados do usuário e projetos
   fetch("http://localhost:3000/api/me", {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -33,17 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => window.location.href = "login.html")
     .finally(() => {
-      // Animação de saída do loader
-      if (loader) {
-        loader.classList.add("fade-out");
-        setTimeout(() => {
-          loader.remove();
-          if (dashboard) dashboard.style.display = "flex";
-        }, 800); // mesmo tempo da transição CSS
-      }
+      loader.classList.add("fade-out");
+      setTimeout(() => {
+        loader.remove();
+        dashboard.style.display = "flex";
+      }, 800);
     });
 
-  // Renderizar projetos com botão de edição
   function renderizarProjetos(projetos) {
     listaProjetos.innerHTML = "";
 
@@ -56,43 +51,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
       li.innerHTML = `
         <strong>${proj.titulo}</strong>
-        <button class="btn-editar" onclick='abrirModal(${JSON.stringify(proj)})'>✏️</button>
+        <button onclick='abrirDetalhes(${JSON.stringify(proj)})'><i data-lucide="eye"></i></button>
+        <button onclick='abrirModal(${JSON.stringify(proj)})'><i data-lucide="pencil"></i></button>
+        <button onclick='deletarProjeto("${proj._id}")'><i data-lucide="trash-2"></i></button>
       `;
       listaProjetos.appendChild(li);
     });
+    lucide.createIcons();
   }
 
-  // Exibir mensagem de sucesso
-  function exibirMensagemSucesso(texto = "Projeto salvo com sucesso!") {
-    successMessage.textContent = texto;
-    successMessage.style.display = "block";
-    setTimeout(() => {
-      successMessage.style.display = "none";
-    }, 3000);
-  }
-
-  // Abrir e fechar modal de edição
-  window.abrirModal = function (projeto) {
-    document.getElementById("edit-id").value = projeto._id;
-    document.getElementById("edit-titulo").value = projeto.titulo;
-    document.getElementById("edit-descricao").value = projeto.descricao || '';
-    document.getElementById("modal-edicao").classList.remove("hidden");
-  };
-
-  window.fecharModal = function () {
-    document.getElementById("modal-edicao").classList.add("hidden");
-  };
-
-  // Enviar edição
-  document.getElementById("form-edicao").addEventListener("submit", async function (e) {
+  document.getElementById("form-edicao").addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const id = document.getElementById("edit-id").value;
-    const titulo = document.getElementById("edit-titulo").value;
+    const titulo = document.getElementById("edit-titulo").value.trim();
     const descricao = document.getElementById("edit-descricao").value;
 
+    if (!titulo) return alert("Título é obrigatório");
+
     try {
-      const response = await fetch(`http://localhost:3000/api/projetos/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -101,15 +78,71 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ titulo, descricao }),
       });
 
-      if (response.ok) {
+      if (res.ok) {
         fecharModal();
-        exibirMensagemSucesso("Projeto atualizado com sucesso!");
-        setTimeout(() => location.reload(), 800);
+        const projetoAtualizado = await res.json();
+        const index = [...listaProjetos.children].findIndex(li =>
+          li.innerText.includes(projetoAtualizado.titulo)
+        );
+        if (index >= 0) {
+          renderizarProjetos([...document.querySelectorAll("#lista-projetos li")].map(li => ({
+            titulo: li.querySelector("strong").textContent,
+            _id: li.dataset.id,
+          })));
+        } else {
+          location.reload();
+        }
       } else {
-        alert("Erro ao atualizar projeto.");
+        alert("Erro ao atualizar projeto");
       }
     } catch (err) {
-      console.error("Erro ao enviar edição:", err);
+      console.error(err);
     }
+  });
+
+  window.abrirModal = (proj) => {
+    document.getElementById("edit-id").value = proj._id;
+    document.getElementById("edit-titulo").value = proj.titulo;
+    document.getElementById("edit-descricao").value = proj.descricao || "";
+    document.getElementById("modal-edicao").classList.remove("hidden");
+  };
+
+  window.fecharModal = () => {
+    document.getElementById("modal-edicao").classList.add("hidden");
+  };
+
+  window.abrirDetalhes = (proj) => {
+    document.getElementById("detalhe-titulo").textContent = proj.titulo;
+    document.getElementById("detalhe-descricao").textContent = proj.descricao || "Sem descrição.";
+    document.getElementById("detalhe-data").textContent = new Date(proj.dataCriacao).toLocaleString();
+    document.getElementById("modal-detalhes").classList.remove("hidden");
+  };
+
+  window.fecharModalDetalhes = () => {
+    document.getElementById("modal-detalhes").classList.add("hidden");
+  };
+
+  window.deletarProjeto = async (id) => {
+    if (!confirm("Tem certeza que deseja excluir este projeto?")) return;
+
+    try {
+      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (res.ok) {
+        document.querySelector(`#lista-projetos button[onclick*="${id}"]`).parentElement.remove();
+      } else {
+        alert("Erro ao deletar projeto.");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  document.getElementById("logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
   });
 });
