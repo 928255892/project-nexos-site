@@ -68,6 +68,9 @@ body.dark nav a {
 
 /* =================== BOTÃO TEMA =================== */
 .theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   width: 64px;
   height: 32px;
   background: rgba(255, 255, 255, 0.2);
@@ -78,7 +81,7 @@ body.dark nav a {
   padding: 4px;
   backdrop-filter: blur(6px);
   cursor: pointer;
-  margin-left: 1rem;
+  z-index: 100;
 }
 
 .theme-toggle .icon {
@@ -99,19 +102,6 @@ body.dark nav a {
   background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
   border-radius: 16px;
   transition: transform 0.3s;
-}
-
-/* =================== IDENTIDADE VISUAL (logotipo) =================== */
-.login-logo {
-  max-width: 160px;
-  height: auto;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 4px rgba(0, 198, 255, 0.3));
-  transition: transform 0.3s;
-}
-
-.login-logo:hover {
-  transform: scale(1.05);
 }
 
 /* =================== SEÇÕES =================== */
@@ -141,6 +131,87 @@ body.dark .header {
 
 body.dark nav a {
   color: #fff;
+}
+
+/* =================== LOGIN =================== */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.login-header {
+  margin-bottom: 1.5rem;
+}
+
+.login-logo {
+  max-width: 140px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 4px rgba(0, 198, 255, 0.3));
+  transition: transform 0.3s;
+}
+
+.login-logo:hover {
+  transform: scale(1.05);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form label {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  gap: 0.5rem;
+}
+
+.input-group input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.login-bottom-text {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.login-bottom-text .link-azul {
+  color: var(--cor-azul-claro);
+  font-weight: 600;
+}
+
+.full {
+  width: 100%;
 }
 
 /* =================== MODAIS =================== */
