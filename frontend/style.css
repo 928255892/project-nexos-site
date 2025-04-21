@@ -198,20 +198,24 @@ body.light .modal-content.glass {
 
 /* =================== MODAL PERFIL COM ABAS =================== */
 .perfil-modal {
-  max-width: 500px;
+  max-width: 700px;
   border-radius: 20px;
 }
 
 .perfil-abas {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .perfil-abas .aba {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
   padding: 0.6rem 0.5rem;
   text-align: center;
   font-weight: 600;
@@ -229,12 +233,13 @@ body.light .modal-content.glass {
   color: var(--cor-azul-claro);
 }
 
-.perfil-section {
+.conteudo-aba {
   display: none;
 }
 
-.perfil-section.ativa {
+.conteudo-aba.ativo {
   display: block;
+  margin-top: 1rem;
 }
 
 .perfil-form input,
@@ -301,5 +306,22 @@ body.light .modal-content.glass {
   .perfil-form .modal-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+@media (min-width: 768px) {
+  .perfil-modal {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  }
+
+  .perfil-abas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .perfil-form {
+    width: 100%;
   }
 }
