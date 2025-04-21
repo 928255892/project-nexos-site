@@ -1,84 +1,151 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entrar | Project Nexos</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
-  <!-- Fundo animado -->
-  <div id="vanta-bg"></div>
+/* =================== BASE =================== */
+:root {
+  --cor-azul-escuro: #0a1a2f;
+  --cor-azul-claro: #00c6ff;
+  --fundo-claro: #ffffff;
+  --fundo-escuro: #121212;
+  --vidro: rgba(255, 255, 255, 0.1);
+}
 
-  <!-- Alternância de Tema -->
-  <div id="theme-toggle" class="theme-toggle">
-    <span class="icon" id="icon-lua" data-theme="dark"></span>
-    <span class="icon" id="icon-sol" data-theme="light"></span>
-    <div class="toggle-indicador"></div>
-  </div>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--fundo-claro);
+  transition: background 0.3s;
+}
 
-  <!-- Container de login -->
-  <main class="login-container fade-in">
-    <div class="login-card glass">
-      <div class="login-header">
-        <img src="img/logotipo-nexos.webp" alt="Logotipo Project Nexos" class="login-logo" />
-        <h2>Entrar na sua conta</h2>
-      </div>
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
 
-      <form id="form-login" class="login-form">
-        <label for="email">Email</label>
-        <div class="input-group">
-          <i data-lucide="mail"></i>
-          <input type="email" id="email" placeholder="email@exemplo.com" required />
-        </div>
+/* =================== CABEÇALHO =================== */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
 
-        <label for="senha">Senha</label>
-        <div class="input-group">
-          <i data-lucide="lock"></i>
-          <input type="password" id="senha" placeholder="Sua senha" required />
-        </div>
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+}
 
-        <button type="submit" class="btn-entrar full">
-          <i data-lucide="log-in"></i> Entrar
-        </button>
-      </form>
+/* =================== LOGO =================== */
+.login-logo {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 4px rgba(0, 198, 255, 0.3));
+  transition: transform 0.3s;
+}
 
-      <p class="login-bottom-text">
-        Não tem conta?
-        <a href="cadastro.html" class="link-azul">Cadastre-se agora</a>
-      </p>
-    </div>
-  </main>
+.login-logo:hover {
+  transform: scale(1.05);
+}
 
-  <script src="public.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
+/* =================== BOTÃO TEMA =================== */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 64px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
 
-      document.getElementById("form-login").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        const senha = document.getElementById("senha").value;
+.theme-toggle .icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
 
-        try {
-          const res = await fetch("http://localhost:3000/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, senha })
-          });
+.theme-toggle .icon.active {
+  opacity: 1;
+}
 
-          const data = await res.json();
-          if (!res.ok) return alert(data.msg || "Falha no login.");
+.toggle-indicador {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to right, var(--cor-azul-escuro), var(--cor-azul-claro));
+  border-radius: 16px;
+  transition: transform 0.3s;
+}
 
-          localStorage.setItem("token", data.token);
-          window.location.href = "dashboard.html";
-        } catch (err) {
-          console.error(err);
-          alert("Erro ao conectar com o servidor.");
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+/* =================== SEÇÕES =================== */
+.info-section {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.glass {
+  background: var(--vidro);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+/* =================== MODO ESCURO =================== */
+body.dark {
+  background-color: var(--fundo-escuro);
+  color: white;
+}
+
+body.dark .header {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body.dark nav a {
+  color: #fff;
+}
+
+/* =================== SIDEBAR =================== */
+.logout-btn {
+  margin-top: 2rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+}
+
+body.dark .logout-btn {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.logout-btn i {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
+
+/* =================== ... CONTINUA COM RESTANTE DO CSS =================== */
