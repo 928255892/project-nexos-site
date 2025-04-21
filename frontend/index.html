@@ -11,17 +11,17 @@
   <!-- Fundo animado (se aplicável) -->
   <div id="vanta-bg"></div>
 
-  <!-- Cabeçalho com logotipo e botão de tema -->
+  <!-- Cabeçalho estilizado com logotipo e botão de tema -->
   <header class="header">
     <div class="logo">
-      <img src="frontend/img/logotipo-nexos.webp" alt="Project Nexos" />
+      <img src="frontend/img/logotipo-nexos.webp" alt="Project Nexos" class="logo-img" />
     </div>
     <nav>
       <a href="#sobre">Sobre</a>
       <a href="#funcionalidades">Funcionalidades</a>
       <a href="#contato">Contato</a>
       <a href="login.html" class="btn-login">Entrar</a>
-      <div id="theme-toggle" class="theme-toggle">
+      <div id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
         <span class="icon" id="icon-lua" data-theme="dark"></span>
         <span class="icon" id="icon-sol" data-theme="light"></span>
         <div class="toggle-indicador"></div>
@@ -29,51 +29,39 @@
     </nav>
   </header>
 
-  <!-- Seções informativas -->
+  <!-- Seções informativas com estilo glass -->
   <section id="missao" class="info-section glass">
-    <div class="icon-wrapper">
-      <i data-lucide="target"></i>
-    </div>
+    <div class="icon-wrapper"><i data-lucide="target"></i></div>
     <h2>Missão</h2>
     <p>Conectar ideias e pessoas através de soluções digitais inovadoras.</p>
   </section>
 
   <section id="visao" class="info-section glass">
-    <div class="icon-wrapper">
-      <i data-lucide="eye"></i>
-    </div>
+    <div class="icon-wrapper"><i data-lucide="eye"></i></div>
     <h2>Visão</h2>
     <p>Ser referência em tecnologia acessível e colaborativa.</p>
   </section>
 
   <section id="valores" class="info-section glass">
-    <div class="icon-wrapper">
-      <i data-lucide="heart-handshake"></i>
-    </div>
+    <div class="icon-wrapper"><i data-lucide="heart-handshake"></i></div>
     <h2>Valores</h2>
     <p>Inovação, Ética, Colaboração e Sustentabilidade.</p>
   </section>
 
   <section id="sobre" class="info-section glass">
-    <div class="icon-wrapper">
-      <i data-lucide="rocket"></i>
-    </div>
+    <div class="icon-wrapper"><i data-lucide="rocket"></i></div>
     <h2>Sobre o Project Nexos</h2>
     <p>Uma plataforma pensada para impulsionar projetos criativos e colaborativos.</p>
   </section>
 
   <section id="funcionalidades" class="info-section glass">
-    <div class="icon-wrapper">
-      <i data-lucide="layout-grid"></i>
-    </div>
+    <div class="icon-wrapper"><i data-lucide="layout-grid"></i></div>
     <h2>Funcionalidades</h2>
     <p>Gerenciamento de projetos, colaboração em tempo real, personalização de perfis, entre outras.</p>
   </section>
 
   <section id="contato" class="info-section glass">
-    <div class="icon-wrapper">
-      <i data-lucide="mail"></i>
-    </div>
+    <div class="icon-wrapper"><i data-lucide="mail"></i></div>
     <h2>Contato</h2>
     <p>Entre em contato pelo e-mail: suporte@nexos.com</p>
   </section>
@@ -84,42 +72,5 @@
   </button>
 
   <script src="public.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
-
-      const btnTopo = document.getElementById("top-btn");
-      window.addEventListener("scroll", () => {
-        btnTopo.style.display = window.scrollY > 200 ? "flex" : "none";
-      });
-
-      btnTopo.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      const body = document.body;
-      const iconSol = document.getElementById("icon-sol");
-      const iconLua = document.getElementById("icon-lua");
-      const indicador = document.querySelector(".toggle-indicador");
-
-      function aplicarTema(tema) {
-        body.classList.remove("light", "dark");
-        body.classList.add(tema);
-        iconLua.classList.toggle("active", tema === "dark");
-        iconSol.classList.toggle("active", tema === "light");
-        indicador.style.transform = tema === "dark" ? "translateX(0)" : "translateX(32px)";
-        localStorage.setItem("tema", tema);
-      }
-
-      document.getElementById("theme-toggle").addEventListener("click", (e) => {
-        e.stopPropagation();
-        const temaAtual = body.classList.contains("dark") ? "dark" : "light";
-        aplicarTema(temaAtual === "dark" ? "light" : "dark");
-      });
-
-      const temaSalvo = localStorage.getItem("tema") || "light";
-      aplicarTema(temaSalvo);
-    });
-  </script>
 </body>
 </html>
