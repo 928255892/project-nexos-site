@@ -28,7 +28,7 @@ a, button {
   backdrop-filter: blur(10px);
   padding: 1rem 0rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   z-index: 10;
 }
