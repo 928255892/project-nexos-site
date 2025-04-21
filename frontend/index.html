@@ -18,14 +18,14 @@
     <div class="toggle-indicador"></div>
   </div>
 
-  <!-- Cabeçalho -->
+  <!-- Cabeçalho estilizado -->
   <header class="header">
-    <h1>Project Nexos</h1>
+    <div class="logo">Project Nexos</div>
     <nav>
-      <a href="#missao">Missão</a>
-      <a href="#visao">Visão</a>
-      <a href="#valores">Valores</a>
       <a href="#sobre">Sobre</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#contato">Contato</a>
+      <a href="login.html" class="btn-login">Entrar</a>
     </nav>
   </header>
 
@@ -62,6 +62,22 @@
     <p>Uma plataforma pensada para impulsionar projetos criativos e colaborativos.</p>
   </section>
 
+  <section id="funcionalidades" class="info-section glass">
+    <div class="icon-wrapper">
+      <i data-lucide="layout-grid"></i>
+    </div>
+    <h2>Funcionalidades</h2>
+    <p>Gerenciamento de projetos, colaboração em tempo real, personalização de perfis, entre outras.</p>
+  </section>
+
+  <section id="contato" class="info-section glass">
+    <div class="icon-wrapper">
+      <i data-lucide="mail"></i>
+    </div>
+    <h2>Contato</h2>
+    <p>Entre em contato pelo e-mail: suporte@nexos.com</p>
+  </section>
+
   <!-- Botão Voltar ao Topo -->
   <button id="top-btn" class="top-btn" aria-label="Voltar ao Topo">
     <i data-lucide="arrow-up"></i>
@@ -95,7 +111,8 @@
         localStorage.setItem("tema", tema);
       }
 
-      document.getElementById("theme-toggle").addEventListener("click", () => {
+      document.getElementById("theme-toggle").addEventListener("click", (e) => {
+        e.stopPropagation();
         const temaAtual = body.classList.contains("dark") ? "dark" : "light";
         aplicarTema(temaAtual === "dark" ? "light" : "dark");
       });
