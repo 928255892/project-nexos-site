@@ -23,8 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputConfirmar = document.getElementById("perfil-confirmar");
   const btnExcluirConta = document.getElementById("btn-excluir-conta");
   const btnResetarPerfil = document.getElementById("btn-resetar-perfil");
-  const abas = document.querySelectorAll(".aba");
-  const conteudos = document.querySelectorAll(".perfil-aba");
+  const btnCancelarPerfil = document.getElementById("btn-cancelar-perfil");
+  const abas = document.querySelectorAll(".perfil-abas .aba");
+  const conteudos = document.querySelectorAll(".perfil-section");
 
   let todosProjetos = [];
   let pagina = 0;
@@ -99,14 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
     pagina++;
     lucide.createIcons();
 
-    if (todosProjetos.length > pagina * projetosPorPagina) {
-      btnVerMais.classList.remove("hidden");
-    } else {
-      btnVerMais.classList.add("hidden");
-    }
+    btnVerMais.classList.toggle("hidden", todosProjetos.length <= pagina * projetosPorPagina);
   }
 
-  btnVerMais.addEventListener("click", () => carregarMaisProjetos());
+  btnVerMais.addEventListener("click", carregarMaisProjetos);
 
   document.getElementById("form-edicao").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -186,23 +183,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   });
 
-  // Ativação de abas
-  abas.forEach((aba, index) => {
-    aba.addEventListener("click", () => {
-      abas.forEach(a => a.classList.remove("ativa"));
-      conteudos.forEach(c => c.classList.add("hidden"));
-      aba.classList.add("ativa");
-      conteudos[index].classList.remove("hidden");
-      localStorage.setItem("perfilAbaAtiva", index);
-    });
+  document.getElementById("btn-perfil")?.addEventListener("click", () => {
+    modalPerfil.classList.remove("hidden");
+    lucide.createIcons();
   });
 
-  const abaAtivaSalva = localStorage.getItem("perfilAbaAtiva");
-  if (abaAtivaSalva) {
-    abas[abaAtivaSalva]?.click();
-  } else {
-    abas[0]?.click();
-  }
+  btnCancelarPerfil?.addEventListener("click", () => {
+    modalPerfil.classList.add("hidden");
+  });
 
   inputAvatar.addEventListener("input", () => {
     previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
@@ -278,4 +266,27 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(err);
     }
   });
+
+  // Alternância de abas
+  abas.forEach(aba => {
+    aba.addEventListener("click", () => {
+      const destino = aba.dataset.aba;
+
+      abas.forEach(btn => btn.classList.remove("ativa"));
+      conteudos.forEach(secao => secao.classList.remove("ativa"));
+
+      aba.classList.add("ativa");
+      document.querySelector(`.perfil-section[data-aba="${destino}"]`)?.classList.add("ativa");
+
+      localStorage.setItem("perfilAbaAtiva", destino);
+      lucide.createIcons();
+    });
+  });
+
+  const abaSalva = localStorage.getItem("perfilAbaAtiva");
+  if (abaSalva) {
+    document.querySelector(`.aba[data-aba="${abaSalva}"]`)?.click();
+  } else {
+    abas[0]?.click();
+  }
 });
