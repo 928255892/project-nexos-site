@@ -101,6 +101,19 @@ body.dark nav a {
   transition: transform 0.3s;
 }
 
+/* =================== IDENTIDADE VISUAL (logotipo) =================== */
+.login-logo {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 4px rgba(0, 198, 255, 0.3));
+  transition: transform 0.3s;
+}
+
+.login-logo:hover {
+  transform: scale(1.05);
+}
+
 /* =================== SEÇÕES =================== */
 .info-section {
   padding: 6rem 2rem 4rem;
