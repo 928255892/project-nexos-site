@@ -3,113 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Criar Conta | Project Nexos</title>
+  <title>Cadastrar | Project Nexos</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="register-page">
-  <!-- Botão de alternância de tema -->
+<body>
+  <!-- Fundo animado -->
+  <div id="vanta-bg"></div>
+
+  <!-- Alternância de Tema (posição lateral fixa) -->
   <div id="theme-toggle" class="theme-toggle">
     <span class="icon" id="icon-lua" data-theme="dark"></span>
     <span class="icon" id="icon-sol" data-theme="light"></span>
     <div class="toggle-indicador"></div>
   </div>
 
-  <div class="login-modal">
-    <h2>Criar Conta</h2>
+  <!-- Container de cadastro -->
+  <main class="login-container fade-in">
+    <div class="login-card glass">
+      <div class="login-header">
+        <img src="img/logotipo-nexos.webp" alt="Logotipo Project Nexos" class="login-logo" />
+        <h2>Criar uma nova conta</h2>
+      </div>
 
-    <form id="register-form" class="login-form">
-      <div class="form-group">
+      <form id="form-cadastro" class="login-form">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" placeholder="Seu nome" required />
-      </div>
+        <div class="input-group">
+          <i data-lucide="user"></i>
+          <input type="text" id="nome" placeholder="Seu nome completo" required />
+        </div>
 
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" placeholder="email@exemplo.com" required />
-      </div>
+        <label for="email">Email</label>
+        <div class="input-group">
+          <i data-lucide="mail"></i>
+          <input type="email" id="email" placeholder="email@exemplo.com" required />
+        </div>
 
-      <div class="form-group">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" placeholder="Mínimo 6 caracteres" required minlength="6" />
-      </div>
+        <div class="input-group">
+          <i data-lucide="lock"></i>
+          <input type="password" id="senha" placeholder="Crie uma senha" required />
+        </div>
 
-      <button type="submit" class="btn-entrar">
-        <i data-lucide="user-plus"></i> Cadastrar
-      </button>
-    </form>
+        <button type="submit" class="btn-entrar full">
+          <i data-lucide="user-plus"></i> Cadastrar
+        </button>
+      </form>
 
-    <p class="erro-msg" id="erro-msg">Erro ao criar conta. Verifique os dados.</p>
+      <p class="login-bottom-text">
+        Já tem conta?
+        <a href="login.html" class="link-azul">Entrar agora</a>
+      </p>
+    </div>
+  </main>
 
-    <p style="margin-top: 1.5rem; text-align: center;">
-      Já tem conta? <a href="login.html" style="color: var(--cor-azul-claro); text-decoration: underline;">Entrar</a>
-    </p>
-  </div>
-
+  <script src="public.js"></script>
   <script>
-    if (localStorage.getItem("token")) {
-      window.location.href = "dashboard.html";
-    }
-
-    document.getElementById('register-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const nome = document.getElementById('nome').value;
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value;
-
-      try {
-        const response = await fetch('http://localhost:3000/api/auth/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, email, senha }),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          document.getElementById('erro-msg').style.display = 'block';
-          return;
-        }
-
-        localStorage.setItem('token', data.token);
-        window.location.href = 'dashboard.html';
-      } catch (err) {
-        console.error('Erro no cadastro:', err);
-        document.getElementById('erro-msg').style.display = 'block';
-      }
-    });
-
-    const toggleBtn = document.getElementById("theme-toggle");
-    const body = document.body;
-    const iconSol = document.getElementById("icon-sol");
-    const iconLua = document.getElementById("icon-lua");
-    const indicador = document.querySelector(".toggle-indicador");
-
-    function aplicarTema(tema) {
-      if (tema === "dark") {
-        body.classList.add("dark");
-        iconLua.classList.add("active");
-        iconSol.classList.remove("active");
-        indicador.style.transform = "translateX(0)";
-      } else {
-        body.classList.remove("dark");
-        iconSol.classList.add("active");
-        iconLua.classList.remove("active");
-        indicador.style.transform = "translateX(32px)";
-      }
-      localStorage.setItem("tema", tema);
-    }
-
-    toggleBtn.addEventListener("click", () => {
-      const temaAtual = body.classList.contains("dark") ? "dark" : "light";
-      aplicarTema(temaAtual === "dark" ? "light" : "dark");
-    });
-
     document.addEventListener("DOMContentLoaded", () => {
       lucide.createIcons();
-      const temaSalvo = localStorage.getItem("tema") || "light";
-      aplicarTema(temaSalvo);
+
+      document.getElementById("form-cadastro").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const senha = document.getElementById("senha").value;
+
+        try {
+          const res = await fetch("http://localhost:3000/api/cadastro", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nome, email, senha })
+          });
+
+          const data = await res.json();
+          if (!res.ok) return alert(data.msg || "Falha ao cadastrar.");
+
+          alert("Cadastro realizado com sucesso!");
+          window.location.href = "login.html";
+        } catch (err) {
+          console.error(err);
+          alert("Erro ao conectar com o servidor.");
+        }
+      });
     });
   </script>
 </body>
