@@ -27,11 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const abas = document.querySelectorAll(".aba");
   const conteudos = document.querySelectorAll(".perfil-conteudo");
 
-  // Loader
-  loader.style.display = "flex";
-  dashboard.style.display = "none";
+  let todosProjetos = [];
+  let pagina = 0;
+  const projetosPorPagina = 5;
 
-  // Dados do usuário
+  loader.style.display = "flex";
+  if (dashboard) dashboard.style.opacity = 0;
+
   fetch("http://localhost:3000/api/me", {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -52,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => window.location.href = "login.html")
     .finally(() => {
-      loader.classList.add("fade-out");
       setTimeout(() => {
-        loader.remove();
+        loader.classList.add("fade-out");
         dashboard.style.display = "flex";
-      }, 800);
+        dashboard.style.opacity = 1;
+      }, 600);
     });
 
   function renderizarProjetos(projetos) {
@@ -74,13 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function carregarMaisProjetos() {
-    const inicio = pagina * 5;
-    const fim = inicio + 5;
+    const inicio = pagina * projetosPorPagina;
+    const fim = inicio + projetosPorPagina;
     const projetosParaMostrar = todosProjetos.slice(inicio, fim);
 
     projetosParaMostrar.forEach(proj => {
       const li = document.createElement("li");
-      const ehNovo = (new Date() - new Date(proj.dataCriacao)) < 48 * 60 * 60 * 1000;
+      const ehNovo = (new Date() - new Date(proj.dataCriacao)) < (48 * 60 * 60 * 1000);
       const badgeNovo = ehNovo ? `<span class="badge-novo">Novo</span>` : "";
       const icones = ["file-code", "folder", "rocket", "zap", "layers"];
       const icone = icones[Math.floor(Math.random() * icones.length)];
@@ -98,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pagina++;
     lucide.createIcons();
 
-    if (todosProjetos.length > pagina * 5) {
+    if (todosProjetos.length > pagina * projetosPorPagina) {
       btnVerMais.classList.remove("hidden");
     } else {
       btnVerMais.classList.add("hidden");
@@ -106,65 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   btnVerMais.addEventListener("click", () => carregarMaisProjetos());
-
-  // Modais de projeto
-  window.abrirModal = (proj) => {
-    document.getElementById("edit-id").value = proj._id;
-    document.getElementById("edit-titulo").value = proj.titulo;
-    document.getElementById("edit-descricao").value = proj.descricao || "";
-    document.getElementById("modal-edicao").classList.remove("hidden");
-  };
-
-  window.fecharModal = () => {
-    document.getElementById("modal-edicao").classList.add("hidden");
-  };
-
-  window.abrirDetalhes = (proj) => {
-    document.getElementById("detalhe-titulo").textContent = proj.titulo;
-    document.getElementById("detalhe-descricao").textContent = proj.descricao || "Sem descrição.";
-    document.getElementById("detalhe-data").textContent = new Date(proj.dataCriacao).toLocaleString();
-    document.getElementById("modal-detalhes").classList.remove("hidden");
-  };
-
-  window.fecharModalDetalhes = () => {
-    document.getElementById("modal-detalhes").classList.add("hidden");
-  };
-
-  window.deletarProjeto = async (id) => {
-    if (!confirm("Tem certeza que deseja excluir este projeto?")) return;
-    try {
-      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (res.ok) {
-        todosProjetos = todosProjetos.filter(p => p._id !== id);
-        renderizarProjetos(todosProjetos);
-      } else {
-        alert("Erro ao deletar projeto.");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  // Perfil: abas e inputs
-  abas.forEach((aba, index) => {
-    aba.addEventListener("click", () => {
-      abas.forEach(a => a.classList.remove("ativa"));
-      conteudos.forEach(c => c.classList.add("hidden"));
-      aba.classList.add("ativa");
-      conteudos[index].classList.remove("hidden");
-      localStorage.setItem("perfilAbaAtiva", index);
-    });
-  });
-
-  const abaAtivaSalva = localStorage.getItem("perfilAbaAtiva");
-  if (abaAtivaSalva) {
-    abas[abaAtivaSalva]?.click();
-  } else {
-    abas[0]?.click();
-  }
 
   inputAvatar.addEventListener("input", () => {
     previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
@@ -182,6 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
         inputSenha.value = "";
         inputConfirmar.value = "";
       });
+  });
+
+  btnCancelarPerfil.addEventListener("click", () => {
+    modalPerfil.classList.add("hidden");
   });
 
   formPerfil.addEventListener("submit", async (e) => {
@@ -210,7 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
         primeiroNome.textContent = usuarioAtualizado.nome.split(" ")[0];
         avatarUsuario.src = usuarioAtualizado.avatar || "https://via.placeholder.com/80";
         modalPerfil.classList.add("hidden");
-        alert("Perfil atualizado com sucesso.");
+        successMessage.textContent = "Perfil atualizado com sucesso!";
+        successMessage.classList.add("show");
+        setTimeout(() => successMessage.classList.remove("show"), 2500);
       } else {
         alert("Erro ao atualizar perfil.");
       }
@@ -231,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.ok) {
         localStorage.removeItem("token");
         alert("Conta excluída com sucesso.");
-        console.log("[LOG] Conta do usuário excluída.");
         window.location.href = "index.html";
       } else {
         alert("Erro ao excluir conta.");
@@ -245,4 +193,102 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("token");
     window.location.href = "login.html";
   });
+
+  window.abrirModalPerfil = () => {
+    modalPerfil.classList.remove("hidden");
+    lucide.createIcons();
+  };
+
+  // Transição suave entre abas do perfil
+  abas.forEach((aba) => {
+    aba.addEventListener("click", () => {
+      abas.forEach(a => a.classList.remove("ativa"));
+      conteudos.forEach(c => c.classList.add("hidden"));
+      aba.classList.add("ativa");
+      document.querySelector(`.perfil-conteudo[data-conteudo="${aba.dataset.aba}"]`).classList.remove("hidden");
+      localStorage.setItem("perfilAbaAtiva", aba.dataset.aba);
+    });
+  });
+
+  const abaSalva = localStorage.getItem("perfilAbaAtiva");
+  if (abaSalva) {
+    const abaAtiva = document.querySelector(`.aba[data-aba="${abaSalva}"]`);
+    abaAtiva?.click();
+  } else {
+    abas[0]?.click();
+  }
+
+  // Funções de edição
+  window.abrirModal = (proj) => {
+    document.getElementById("edit-id").value = proj._id;
+    document.getElementById("edit-titulo").value = proj.titulo;
+    document.getElementById("edit-descricao").value = proj.descricao || "";
+    document.getElementById("modal-edicao").classList.remove("hidden");
+  };
+
+  window.fecharModal = () => {
+    document.getElementById("modal-edicao").classList.add("hidden");
+  };
+
+  document.getElementById("form-edicao").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const id = document.getElementById("edit-id").value;
+    const titulo = document.getElementById("edit-titulo").value.trim();
+    const descricao = document.getElementById("edit-descricao").value;
+    if (!titulo) return alert("Título é obrigatório");
+
+    try {
+      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ titulo, descricao }),
+      });
+
+      if (res.ok) {
+        fecharModal();
+        const projetoAtualizado = await res.json();
+        const index = todosProjetos.findIndex(p => p._id === projetoAtualizado._id);
+        if (index !== -1) {
+          todosProjetos[index] = projetoAtualizado;
+          renderizarProjetos(todosProjetos);
+        }
+      } else {
+        alert("Erro ao atualizar projeto");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  window.abrirDetalhes = (proj) => {
+    document.getElementById("detalhe-titulo").textContent = proj.titulo;
+    document.getElementById("detalhe-descricao").textContent = proj.descricao || "Sem descrição.";
+    document.getElementById("detalhe-data").textContent = new Date(proj.dataCriacao).toLocaleString();
+    document.getElementById("modal-detalhes").classList.remove("hidden");
+  };
+
+  window.fecharModalDetalhes = () => {
+    document.getElementById("modal-detalhes").classList.add("hidden");
+  };
+
+  window.deletarProjeto = async (id) => {
+    if (!confirm("Tem certeza que deseja excluir este projeto?")) return;
+    try {
+      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        todosProjetos = todosProjetos.filter(p => p._id !== id);
+        renderizarProjetos(todosProjetos);
+      } else {
+        alert("Erro ao deletar projeto.");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 });
