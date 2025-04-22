@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ✅ Verifica autenticação
   const token = localStorage.getItem("token");
   if (!token) return window.location.href = "login.html";
 
-  // 🎯 Elementos da interface
   const nomeUsuario = document.getElementById("user-name");
   const primeiroNome = document.getElementById("user-firstname");
   const emailUsuario = document.getElementById("user-email");
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dashboard = document.querySelector(".dashboard");
   const btnVerMais = document.getElementById("btn-ver-mais");
 
-  // 🎯 Modal de perfil
   const modalPerfil = document.getElementById("modal-perfil");
   const formPerfil = document.getElementById("form-perfil");
   const inputNome = document.getElementById("perfil-nome");
@@ -30,18 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const abas = document.querySelectorAll(".aba");
   const conteudos = document.querySelectorAll(".perfil-conteudo");
 
-  // 🎯 Inicialização
   let todosProjetos = [];
   let pagina = 0;
   const projetosPorPagina = 5;
 
-  // ✅ Loader inicial + transição suave
   loader.style.display = "flex";
   if (dashboard) dashboard.style.opacity = 0;
 
-  // 🔄 Carrega dados do usuário
   fetch("http://localhost:3000/api/me", {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: Bearer ${token} },
   })
     .then(res => res.json())
     .then(data => {
@@ -60,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => window.location.href = "login.html")
     .finally(() => {
-      // ✅ Transição suave após carregamento
       setTimeout(() => {
         loader.classList.add("fade-out");
         dashboard.style.display = "flex";
@@ -74,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     listaProjetos.innerHTML = "";
 
     if (!todosProjetos.length) {
-      listaProjetos.innerHTML = `<li class="lista-vazia">Você ainda não criou projetos.</li>`;
+      listaProjetos.innerHTML = <li class="lista-vazia">Você ainda não criou projetos.</li>;
       btnVerMais.classList.add("hidden");
       return;
     }
@@ -90,17 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
     projetosParaMostrar.forEach(proj => {
       const li = document.createElement("li");
       const ehNovo = (new Date() - new Date(proj.dataCriacao)) < (48 * 60 * 60 * 1000);
-      const badgeNovo = ehNovo ? `<span class="badge-novo">Novo</span>` : "";
+      const badgeNovo = ehNovo ? <span class="badge-novo">Novo</span> : "";
       const icones = ["file-code", "folder", "rocket", "zap", "layers"];
       const icone = icones[Math.floor(Math.random() * icones.length)];
 
-      li.innerHTML = `
+      li.innerHTML = 
         <i data-lucide="${icone}"></i>
         <strong>${proj.titulo}</strong> ${badgeNovo}
         <button onclick='abrirDetalhes(${JSON.stringify(proj)})'><i data-lucide="eye"></i></button>
         <button onclick='abrirModal(${JSON.stringify(proj)})'><i data-lucide="pencil"></i></button>
         <button onclick='deletarProjeto("${proj._id}")'><i data-lucide="trash-2"></i></button>
-      `;
+      ;
       listaProjetos.appendChild(li);
     });
 
@@ -116,14 +109,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnVerMais.addEventListener("click", () => carregarMaisProjetos());
 
-  // ✅ Avatar preview ao vivo
   inputAvatar.addEventListener("input", () => {
     previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
   });
 
   btnResetarPerfil.addEventListener("click", () => {
     fetch("http://localhost:3000/api/me", {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: Bearer ${token} },
     })
       .then(res => res.json())
       .then(data => {
@@ -154,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: Bearer ${token},
         },
         body: JSON.stringify({ nome, avatar, senha })
       });
@@ -165,8 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
         primeiroNome.textContent = usuarioAtualizado.nome.split(" ")[0];
         avatarUsuario.src = usuarioAtualizado.avatar || "https://via.placeholder.com/80";
         modalPerfil.classList.add("hidden");
-
-        // ✅ Feedback de sucesso visual
         successMessage.textContent = "Perfil atualizado com sucesso!";
         successMessage.classList.add("show");
         setTimeout(() => successMessage.classList.remove("show"), 2500);
@@ -184,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res = await fetch("http://localhost:3000/api/usuario/deletar", {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: Bearer ${token} }
       });
 
       if (res.ok) {
@@ -204,32 +194,31 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   });
 
-  // ✅ Abertura suave do modal de perfil
   window.abrirModalPerfil = () => {
     modalPerfil.classList.remove("hidden");
     lucide.createIcons();
   };
 
-  // ✅ Transição suave entre abas do perfil
+  // Transição suave entre abas do perfil
   abas.forEach((aba) => {
     aba.addEventListener("click", () => {
       abas.forEach(a => a.classList.remove("ativa"));
       conteudos.forEach(c => c.classList.add("hidden"));
       aba.classList.add("ativa");
-      document.querySelector(`.perfil-conteudo[data-conteudo="${aba.dataset.aba}"]`).classList.remove("hidden");
+      document.querySelector(.perfil-conteudo[data-conteudo="${aba.dataset.aba}"]).classList.remove("hidden");
       localStorage.setItem("perfilAbaAtiva", aba.dataset.aba);
     });
   });
 
   const abaSalva = localStorage.getItem("perfilAbaAtiva");
   if (abaSalva) {
-    const abaAtiva = document.querySelector(`.aba[data-aba="${abaSalva}"]`);
+    const abaAtiva = document.querySelector(.aba[data-aba="${abaSalva}"]);
     abaAtiva?.click();
   } else {
     abas[0]?.click();
   }
 
-  // ✅ Modais de edição e detalhes
+  // Funções de edição
   window.abrirModal = (proj) => {
     document.getElementById("edit-id").value = proj._id;
     document.getElementById("edit-titulo").value = proj.titulo;
@@ -249,11 +238,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!titulo) return alert("Título é obrigatório");
 
     try {
-      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
+      const res = await fetch(http://localhost:3000/api/projetos/${id}, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: Bearer ${token},
         },
         body: JSON.stringify({ titulo, descricao }),
       });
@@ -288,9 +277,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.deletarProjeto = async (id) => {
     if (!confirm("Tem certeza que deseja excluir este projeto?")) return;
     try {
-      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
+      const res = await fetch(http://localhost:3000/api/projetos/${id}, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: Bearer ${token} },
       });
       if (res.ok) {
         todosProjetos = todosProjetos.filter(p => p._id !== id);
