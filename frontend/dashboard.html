@@ -8,6 +8,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+  <!-- Fundo animado -->
+  <div id="vanta-bg"></div>
+
   <!-- Botão de alternância de tema -->
   <div id="theme-toggle" class="theme-toggle">
     <span class="icon" id="icon-lua" data-theme="dark"></span>
@@ -69,8 +72,6 @@
   <div id="modal-perfil" class="modal hidden">
     <div class="modal-content perfil-modal">
       <h3><i data-lucide="settings"></i> Gerenciar Perfil</h3>
-      
-      <!-- Abas -->
       <div class="perfil-abas">
         <button class="aba ativa" data-aba="geral"><i data-lucide="user"></i> Geral</button>
         <button class="aba" data-aba="seguranca"><i data-lucide="shield"></i> Segurança</button>
@@ -78,11 +79,9 @@
         <button class="aba" data-aba="conta"><i data-lucide="trash"></i> Conta</button>
       </div>
 
-      <!-- Formulário -->
       <form id="form-perfil" class="perfil-form">
-
-        <!-- Conteúdo da Aba Geral -->
-        <div class="perfil-section conteudo-aba ativa" data-aba="geral">
+        <!-- Aba Geral -->
+        <div class="perfil-conteudo" data-conteudo="geral">
           <label for="perfil-nome">Nome</label>
           <input type="text" id="perfil-nome" required />
 
@@ -90,12 +89,12 @@
           <input type="url" id="perfil-avatar" />
 
           <div class="avatar-preview">
-            <img id="preview-avatar" src="https://via.placeholder.com/80" alt="Preview do Avatar" />
+            <img id="preview-avatar" src="https://via.placeholder.com/80" alt="Preview" />
           </div>
         </div>
 
-        <!-- Conteúdo da Aba Segurança -->
-        <div class="perfil-section conteudo-aba" data-aba="seguranca">
+        <!-- Aba Segurança -->
+        <div class="perfil-conteudo hidden" data-conteudo="seguranca">
           <label for="perfil-senha">Nova Senha</label>
           <input type="password" id="perfil-senha" minlength="6" placeholder="Deixe em branco para manter" />
 
@@ -103,30 +102,29 @@
           <input type="password" id="perfil-confirmar" placeholder="Confirme a nova senha" />
         </div>
 
-        <!-- Conteúdo da Aba Preferências -->
-        <div class="perfil-section conteudo-aba" data-aba="preferencias">
-          <label for="perfil-idioma">Idioma</label>
+        <!-- Aba Preferências -->
+        <div class="perfil-conteudo hidden" data-conteudo="preferencias">
+          <label>Idioma</label>
           <select id="perfil-idioma">
             <option value="pt">Português</option>
             <option value="en">Inglês</option>
           </select>
 
-          <label for="perfil-tema">Tema Padrão</label>
+          <label>Tema Padrão</label>
           <select id="perfil-tema">
             <option value="light">Claro</option>
             <option value="dark">Escuro</option>
           </select>
         </div>
 
-        <!-- Conteúdo da Aba Conta -->
-        <div class="perfil-section conteudo-aba" data-aba="conta">
-          <p class="texto-aviso">Ao excluir sua conta, todos os dados vinculados serão removidos de forma permanente.</p>
+        <!-- Aba Conta -->
+        <div class="perfil-conteudo hidden" data-conteudo="conta">
+          <p class="texto-aviso">Ao excluir sua conta, todos os dados vinculados serão removidos.</p>
           <button type="button" class="btn-excluir" id="btn-excluir-conta">
             <i data-lucide="trash-2"></i> Excluir Conta
           </button>
         </div>
 
-        <!-- Ações -->
         <div class="modal-actions">
           <button type="submit" class="btn-entrar"><i data-lucide="save"></i> Salvar</button>
           <button type="button" class="btn-cancelar" id="btn-resetar-perfil">Redefinir</button>
@@ -138,6 +136,7 @@
 
   <div id="toast" class="toast hidden"></div>
 
+  <script src="public.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>
