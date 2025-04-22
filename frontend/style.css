@@ -424,3 +424,19 @@ body.light .modal-content.glass {
     width: 100%;
   }
 }
+
+/* =================== FUNDO ANIMADO VANTA.NET =================== */
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* evita cliques no fundo */
+}
+
+.dashboard {
+  position: relative;
+  z-index: 1;
+}
