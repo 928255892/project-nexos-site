@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const qtdProjetos = document.getElementById("total-projetos");
   const qtdNotificacoes = document.getElementById("total-notificacoes");
   const listaProjetos = document.getElementById("lista-projetos");
-  const successMessage = document.querySelector(".success-message");
+  const successMessage = document.getElementById("success-message");
   const loader = document.getElementById("loader");
   const dashboard = document.querySelector(".dashboard");
   const btnVerMais = document.getElementById("btn-ver-mais");
@@ -24,16 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnExcluirConta = document.getElementById("btn-excluir-conta");
   const btnResetarPerfil = document.getElementById("btn-resetar-perfil");
   const btnCancelarPerfil = document.getElementById("btn-cancelar-perfil");
-  const abas = document.querySelectorAll(".perfil-abas .aba");
-  const conteudos = document.querySelectorAll(".perfil-section");
+  const abas = document.querySelectorAll(".aba");
+  const conteudos = document.querySelectorAll(".perfil-conteudo");
 
-  let todosProjetos = [];
-  let pagina = 0;
-  const projetosPorPagina = 5;
-
+  // Loader
   loader.style.display = "flex";
-  if (dashboard) dashboard.style.display = "none";
+  dashboard.style.display = "none";
 
+  // Dados do usuário
   fetch("http://localhost:3000/api/me", {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -76,13 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function carregarMaisProjetos() {
-    const inicio = pagina * projetosPorPagina;
-    const fim = inicio + projetosPorPagina;
+    const inicio = pagina * 5;
+    const fim = inicio + 5;
     const projetosParaMostrar = todosProjetos.slice(inicio, fim);
 
     projetosParaMostrar.forEach(proj => {
       const li = document.createElement("li");
-      const ehNovo = (new Date() - new Date(proj.dataCriacao)) < (48 * 60 * 60 * 1000);
+      const ehNovo = (new Date() - new Date(proj.dataCriacao)) < 48 * 60 * 60 * 1000;
       const badgeNovo = ehNovo ? `<span class="badge-novo">Novo</span>` : "";
       const icones = ["file-code", "folder", "rocket", "zap", "layers"];
       const icone = icones[Math.floor(Math.random() * icones.length)];
@@ -100,44 +98,16 @@ document.addEventListener("DOMContentLoaded", () => {
     pagina++;
     lucide.createIcons();
 
-    btnVerMais.classList.toggle("hidden", todosProjetos.length <= pagina * projetosPorPagina);
+    if (todosProjetos.length > pagina * 5) {
+      btnVerMais.classList.remove("hidden");
+    } else {
+      btnVerMais.classList.add("hidden");
+    }
   }
 
-  btnVerMais.addEventListener("click", carregarMaisProjetos);
+  btnVerMais.addEventListener("click", () => carregarMaisProjetos());
 
-  document.getElementById("form-edicao").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const id = document.getElementById("edit-id").value;
-    const titulo = document.getElementById("edit-titulo").value.trim();
-    const descricao = document.getElementById("edit-descricao").value;
-    if (!titulo) return alert("Título é obrigatório");
-
-    try {
-      const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ titulo, descricao }),
-      });
-
-      if (res.ok) {
-        fecharModal();
-        const projetoAtualizado = await res.json();
-        const index = todosProjetos.findIndex(p => p._id === projetoAtualizado._id);
-        if (index !== -1) {
-          todosProjetos[index] = projetoAtualizado;
-          renderizarProjetos(todosProjetos);
-        }
-      } else {
-        alert("Erro ao atualizar projeto");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  });
-
+  // Modais de projeto
   window.abrirModal = (proj) => {
     document.getElementById("edit-id").value = proj._id;
     document.getElementById("edit-titulo").value = proj.titulo;
@@ -165,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res = await fetch(`http://localhost:3000/api/projetos/${id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
         todosProjetos = todosProjetos.filter(p => p._id !== id);
@@ -178,19 +148,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.getElementById("logout-btn").addEventListener("click", () => {
-    localStorage.removeItem("token");
-    window.location.href = "login.html";
+  // Perfil: abas e inputs
+  abas.forEach((aba, index) => {
+    aba.addEventListener("click", () => {
+      abas.forEach(a => a.classList.remove("ativa"));
+      conteudos.forEach(c => c.classList.add("hidden"));
+      aba.classList.add("ativa");
+      conteudos[index].classList.remove("hidden");
+      localStorage.setItem("perfilAbaAtiva", index);
+    });
   });
 
-  document.getElementById("btn-perfil")?.addEventListener("click", () => {
-    modalPerfil.classList.remove("hidden");
-    lucide.createIcons();
-  });
-
-  btnCancelarPerfil?.addEventListener("click", () => {
-    modalPerfil.classList.add("hidden");
-  });
+  const abaAtivaSalva = localStorage.getItem("perfilAbaAtiva");
+  if (abaAtivaSalva) {
+    abas[abaAtivaSalva]?.click();
+  } else {
+    abas[0]?.click();
+  }
 
   inputAvatar.addEventListener("input", () => {
     previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
@@ -257,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.ok) {
         localStorage.removeItem("token");
         alert("Conta excluída com sucesso.");
-        console.log("[LOG] Conta do usuário excluída com sucesso.");
+        console.log("[LOG] Conta do usuário excluída.");
         window.location.href = "index.html";
       } else {
         alert("Erro ao excluir conta.");
@@ -267,26 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Alternância de abas
-  abas.forEach(aba => {
-    aba.addEventListener("click", () => {
-      const destino = aba.dataset.aba;
-
-      abas.forEach(btn => btn.classList.remove("ativa"));
-      conteudos.forEach(secao => secao.classList.remove("ativa"));
-
-      aba.classList.add("ativa");
-      document.querySelector(`.perfil-section[data-aba="${destino}"]`)?.classList.add("ativa");
-
-      localStorage.setItem("perfilAbaAtiva", destino);
-      lucide.createIcons();
-    });
+  document.getElementById("logout-btn").addEventListener("click", () => {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
   });
-
-  const abaSalva = localStorage.getItem("perfilAbaAtiva");
-  if (abaSalva) {
-    document.querySelector(`.aba[data-aba="${abaSalva}"]`)?.click();
-  } else {
-    abas[0]?.click();
-  }
 });
