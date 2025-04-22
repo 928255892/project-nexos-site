@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ✅ Verifica autenticação
   const token = localStorage.getItem("token");
   if (!token) return window.location.href = "login.html";
 
+  // 🎯 Elementos da interface
   const nomeUsuario = document.getElementById("user-name");
   const primeiroNome = document.getElementById("user-firstname");
   const emailUsuario = document.getElementById("user-email");
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dashboard = document.querySelector(".dashboard");
   const btnVerMais = document.getElementById("btn-ver-mais");
 
+  // 🎯 Modal de perfil
   const modalPerfil = document.getElementById("modal-perfil");
   const formPerfil = document.getElementById("form-perfil");
   const inputNome = document.getElementById("perfil-nome");
@@ -27,13 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const abas = document.querySelectorAll(".aba");
   const conteudos = document.querySelectorAll(".perfil-conteudo");
 
+  // 🎯 Inicialização
   let todosProjetos = [];
   let pagina = 0;
   const projetosPorPagina = 5;
 
+  // ✅ Loader inicial + transição suave
   loader.style.display = "flex";
   if (dashboard) dashboard.style.opacity = 0;
 
+  // 🔄 Carrega dados do usuário
   fetch("http://localhost:3000/api/me", {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -54,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(() => window.location.href = "login.html")
     .finally(() => {
+      // ✅ Transição suave após carregamento
       setTimeout(() => {
         loader.classList.add("fade-out");
         dashboard.style.display = "flex";
@@ -109,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnVerMais.addEventListener("click", () => carregarMaisProjetos());
 
+  // ✅ Avatar preview ao vivo
   inputAvatar.addEventListener("input", () => {
     previewAvatar.src = inputAvatar.value.trim() || "https://via.placeholder.com/80";
   });
@@ -157,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
         primeiroNome.textContent = usuarioAtualizado.nome.split(" ")[0];
         avatarUsuario.src = usuarioAtualizado.avatar || "https://via.placeholder.com/80";
         modalPerfil.classList.add("hidden");
+
+        // ✅ Feedback de sucesso visual
         successMessage.textContent = "Perfil atualizado com sucesso!";
         successMessage.classList.add("show");
         setTimeout(() => successMessage.classList.remove("show"), 2500);
@@ -194,12 +204,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   });
 
+  // ✅ Abertura suave do modal de perfil
   window.abrirModalPerfil = () => {
     modalPerfil.classList.remove("hidden");
     lucide.createIcons();
   };
 
-  // Transição suave entre abas do perfil
+  // ✅ Transição suave entre abas do perfil
   abas.forEach((aba) => {
     aba.addEventListener("click", () => {
       abas.forEach(a => a.classList.remove("ativa"));
@@ -218,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     abas[0]?.click();
   }
 
-  // Funções de edição
+  // ✅ Modais de edição e detalhes
   window.abrirModal = (proj) => {
     document.getElementById("edit-id").value = proj._id;
     document.getElementById("edit-titulo").value = proj.titulo;
