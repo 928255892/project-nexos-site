@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastrar | Project Nexos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Alternância de Tema -->
+  <div id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema">
+    <span class="icon" id="icon-lua" data-theme="dark"></span>
+    <span class="icon" id="icon-sol" data-theme="light"></span>
+    <div class="toggle-indicador"></div>
+  </div>
+
+  <!-- Container de cadastro -->
+  <main class="login-container fade-in">
+    <div class="login-card glass-box text-center">
+      <div class="login-header">
+        <img src="img/logotipo-nexos.webp" alt="Logotipo Project Nexos" class="login-logo" />
+        <h2>Criar uma nova conta</h2>
+      </div>
+
+      <form id="form-cadastro" class="login-form">
+        <label for="nome">Nome</label>
+        <div class="input-group">
+          <i data-lucide="user"></i>
+          <input type="text" id="nome" placeholder="Seu nome completo" required />
+        </div>
+
+        <label for="email">Email</label>
+        <div class="input-group">
+          <i data-lucide="mail"></i>
+          <input type="email" id="email" placeholder="email@exemplo.com" required />
+        </div>
+
+        <label for="senha">Senha</label>
+        <div class="input-group">
+          <i data-lucide="lock"></i>
+          <input type="password" id="senha" placeholder="Crie uma senha" required />
+        </div>
+
+        <button type="submit" class="btn-entrar full btn-gradiente">
+          <i data-lucide="user-plus"></i> Cadastrar
+        </button>
+      </form>
+
+      <p class="login-bottom-text">
+        Já tem conta?
+        <a href="login.html" class="link-azul">Entrar agora</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="public.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      document.getElementById("form-cadastro").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const senha = document.getElementById("senha").value;
+
+        try {
+          const res = await fetch("http://localhost:3000/api/cadastro", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nome, email, senha })
+          });
+
+          const data = await res.json();
+          if (!res.ok) return alert(data.msg || "Falha ao cadastrar.");
+
+          alert("Cadastro realizado com sucesso!");
+          window.location.href = "login.html";
+        } catch (err) {
+          console.error(err);
+          alert("Erro ao conectar com o servidor.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
